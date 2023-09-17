@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemMenu = () => {
   return (
@@ -23,7 +24,9 @@ const ItemMenu = () => {
       </td>
       <td>
         <div className="d-flex flex-column">
-          <Button variant="warning">Editar</Button>
+          <Link to={`/editar-menu`} className="btn btn-warning">
+            Editar
+          </Link>
           <Button variant="danger" className="mt-md-3">
             Borrar
           </Button>

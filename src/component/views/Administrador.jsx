@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../css/administrador.css";
-import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import ListaMenu from "./administrador/listas/ListaMenu";
 import ListaUsuario from "./administrador/listas/ListaUsuario.jsx";
 import ListaPedido from "./administrador/listas/ListaPedido.jsx";
