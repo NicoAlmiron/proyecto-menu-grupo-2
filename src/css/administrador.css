@@ -1,0 +1,8 @@
+.bg-Admin {
+  background-color: whitesmoke;
+  transition: 1s;
+}
+
+.bg-Admin:hover {
+  background-color: rgb(187, 187, 187);
+}
