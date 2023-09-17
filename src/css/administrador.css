@@ -15,3 +15,11 @@
 .bg-list {
   cursor: pointer;
 }
+
+.img-crear-menu {
+  height: 100px;
+}
+
+.bg-card-crear-menu {
+  background-color: whitesmoke;
+}

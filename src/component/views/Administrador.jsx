@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../../css/administrador.css";
 import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import ListaMenu from "./administrador/ListaMenu";
-import ListaUsuario from "./administrador/ListaUsuario";
-import ListaPedido from "./administrador/ListaPedido";
+import ListaMenu from "./administrador/listas/ListaMenu";
+import ListaUsuario from "./administrador/listas/ListaUsuario.jsx";
+import ListaPedido from "./administrador/listas/ListaPedido.jsx";
+import { Link } from "react-router-dom";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");
@@ -18,7 +19,9 @@ const Administrador = () => {
               <h5 className="fs-3 fw-light">admin@rolling.com</h5>
             </div>
             <div className="text-center">
-              <Button variant="primary">Crear Menu +</Button>
+              <Link to={"/crear-menu"} className="btn btn-primary ">
+                + Crear Menu
+              </Link>
             </div>
           </Col>
           <Col sm={4} className="text-center">
