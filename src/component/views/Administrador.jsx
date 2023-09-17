@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../css/administrador.css";
-import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import ItemMenu from "./administrador/ItemMenu";
+import { Button, Col, Container, Row, Tab, Tabs } from "react-bootstrap";
+import ListaMenu from "./administrador/ListaMenu";
+import ListaUsuario from "./administrador/ListaUsuario";
+import ListaPedido from "./administrador/ListaPedido";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");
@@ -11,11 +13,16 @@ const Administrador = () => {
       <article className="bg-Admin rounded p-3 my-4 shadow">
         <Row>
           <Col sm={8} className="text-center">
-            <h3 className="display-3">Administrador</h3>
-            <h5 className="fs-3 fw-light">admin@rolling.com</h5>
+            <div>
+              <h3 className="display-3">Administrador</h3>
+              <h5 className="fs-3 fw-light">admin@rolling.com</h5>
+            </div>
+            <div className="text-center">
+              <Button variant="primary">Crear Menu +</Button>
+            </div>
           </Col>
           <Col sm={4} className="text-center">
-            <div className="list-group list-group-flush rounded">
+            <div className="list-group list-group-flush rounded bg-list">
               <li
                 onClick={() => setKey("menu")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
@@ -43,17 +50,18 @@ const Administrador = () => {
           id="tabla-administrador"
           activeKey={key}
           onSelect={(k) => setKey(k)}
-          className="mb-3 shadow"
+          className="mb-3"
           fill
+          variant="underline"
         >
           <Tab eventKey="menu" title="Menu`s">
-            <ItemMenu></ItemMenu>
+            <ListaMenu></ListaMenu>
           </Tab>
           <Tab eventKey="usuario" title="Usuarios">
-            {/* <ItemMenu></ItemMenu> */}
+            <ListaUsuario></ListaUsuario>
           </Tab>
           <Tab eventKey="pedido" title="Pedidos">
-            {/* <ItemMenu></ItemMenu> */}
+            <ListaPedido></ListaPedido>
           </Tab>
         </Tabs>
       </article>

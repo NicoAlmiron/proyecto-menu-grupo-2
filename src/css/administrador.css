@@ -1,8 +1,17 @@
 .bg-Admin {
-  background-color: whitesmoke;
+  background-color: rgb(228, 226, 226);
   transition: 1s;
 }
 
 .bg-Admin:hover {
   background-color: rgb(187, 187, 187);
+}
+
+.img-item {
+  height: 100px;
+  cursor: pointer;
+}
+
+.bg-list {
+  cursor: pointer;
 }

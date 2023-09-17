@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Image } from "react-bootstrap";
 
-const ItemMenu = () => {
+const ItemUsuario = () => {
   return (
     <tr>
       <td>
@@ -13,24 +13,21 @@ const ItemMenu = () => {
         ></Image>
       </td>
       <td>
-        <p className="fw-light text-center">Titulo del Menu</p>
+        <p className="fw-light text-center">Nombre Usuario</p>
       </td>
       <td>
-        <p className="fw-light text-center">$9999</p>
+        <p className="fw-light text-center">user@gmail.com</p>
       </td>
       <td>
-        <p className="fw-light text-center">Categoria del menu</p>
+        <p className="fw-light text-center">Activo</p>
       </td>
       <td>
         <div className="d-flex flex-column">
-          <Button variant="warning">Editar</Button>
-          <Button variant="danger" className="mt-md-3">
-            Borrar
-          </Button>
+          <Button variant="danger">Suspender</Button>
         </div>
       </td>
     </tr>
   );
 };
 
-export default ItemMenu;
+export default ItemUsuario;
