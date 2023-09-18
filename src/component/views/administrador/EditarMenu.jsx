@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -9,13 +9,33 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { obtenerMenu } from "../../helpers/queries";
+import { useParams } from "react-router-dom";
 
 const EditarMenu = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
+  const [imagen, setImagen] = useState("");
+
+  useEffect(() => {
+    obtenerMenu(id)
+      .then((resp) => {
+        if (resp) {
+          setValue("nombreMenu", resp.nombreMenu);
+          setValue("categoria", resp.categoria);
+          setValue("precio", resp.precio);
+          setValue("imagen", resp.imagen);
+          setValue("detalle", resp.detalle);
+          setImagen(resp.imagen);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const onSubmit = (menu) => {};
 
@@ -84,7 +104,11 @@ const EditarMenu = () => {
           <Row className="px-4">
             <Col md={2} className="text-end">
               <Image
-                src="https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                src={
+                  imagen
+                    ? imagen
+                    : "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                }
                 alt="imagen-del-juego"
                 rounded
                 className="img-crear-menu"
@@ -109,6 +133,9 @@ const EditarMenu = () => {
                           message: "La Url debe ser valida",
                         },
                       })}
+                      onChange={(e) => {
+                        setImagen(e.target.value);
+                      }}
                     ></Form.Control>
                     <Form.Text className="text-danger ps-2">
                       {errors.imagen?.message}

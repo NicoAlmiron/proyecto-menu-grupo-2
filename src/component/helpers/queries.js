@@ -26,3 +26,14 @@ export const crearMenu = async(menu) => {
         return null;
     }
 }
+
+export const obtenerMenu = async(id) => {
+    try {
+        const respuesta = await fetch(`${uriMenus}/${id}`);
+        const menu = respuesta.json();
+        return menu;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

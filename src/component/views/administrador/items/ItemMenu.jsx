@@ -28,7 +28,7 @@ const ItemMenu = ({ nombreMenu, precio, imagen, categoria, id }) => {
       </td>
       <td>
         <div className="d-flex flex-column">
-          <Link to={`/editar-menu:${id}`} className="btn btn-warning">
+          <Link to={`/editar-menu/${id}`} className="btn btn-warning">
             Editar
           </Link>
           <Button variant="danger" className="mt-md-3">
