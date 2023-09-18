@@ -8,6 +8,7 @@
 }
 
 .img-item {
+  width: 130px;
   height: 100px;
   cursor: pointer;
 }

@@ -9,8 +9,9 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { obtenerMenu } from "../../helpers/queries";
-import { useParams } from "react-router-dom";
+import { editarMenu, obtenerMenu } from "../../helpers/queries";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const EditarMenu = () => {
   const { id } = useParams();
@@ -21,6 +22,8 @@ const EditarMenu = () => {
     setValue,
   } = useForm();
   const [imagen, setImagen] = useState("");
+
+  const detalleMenu = useNavigate();
 
   useEffect(() => {
     obtenerMenu(id)
@@ -34,10 +37,37 @@ const EditarMenu = () => {
           setImagen(resp.imagen);
         }
       })
-      .catch(() => {});
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "A ocurrido un error",
+          "Cod de error: " + error.message,
+          "error"
+        );
+      });
   }, []);
 
-  const onSubmit = (menu) => {};
+  const onSubmit = (menu) => {
+    editarMenu(id, menu)
+      .then((resp) => {
+        if (resp.status === 200) {
+          Swal.fire(
+            `Se edito con exito!`,
+            `El menu ${menu.nombreMenu} se actulizo exitosamente!`,
+            "success"
+          );
+        }
+        detalleMenu(`/detalle-menu/${id}`);
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "A ocurrido un problema",
+          `Cod de error: ${error.message}`,
+          "error"
+        );
+      });
+  };
 
   return (
     <Container>
@@ -198,7 +228,7 @@ const EditarMenu = () => {
           </div>
           <div className="text-end mb-4 me-5">
             <Button variant="success" type="submit">
-              Crear Menu
+              Editar Menu
             </Button>
           </div>
         </Form>

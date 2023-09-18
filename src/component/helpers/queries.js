@@ -37,3 +37,18 @@ export const obtenerMenu = async(id) => {
         return null;
     }
 }
+
+export const editarMenu = async(id, menuEditado) => {
+    try {
+        menuEditado.estado = 'pendiente';
+        const respuesta = await fetch(`${uriMenus}/${id}`, {
+            method: 'PUT',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(menuEditado),
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
