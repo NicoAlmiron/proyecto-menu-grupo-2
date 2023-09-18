@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Button,
   Col,
@@ -9,61 +9,38 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { editarMenu, obtenerMenu } from "../../helpers/queries";
-import { useNavigate, useParams } from "react-router-dom";
+import { crearMenu } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
 
-const EditarMenu = () => {
-  const { id } = useParams();
+const CrearMenu = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
+    reset,
   } = useForm();
   const [imagen, setImagen] = useState("");
 
-  const detalleMenu = useNavigate();
-
-  useEffect(() => {
-    obtenerMenu(id)
-      .then((resp) => {
-        if (resp) {
-          setValue("nombreMenu", resp.nombreMenu);
-          setValue("categoria", resp.categoria);
-          setValue("precio", resp.precio);
-          setValue("imagen", resp.imagen);
-          setValue("detalle", resp.detalle);
-          setImagen(resp.imagen);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        Swal.fire(
-          "A ocurrido un error",
-          "Cod de error: " + error.message,
-          "error"
-        );
-      });
-  }, []);
-
   const onSubmit = (menu) => {
-    editarMenu(id, menu)
+    crearMenu(menu)
       .then((resp) => {
-        if (resp.status === 200) {
+        if (resp.status === 201) {
           Swal.fire(
-            `Se edito con exito!`,
-            `El menu ${menu.nombreMenu} se actulizo exitosamente!`,
+            "El menu fue cargado con exito!",
+            `Ya puedes ver el menu ${menu.nombreMenu}`,
             "success"
           );
+          reset();
+          setImagen("");
         }
-        detalleMenu(`/detalle-menu/${id}`);
       })
       .catch((error) => {
         console.log(error);
         Swal.fire(
-          "A ocurrido un problema",
-          `Cod de error: ${error.message}`,
+          "Algo a pasado!",
+          `Ocurrio un error: ${error.message}`,
           "error"
         );
       });
@@ -71,7 +48,9 @@ const EditarMenu = () => {
 
   return (
     <Container>
-      <h3 className="display-3 mt-4 mb-5 ms-4">Edita el menu</h3>
+      <h3 className="display-3 mt-4 mb-5 ms-4">
+        Crea un menu <FontAwesomeIcon icon={faBowlFood} className="ms-2" />
+      </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu pt-2">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="row g-4 p-3 pb-0">
@@ -228,7 +207,7 @@ const EditarMenu = () => {
           </div>
           <div className="text-end mb-4 me-5">
             <Button variant="success" type="submit">
-              Editar Menu
+              Crear Menu +
             </Button>
           </div>
         </Form>
@@ -237,4 +216,4 @@ const EditarMenu = () => {
   );
 };
 
-export default EditarMenu;
+export default CrearMenu;

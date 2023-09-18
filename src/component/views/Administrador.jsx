@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../css/administrador.css";
 import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import ListaMenu from "./administrador/listas/ListaMenu";
-import ListaUsuario from "./administrador/listas/ListaUsuario.jsx";
-import ListaPedido from "./administrador/listas/ListaPedido.jsx";
+import ListaMenu from "./administrador/menu`s/listas/ListaMenu";
+import ListaUsuario from "./administrador/menu`s/listas/ListaPedido";
+import ListaPedido from "./administrador/menu`s/listas/ListaUsuario";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMitten,
+  faUser,
+  faUsers,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
+import { listarMenus } from "../helpers/queries";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");
+  const [listaMenus, setListaMenus] = useState([]);
+
+  useEffect(() => {
+    listarMenus().then((resp) => {
+      if (resp) {
+        setListaMenus(resp);
+      }
+    });
+  }, []);
 
   return (
     <Container>
@@ -15,7 +32,10 @@ const Administrador = () => {
         <Row>
           <Col sm={8} className="text-center">
             <div>
-              <h3 className="display-3">Administrador</h3>
+              <h3 className="display-3">
+                {" "}
+                <FontAwesomeIcon icon={faUser} className="me-2" /> Administrador
+              </h3>
               <h5 className="fs-3 fw-light">admin@rolling.com</h5>
             </div>
             <div className="text-center">
@@ -30,19 +50,20 @@ const Administrador = () => {
                 onClick={() => setKey("menu")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                Menu`s: 0
+                <FontAwesomeIcon icon={faUtensils} /> Menu`s:{" "}
+                {listaMenus ? listaMenus?.length : 0}
               </li>
               <li
                 onClick={() => setKey("usuario")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                Usuarios: 0
+                <FontAwesomeIcon icon={faUsers} /> Usuarios: 0
               </li>
               <li
                 onClick={() => setKey("pedido")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                Pedidos: 0
+                <FontAwesomeIcon icon={faMitten} /> Pedidos: 0
               </li>
             </div>
           </Col>

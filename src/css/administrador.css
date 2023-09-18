@@ -25,3 +25,7 @@
 .bg-card-crear-menu {
   background-color: whitesmoke;
 }
+
+.btn-filtrado-lista-menu {
+  cursor: pointer;
+}

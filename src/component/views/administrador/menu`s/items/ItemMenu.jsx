@@ -2,7 +2,10 @@ import React from "react";
 import { Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import { borrarMenu, listarMenus } from "../../../helpers/queries";
+import { borrarMenu, listarMenus } from "../.././../../helpers/queries";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 const ItemMenu = ({
   nombreMenu,
@@ -94,14 +97,14 @@ const ItemMenu = ({
       <td>
         <div className="d-flex flex-column">
           <Link to={`/editar-menu/${id}`} className="btn btn-warning">
-            Editar
+            <FontAwesomeIcon icon={faPenToSquare} /> Editar
           </Link>
           <Button
             variant="danger"
             className="mt-md-3"
             onClick={borrarMenuSelect}
           >
-            Borrar
+            <FontAwesomeIcon icon={faTrashCan} /> Borrar
           </Button>
         </div>
       </td>

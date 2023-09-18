@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -9,34 +9,67 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { crearMenu } from "../../helpers/queries";
+import { editarMenu, obtenerMenu } from "../../../helpers/queries";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import {
+  faCheck,
+  faPenToSquare,
+  faPencil,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CrearMenu = () => {
+const EditarMenu = () => {
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    setValue,
   } = useForm();
+  const [imagen, setImagen] = useState("");
 
-  const onSubmit = (menu) => {
-    crearMenu(menu)
+  const detalleMenu = useNavigate();
+
+  useEffect(() => {
+    obtenerMenu(id)
       .then((resp) => {
-        if (resp.status === 201) {
-          Swal.fire(
-            "El menu fue cargado con exito!",
-            `Ya puedes ver el menu ${menu.nombreMenu}`,
-            "success"
-          );
-          reset();
+        if (resp) {
+          setValue("nombreMenu", resp.nombreMenu);
+          setValue("categoria", resp.categoria);
+          setValue("precio", resp.precio);
+          setValue("imagen", resp.imagen);
+          setValue("detalle", resp.detalle);
+          setImagen(resp.imagen);
         }
       })
       .catch((error) => {
         console.log(error);
         Swal.fire(
-          "Algo a pasado!",
-          `Ocurrio un error: ${error.message}`,
+          "A ocurrido un error",
+          "Cod de error: " + error.message,
+          "error"
+        );
+      });
+  }, []);
+
+  const onSubmit = (menu) => {
+    editarMenu(id, menu)
+      .then((resp) => {
+        if (resp.status === 200) {
+          Swal.fire(
+            `Se edito con exito!`,
+            `El menu ${menu.nombreMenu} se actulizo exitosamente!`,
+            "success"
+          );
+        }
+        detalleMenu(`/detalle-menu/${id}`);
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "A ocurrido un problema",
+          `Cod de error: ${error.message}`,
           "error"
         );
       });
@@ -44,7 +77,9 @@ const CrearMenu = () => {
 
   return (
     <Container>
-      <h3 className="display-3 mt-4 mb-5 ms-4">Crea un menu</h3>
+      <h3 className="display-3 mt-4 mb-5 ms-4">
+        Edita el menu <FontAwesomeIcon icon={faPencil} className="ms-2" />
+      </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu pt-2">
         <Form onSubmit={handleSubmit(onSubmit)}>
           <div className="row g-4 p-3 pb-0">
@@ -107,7 +142,11 @@ const CrearMenu = () => {
           <Row className="px-4">
             <Col md={2} className="text-end">
               <Image
-                src="https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                src={
+                  imagen
+                    ? imagen
+                    : "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                }
                 alt="imagen-del-juego"
                 rounded
                 className="img-crear-menu"
@@ -132,6 +171,9 @@ const CrearMenu = () => {
                           message: "La Url debe ser valida",
                         },
                       })}
+                      onChange={(e) => {
+                        setImagen(e.target.value);
+                      }}
                     ></Form.Control>
                     <Form.Text className="text-danger ps-2">
                       {errors.imagen?.message}
@@ -194,7 +236,8 @@ const CrearMenu = () => {
           </div>
           <div className="text-end mb-4 me-5">
             <Button variant="success" type="submit">
-              Crear Menu
+              <FontAwesomeIcon icon={faPenToSquare} className="me-2" /> Editar
+              Menu
             </Button>
           </div>
         </Form>
@@ -203,4 +246,4 @@ const CrearMenu = () => {
   );
 };
 
-export default CrearMenu;
+export default EditarMenu;

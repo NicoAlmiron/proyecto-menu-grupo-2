@@ -11,8 +11,8 @@ import Pedidos from "./component/views/Pedidos";
 import Error404 from "./component/views/Error404";
 import Footer from "./component/common/Footer";
 import Inicio from "./component/views/Inicio";
-import CrearMenu from "./component/views/administrador/CrearMenu";
-import EditarMenu from "./component/views/administrador/EditarMenu";
+import CrearMenu from "./component/views/administrador/menu`s/CrearMenu";
+import EditarMenu from "./component/views/administrador/menu`s/EditarMenu";
 
 function App() {
   return (
