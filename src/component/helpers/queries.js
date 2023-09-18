@@ -11,3 +11,18 @@ export const listarMenus = async() => {
         return null;
     }
 };
+
+export const crearMenu = async(menu) => {
+    try {
+        menu.estado = 'pendiente';
+        const respuesta = await fetch(uriMenus, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(menu)
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

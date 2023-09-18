@@ -9,6 +9,8 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearMenu } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const CrearMenu = () => {
   const {
@@ -18,7 +20,27 @@ const CrearMenu = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (menu) => {};
+  const onSubmit = (menu) => {
+    crearMenu(menu)
+      .then((resp) => {
+        if (resp.status === 201) {
+          Swal.fire(
+            "El menu fue cargado con exito!",
+            `Ya puedes ver el menu ${menu.nombreMenu}`,
+            "success"
+          );
+          reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "Algo a pasado!",
+          `Ocurrio un error: ${error.message}`,
+          "error"
+        );
+      });
+  };
 
   return (
     <Container>

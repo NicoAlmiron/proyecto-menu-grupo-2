@@ -35,6 +35,15 @@
       "detalle": "ensalada tipo rusa con diversas verduras",
       "categoria": "ensaladas",
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU"
+    },
+    {
+      "nombreMenu": "pan",
+      "categoria": "Entradas",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU",
+      "precio": "8000",
+      "detalle": "asdadadasdsad",
+      "estado": "pendiente",
+      "id": 3
     }
   ],
   "pedidos": [
