@@ -1,45 +1,49 @@
 {
-    "usuarios": [{
-            "id": 1,
-            "nombre": "administrador",
-            "email": "admin@rolling.com",
-            "password": "Admin4321",
-            "estado": true,
-            "perfil": ""
-        },
-        {
-            "id": 2,
-            "nombre": "user1",
-            "email": "user1@rolling.com",
-            "password": "User4321",
-            "estado": true,
-            "perfil": ""
-        }
-    ],
-    "menu": [{
-            "id": 1,
-            "nombreMenu": "sanguche",
-            "estado": "pendiente",
-            "precio": 1500,
-            "detalle": "sanguche de milanesa",
-            "categoria": "Comida Rapida",
-            "imagen": "url"
-        },
-        {
-            "id": 2,
-            "nombreMenu": "ensalada rusa",
-            "estado": "pendiente",
-            "precio": 1100,
-            "detalle": "ensalada tipo rusa con diversas verduras",
-            "categoria": "ensaladas",
-            "imagen": "url"
-        }
-    ],
-    "pedidos": [{
-        "id": 1,
-        "usuario": "idUser",
-        "fecha": "15/09/2023",
-        "menu": "sanguche",
-        "estado": "pendiente"
-    }]
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "administrador",
+      "email": "admin@rolling.com",
+      "password": "Admin4321",
+      "estado": true,
+      "perfil": "url"
+    },
+    {
+      "id": 2,
+      "nombre": "user1",
+      "email": "user1@rolling.com",
+      "password": "User4321",
+      "estado": true,
+      "perfil": "URL"
+    }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "nombreMenu": "sanguche",
+      "estado": "pendiente",
+      "precio": "1500",
+      "detalle": "sanguche de milanesa",
+      "categoria": "Comida Rapida",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "nombreMenu": "ensalada rusa",
+      "estado": "pendiente",
+      "precio": "1100",
+      "detalle": "ensalada tipo rusa con diversas verduras",
+      "categoria": "ensaladas",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU"
+    }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "usuario": "idUser",
+      "fecha": "15/09/2023",
+      "menu": "sanguche",
+      "estado": "pendiente"
+    }
+  ]
 }
