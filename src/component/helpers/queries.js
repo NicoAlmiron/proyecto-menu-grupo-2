@@ -52,3 +52,15 @@ export const editarMenu = async(id, menuEditado) => {
         return null;
     }
 }
+
+export const borrarMenu = async(id) => {
+    try {
+        const respuesta = await fetch(`${uriMenus}/${id}`, {
+            method: "DELETE"
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

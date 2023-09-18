@@ -35,7 +35,11 @@ const ListaMenu = () => {
         </thead>
         <tbody>
           {listaMenus.map((menu) => (
-            <ItemMenu key={menu.id} {...menu}></ItemMenu>
+            <ItemMenu
+              key={menu.id}
+              {...menu}
+              setListaMenus={setListaMenus}
+            ></ItemMenu>
           ))}
         </tbody>
       </Table>
