@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Image } from "react-bootstrap";
 
 const ItemUsuario = ({ perfil, nombre, email, estado }) => {
+  const estadoUsuario = () => {};
   return (
     <tr>
       <td>
@@ -29,7 +30,11 @@ const ItemUsuario = ({ perfil, nombre, email, estado }) => {
       </td>
       <td>
         <div className="d-flex flex-column">
-          <Button variant="danger">Suspender</Button>
+          {estado ? (
+            <Button variant="danger">Suspender</Button>
+          ) : (
+            <Button variant="success">Activar</Button>
+          )}
         </div>
       </td>
     </tr>

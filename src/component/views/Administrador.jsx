@@ -12,16 +12,22 @@ import {
   faUsers,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
-import { listarMenus } from "../helpers/queries";
+import { listarMenus, listarUsuarios } from "../helpers/queries";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");
   const [listaMenus, setListaMenus] = useState([]);
+  const [listaUsuario, setListaUsuario] = useState([]);
 
   useEffect(() => {
     listarMenus().then((resp) => {
       if (resp) {
         setListaMenus(resp);
+      }
+    });
+    listarUsuarios().then((resp) => {
+      if (resp) {
+        setListaUsuario(resp);
       }
     });
   }, []);
@@ -59,7 +65,8 @@ const Administrador = () => {
                 onClick={() => setKey("usuario")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                <FontAwesomeIcon icon={faUsers} /> Usuarios: 0
+                <FontAwesomeIcon icon={faUsers} /> Usuarios:{" "}
+                {listaUsuario ? listaUsuario.length : 0}
               </li>
               <li
                 onClick={() => setKey("pedido")}

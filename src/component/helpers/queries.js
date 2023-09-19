@@ -14,6 +14,15 @@ export const listarUsuarios = async() => {
     }
 }
 
+export const suspenderUsuarios = async(user) => {
+    try {
+        console.log(`usuario ${user.nombre} suspendido`);
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 
 export const listarMenus = async() => {
     try {

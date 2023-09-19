@@ -137,17 +137,22 @@ const CrearUsuario = () => {
                   type="password"
                   autoComplete="off"
                   placeholder="*********"
-                  minLength={5}
-                  maxLength={25}
+                  minLength={7}
+                  maxLength={17}
                   {...register("password", {
                     required: "La contraseña es obligatoria",
-                    minLength: {
-                      value: 6,
+                    pattern: {
+                      value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                       message:
-                        "La contraseña debe contar entre 6 a 24 caracteres, una mayuscula y un numero",
+                        "La contraseña debe contar entre 8 a 16 caracteres, una mayuscula y un numero",
+                    },
+                    minLength: {
+                      value: 8,
+                      message:
+                        "La contraseña debe contar entre 8 a 16 caracteres, una mayuscula y un numero",
                     },
                     maxLength: {
-                      value: 24,
+                      value: 16,
                       message: "Maximo de 24 cacteres!",
                     },
                   })}

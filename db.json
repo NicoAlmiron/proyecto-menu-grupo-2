@@ -15,6 +15,14 @@
       "password": "User4321",
       "estado": true,
       "perfil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9zuWJ0xU19Mgk0dNFnl2KIc8E9Ch0zhfCg&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "nombre": "user2",
+      "email": "user2@rolling.com",
+      "password": "User4321",
+      "estado": false,
+      "perfil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9zuWJ0xU19Mgk0dNFnl2KIc8E9Ch0zhfCg&usqp=CAU"
     }
   ],
   "menu": [
