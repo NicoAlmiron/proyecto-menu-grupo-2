@@ -15,13 +15,17 @@ const DetalleMenu = () => {
                 variant="top"
                 src="https://cdn-3.expansion.mx/dims4/default/c71819c/2147483647/strip/true/crop/5472x3648+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fee%2Fdc%2F9d962ff94b5a83fa86f964c6bf4c%2Fistock-1271195362.jpg"
               />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
+              <Card.Body className="bg-dark">
+                <Card.Title className="text-white text-center">
+                  Card Title
+                </Card.Title>
+                <Card.Text className="text-white text-center">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="warning" className="text-dark mx-auto d-block">
+                  Go somewhere
+                </Button>
               </Card.Body>
             </Card>
           </div>
@@ -31,13 +35,17 @@ const DetalleMenu = () => {
                 variant="top"
                 src="https://cdn-3.expansion.mx/dims4/default/c71819c/2147483647/strip/true/crop/5472x3648+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fee%2Fdc%2F9d962ff94b5a83fa86f964c6bf4c%2Fistock-1271195362.jpg"
               />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
+              <Card.Body className="bg-dark">
+                <Card.Title className="text-white text-center">
+                  Card Title
+                </Card.Title>
+                <Card.Text className="text-white text-center">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="warning" className="text-dark mx-auto d-block">
+                  Go somewhere
+                </Button>
               </Card.Body>
             </Card>
           </div>
@@ -47,17 +55,26 @@ const DetalleMenu = () => {
                 variant="top"
                 src="https://cdn-3.expansion.mx/dims4/default/c71819c/2147483647/strip/true/crop/5472x3648+0+0/resize/1200x800!/format/webp/quality/60/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fee%2Fdc%2F9d962ff94b5a83fa86f964c6bf4c%2Fistock-1271195362.jpg"
               />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
+              <Card.Body className="bg-dark">
+                <Card.Title className="text-white text-center">
+                  Card Title
+                </Card.Title>
+                <Card.Text className="text-white text-center">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="warning" className="text-dark mx-auto d-block">
+                  Go somewhere
+                </Button>
               </Card.Body>
             </Card>
           </div>
         </CardGroup>
+      </div>
+      <div>
+        <Button variant="warning" size="lg" className="mx-auto d-block" active>
+          ¡COMPRAR!
+        </Button>
       </div>
     </div>
   );
