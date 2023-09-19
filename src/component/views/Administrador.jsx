@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../css/administrador.css";
 import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import ListaMenu from "./administrador/menu`s/listas/ListaMenu";
-import ListaUsuario from "./administrador/menu`s/listas/ListaPedido";
-import ListaPedido from "./administrador/menu`s/listas/ListaUsuario";
+import ListaMenu from "./administrador/listas/ListaMenu";
+import ListaPedido from "./administrador/listas/ListaPedido";
+import ListaUsuario from "./administrador/listas/ListaUsuario";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -33,14 +33,16 @@ const Administrador = () => {
           <Col sm={8} className="text-center">
             <div>
               <h3 className="display-3">
-                {" "}
                 <FontAwesomeIcon icon={faUser} className="me-2" /> Administrador
               </h3>
               <h5 className="fs-3 fw-light">admin@rolling.com</h5>
             </div>
-            <div className="text-center">
+            <div className="d-flex justify-content-around">
               <Link to={"/crear-menu"} className="btn btn-primary ">
                 + Crear Menu
+              </Link>
+              <Link to={"/crear-usuario"} className="btn btn-primary ">
+                + Crear Usuario
               </Link>
             </div>
           </Col>
@@ -50,7 +52,7 @@ const Administrador = () => {
                 onClick={() => setKey("menu")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                <FontAwesomeIcon icon={faUtensils} /> Menu`s:{" "}
+                <FontAwesomeIcon icon={faUtensils} /> Menu`s:
                 {listaMenus ? listaMenus?.length : 0}
               </li>
               <li

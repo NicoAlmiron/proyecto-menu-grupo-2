@@ -9,7 +9,7 @@ import {
   Row,
 } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { editarMenu, obtenerMenu } from "../../../helpers/queries";
+import { editarMenu, obtenerMenu } from "../../helpers/queries";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import {

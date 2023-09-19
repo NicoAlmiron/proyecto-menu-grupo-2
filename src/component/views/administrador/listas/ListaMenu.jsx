@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import ItemMenu from "../items/ItemMenu";
-import { listarMenus } from "../../../../helpers/queries";
+import { listarMenus } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

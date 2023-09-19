@@ -1,5 +1,19 @@
 const uriMenus =
     import.meta.env.VITE_API_MENUS;
+const uriUsuarios =
+    import.meta.env.VITE_API_USUARIOS;
+
+export const listarUsuarios = async() => {
+    try {
+        const respuesta = await fetch(uriUsuarios);
+        const listaUsuarios = await respuesta.json();
+        return listaUsuarios;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
+
 
 export const listarMenus = async() => {
     try {

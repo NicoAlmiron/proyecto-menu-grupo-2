@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemUsuario from "../items/ItemUsuario";
+import ItemPlaceholder from "../items/ItemPlaceholder";
 import { Table } from "react-bootstrap";
+import { listarUsuarios } from "../../../helpers/queries";
 
 const ListaUsuario = () => {
+  const [listaUsuarios, setListaUsuarios] = useState([]);
+
+  useEffect(() => {
+    listarUsuarios()
+      .then((resp) => {
+        setListaUsuarios(resp);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Table striped hover variant="secondary" className="shadow">
@@ -16,10 +30,13 @@ const ListaUsuario = () => {
           </tr>
         </thead>
         <tbody>
-          <ItemUsuario></ItemUsuario>
-          <ItemUsuario></ItemUsuario>
-          <ItemUsuario></ItemUsuario>
-          <ItemUsuario></ItemUsuario>
+          {listaUsuarios ? (
+            listaUsuarios?.map((user) => (
+              <ItemUsuario key={user.id} {...user}></ItemUsuario>
+            ))
+          ) : (
+            <ItemPlaceholder></ItemPlaceholder>
+          )}
         </tbody>
       </Table>
     </>
