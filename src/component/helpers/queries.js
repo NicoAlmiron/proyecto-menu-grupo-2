@@ -2,6 +2,8 @@ const uriMenus =
     import.meta.env.VITE_API_MENUS;
 const uriUsuarios =
     import.meta.env.VITE_API_USUARIOS;
+const uriPedidos =
+    import.meta.env.VITE_API_PEDIDOS;
 
 export const listarUsuarios = async() => {
     try {
@@ -36,12 +38,12 @@ export const crearUsuario = async(user) => {
     }
 }
 
-export const suspenderUsuarios = async(id, user) => {
+export const suspenderUsuarios = async(id, ususarioSuspendido) => {
     try {
         const respuesta = await fetch(`${uriUsuarios}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(ususarioSuspendido)
         })
         return respuesta;
     } catch (error) {
@@ -115,6 +117,42 @@ export const borrarMenu = async(id) => {
     try {
         const respuesta = await fetch(`${uriMenus}/${id}`, {
             method: "DELETE"
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const listarPedidos = async() => {
+    try {
+        const respuesta = await fetch(uriPedidos);
+        const datos = respuesta.json();
+        return datos;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const realizarPedido = async(id, pedidoRealizado) => {
+    try {
+        const respuesta = await fetch(`${uriPedidos}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(pedidoRealizado)
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const deshacerPedido = async(id, pedidoDeshecho) => {
+    try {
+        const respuesta = await fetch(`${uriPedidos}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(pedidoDeshecho)
         });
         return respuesta;
     } catch (error) {

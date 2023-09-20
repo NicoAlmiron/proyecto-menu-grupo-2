@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import ItemPedido from "../items/ItemPedido";
+import ItemPlaceholder from "../items/ItemPlaceholder";
+import { listarPedidos, realizarPedido } from "../../../helpers/queries";
+import Swal from "sweetalert2";
 
 const ListaPedido = () => {
+  const [listaPedidos, setListaPedidos] = useState([]);
+  const [mostrarSpinner, setMostrarSpinner] = useState(true);
+
+  useEffect(() => {
+    listarPedidos()
+      .then((resp) => {
+        if (resp) {
+          setMostrarSpinner(false);
+          setListaPedidos(resp);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Table striped hover variant="secondary" className="shadow">
@@ -16,10 +35,13 @@ const ListaPedido = () => {
           </tr>
         </thead>
         <tbody>
-          <ItemPedido></ItemPedido>
-          <ItemPedido></ItemPedido>
-          <ItemPedido></ItemPedido>
-          <ItemPedido></ItemPedido>
+          {!mostrarSpinner ? (
+            listaPedidos.map((pedido) => (
+              <ItemPedido key={pedido.id} pedido={pedido}></ItemPedido>
+            ))
+          ) : (
+            <ItemPlaceholder></ItemPlaceholder>
+          )}
         </tbody>
       </Table>
     </>

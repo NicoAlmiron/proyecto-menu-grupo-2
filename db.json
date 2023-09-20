@@ -40,7 +40,7 @@
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5JzxxuPQkOf9Z_uV86y5MOlT0XHsAkNNUA&usqp=CAU",
       "precio": "2000",
       "detalle": "sanguche de milanesa",
-      "estado": "pendiente",
+      "estado": false,
       "id": 1
     },
     {
@@ -49,7 +49,7 @@
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU",
       "precio": "1100",
       "detalle": "ensalada tipo rusa con diversas verduras",
-      "estado": "pendiente",
+      "estado": false,
       "id": 2
     },
     {
@@ -58,17 +58,31 @@
       "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
       "precio": "500",
       "detalle": "un rico helado",
-      "estado": "pendiente",
+      "estado": false,
       "id": 3
     }
   ],
   "pedidos": [
     {
       "id": 1,
-      "usuario": "idUser",
+      "usuario": "user2",
       "fecha": "15/09/2023",
       "menu": "sanguche",
-      "estado": "pendiente"
+      "estado": false
+    },
+    {
+      "id": 2,
+      "usuario": "user1",
+      "fecha": "15/09/2023",
+      "menu": "helado",
+      "estado": false
+    },
+    {
+      "id": 3,
+      "usuario": "user3",
+      "fecha": "15/09/2023",
+      "menu": "ensalada rusa",
+      "estado": true
     }
   ]
 }

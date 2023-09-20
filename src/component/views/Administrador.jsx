@@ -13,12 +13,13 @@ import {
   faUsers,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
-import { listarMenus, listarUsuarios } from "../helpers/queries";
+import { listarMenus, listarPedidos, listarUsuarios } from "../helpers/queries";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");
   const [listaMenus, setListaMenus] = useState([]);
   const [listaUsuario, setListaUsuario] = useState([]);
+  const [listaPedidos, setListaPedidos] = useState([]);
 
   useEffect(() => {
     listarMenus().then((resp) => {
@@ -29,6 +30,11 @@ const Administrador = () => {
     listarUsuarios().then((resp) => {
       if (resp) {
         setListaUsuario(resp);
+      }
+    });
+    listarPedidos().then((resp) => {
+      if (resp) {
+        setListaPedidos(resp);
       }
     });
   }, []);
@@ -75,7 +81,8 @@ const Administrador = () => {
                 onClick={() => setKey("pedido")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                <FontAwesomeIcon icon={faMitten} /> Pedidos: 0
+                <FontAwesomeIcon icon={faMitten} /> Pedidos:{" "}
+                {listaPedidos ? listaPedidos.length : "0"}
               </li>
             </div>
           </Col>
