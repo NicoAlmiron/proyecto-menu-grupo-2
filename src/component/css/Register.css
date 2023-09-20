@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.place-login {
+  min-height: 100vh;
+  padding-top: 4vh;
+}
+
+.cont-login {
+  max-width: 452px !important;
+  padding: 30px 52px 29px !important;
+}
+
+.title-page-login {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+}
+
+.btn-accederLogin {
+  background-color: #183d3d;
+  display: block;
+  width: 100%;
+}
+.btn-accederLogin:hover {
+  background-color: #5c8374;
+}
+
+.subtitle-page-login {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+.btn-social {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.font-btn-social {
+  font-family: "Roboto", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: bold !important;
+  color: #757575 !important;
+}
+
+.logo-btn-social {
+  padding-right: 8px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bgLogin {
+  background-image: url(/public/fondoLogin.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
