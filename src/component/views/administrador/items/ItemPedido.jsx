@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { realizarPedido, deshacerPedido } from "../../../helpers/queries";
+import {
+  realizarPedido,
+  deshacerPedido,
+  borrarPedido,
+  listarPedidos,
+} from "../../../helpers/queries";
 import Swal from "sweetalert2";
 
-const ItemPedido = ({ pedido }) => {
+const ItemPedido = ({ pedido, setListaPedidos }) => {
   const [estadoPedido, setEstadoPedido] = useState(pedido.estado);
 
   const pedidoRealizado = () => {
@@ -52,6 +57,61 @@ const ItemPedido = ({ pedido }) => {
     }
   };
 
+  const borrarPedidoSelect = () => {
+    Swal.fire({
+      title: `Estas seguro de eliminar ${pedido.menu}?`,
+      text: "Esta accion no se puede revertir!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Borrar",
+      cancelButtonText: "Cancelar",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          borrarPedido(pedido.id)
+            .then((resp) => {
+              if (resp.status === 200) {
+                listarPedidos()
+                  .then((resp) => {
+                    setListaPedidos(resp);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    Swal.fire(
+                      "A surgido un error",
+                      `Cod de error: ${error.message}`,
+                      "error"
+                    );
+                  });
+
+                Swal.fire(
+                  "Pedido Eliminado",
+                  `El Pedido se a eliminado con exito`,
+                  "success"
+                );
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              Swal.fire(
+                "A surgido un error",
+                `Cod de error: ${error.message}`,
+                "error"
+              );
+            });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "A surgido un error",
+          `Cod de error: ${error.message}`,
+          "error"
+        );
+      });
+  };
   return (
     <tr>
       <td>
@@ -77,7 +137,11 @@ const ItemPedido = ({ pedido }) => {
             <Button variant="warning" onClick={pedidoDeshecho}>
               Deshacer
             </Button>
-            <Button variant="danger" className="ms-2">
+            <Button
+              variant="danger"
+              className="ms-2"
+              onClick={borrarPedidoSelect}
+            >
               Borrar
             </Button>
           </div>

@@ -159,3 +159,15 @@ export const deshacerPedido = async(id, pedidoDeshecho) => {
         console.log(error);
     }
 }
+
+
+export const borrarPedido = async(id) => {
+    try {
+        const respuesta = await fetch(`${uriPedidos}/${id}`, {
+            method: "DELETE"
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+}

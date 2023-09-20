@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMitten,
   faUser,
-  faUserPlus,
   faUsers,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,6 +19,7 @@ const Administrador = () => {
   const [listaMenus, setListaMenus] = useState([]);
   const [listaUsuario, setListaUsuario] = useState([]);
   const [listaPedidos, setListaPedidos] = useState([]);
+  const [contador, setContador] = useState({});
 
   useEffect(() => {
     listarMenus().then((resp) => {
@@ -39,6 +39,16 @@ const Administrador = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const cont = {
+      menus: listaMenus.length,
+      usuarios: listaUsuario.length,
+      pedidos: listaPedidos.length,
+    };
+
+    setContador(cont);
+  }, [listaMenus, listaUsuario, listaPedidos]);
+
   return (
     <Container>
       <article className="bg-Admin rounded p-3 my-4 shadow">
@@ -52,7 +62,7 @@ const Administrador = () => {
             </div>
             <div className="d-flex justify-content-around mt-3">
               <Link to={"/crear-menu"} className="btn btn-primary ">
-                + Crear Menu{" "}
+                + Crear Menu
                 <FontAwesomeIcon icon={faMitten} className="ms-2" />
               </Link>
               <Link to={"/crear-usuario"} className="btn btn-primary ">
@@ -68,21 +78,21 @@ const Administrador = () => {
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
                 <FontAwesomeIcon icon={faUtensils} /> Menu`s:
-                {listaMenus ? listaMenus?.length : 0}
+                {contador ? ` ${contador?.menus}` : " 0"}
               </li>
               <li
                 onClick={() => setKey("usuario")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                <FontAwesomeIcon icon={faUsers} /> Usuarios:{" "}
-                {listaUsuario ? listaUsuario.length : 0}
+                <FontAwesomeIcon icon={faUsers} /> Usuarios:
+                {contador ? ` ${contador?.usuarios}` : " 0"}
               </li>
               <li
                 onClick={() => setKey("pedido")}
                 className="list-group-item fs-4 fw-light list-group-item-light list-group-item-action"
               >
-                <FontAwesomeIcon icon={faMitten} /> Pedidos:{" "}
-                {listaPedidos ? listaPedidos.length : "0"}
+                <FontAwesomeIcon icon={faMitten} /> Pedidos:
+                {contador ? ` ${contador?.pedidos}` : " 0"}
               </li>
             </div>
           </Col>

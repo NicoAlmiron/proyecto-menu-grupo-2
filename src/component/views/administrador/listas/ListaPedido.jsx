@@ -37,7 +37,11 @@ const ListaPedido = () => {
         <tbody>
           {!mostrarSpinner ? (
             listaPedidos.map((pedido) => (
-              <ItemPedido key={pedido.id} pedido={pedido}></ItemPedido>
+              <ItemPedido
+                key={pedido.id}
+                pedido={pedido}
+                setListaPedidos={setListaPedidos}
+              ></ItemPedido>
             ))
           ) : (
             <ItemPlaceholder></ItemPlaceholder>
