@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --dark-1: #0b0d0f;
+  --dark-2: #16181f;
+  --darkOrange: #cd9933;
+  --darkKhaki: #999966;
+  --light-1: #efefef;
+}
+
 .place-login {
   min-height: 100vh;
   padding-top: 4vh;
@@ -29,22 +37,6 @@
   font-size: 18px;
 }
 
-.btn-social {
-  width: 100%;
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.font-btn-social {
-  font-family: "Roboto", sans-serif !important;
-  font-size: 13px !important;
-  font-weight: bold !important;
-  color: #757575 !important;
-}
-
-.logo-btn-social {
-  padding-right: 8px;
-}
 .footer {
   position: fixed;
   bottom: 0;
@@ -52,8 +44,12 @@
 }
 
 .bgLogin {
-  background-image: url(/public/backgroundLogin.jpg);
+  background-image: url(/public/background01.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.bg-dark-01 {
+  background-color:var(--dark-1) ;
 }
