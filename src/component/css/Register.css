@@ -51,8 +51,8 @@
   width: 100%;
 }
 
-.bgLogin {
-  background-image: url(/public/fondoLogin.png);
+.bgRegister {
+  background-image: url(/public/backgroundRegister.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

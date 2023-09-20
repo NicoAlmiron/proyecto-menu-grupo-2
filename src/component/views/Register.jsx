@@ -47,7 +47,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center bgLogin place-login">
+      <div className="d-flex justify-content-center bgRegister place-login">
         <Container className="bg-light mb-auto rounded-4 shadow cont-login">
           <h4 className="fw-bold titulo-page-login">
             Cree una cuenta con nosotros:
