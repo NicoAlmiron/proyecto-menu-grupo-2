@@ -1,39 +1,99 @@
-import React from "react";
+import { faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import { Button, Image } from "react-bootstrap";
+import { suspenderUsuarios } from "../../../helpers/queries";
+import Swal from "sweetalert2";
 
-const ItemUsuario = ({ perfil, nombre, email, estado }) => {
-  const estadoUsuario = () => {};
+const ItemUsuario = ({ user }) => {
+  const [estadoUser, setEstadoUser] = useState(user?.estado);
+
+  useEffect(() => {}, [estadoUser]);
+
+  const suspenderUsuario = () => {
+    if (user.estado) {
+      user.estado = false;
+      Swal.fire({
+        title: `Estas seguro de suspender la cuenta ${user.nombre}?`,
+        text: "Puedes volver a activarla desde el menu de usuarios",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Suspender",
+        cancelButtonText: "Cancelar",
+      })
+        .then((result) => {
+          if (result.isConfirmed) {
+            suspenderUsuarios(user.id, user)
+              .then((resp) => {
+                if (resp.status === 200) {
+                  Swal.fire(
+                    `Se Suspendio la cuenta ${user.nombre}`,
+                    `Puedes volver a activarla desde el menu de usuarios`,
+                    "success"
+                  );
+                  setEstadoUser(user.estado);
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                Swal.fire(
+                  "A surgido un error",
+                  `Cod de error: ${error}`,
+                  "error"
+                );
+              });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
+        });
+    }
+  };
+
+  const activarUsuario = () => {};
   return (
     <tr>
       <td>
         <Image
           src={
-            perfil
-              ? perfil
+            user.perfil
+              ? user.perfil
               : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU"
           }
-          alt={nombre}
+          alt={user.nombre}
           rounded
           className="img-item"
         ></Image>
       </td>
       <td>
-        <p className="fw-light text-center">{nombre}</p>
+        <p className="fw-light text-center">{user.nombre}</p>
       </td>
       <td>
-        <p className="fw-light text-center">{email}</p>
+        <p className="fw-light text-center">{user.email}</p>
       </td>
       <td>
         <p className="fw-light text-center">
-          {estado ? "Activo" : "Suspendido"}
+          {user.estado ? "Activo" : "Suspendido"}
         </p>
       </td>
       <td>
         <div className="d-flex flex-column">
-          {estado ? (
-            <Button variant="danger">Suspender</Button>
+          {user.estado ? (
+            <Button variant="danger" onClick={suspenderUsuario}>
+              Suspender <FontAwesomeIcon icon={faUserXmark} className="ms-1" />
+            </Button>
           ) : (
-            <Button variant="success">Activar</Button>
+            <Button variant="success">
+              Activar{" "}
+              <FontAwesomeIcon
+                icon={faUserCheck}
+                className="ms-1"
+                onClick={activarUsuario}
+              />
+            </Button>
           )}
         </div>
       </td>

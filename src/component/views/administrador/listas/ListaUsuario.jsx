@@ -32,7 +32,7 @@ const ListaUsuario = () => {
         <tbody>
           {listaUsuarios ? (
             listaUsuarios?.map((user) => (
-              <ItemUsuario key={user.id} {...user}></ItemUsuario>
+              <ItemUsuario key={user.id} user={user}></ItemUsuario>
             ))
           ) : (
             <ItemPlaceholder></ItemPlaceholder>

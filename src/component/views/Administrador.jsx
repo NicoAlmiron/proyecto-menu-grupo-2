@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMitten,
   faUser,
+  faUserPlus,
   faUsers,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
@@ -43,12 +44,14 @@ const Administrador = () => {
               </h3>
               <h5 className="fs-3 fw-light">admin@rolling.com</h5>
             </div>
-            <div className="d-flex justify-content-around">
+            <div className="d-flex justify-content-around mt-3">
               <Link to={"/crear-menu"} className="btn btn-primary ">
-                + Crear Menu
+                + Crear Menu{" "}
+                <FontAwesomeIcon icon={faMitten} className="ms-2" />
               </Link>
               <Link to={"/crear-usuario"} className="btn btn-primary ">
                 + Crear Usuario
+                <FontAwesomeIcon icon={faUser} className="ms-2" />
               </Link>
             </div>
           </Col>

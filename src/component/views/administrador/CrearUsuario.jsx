@@ -11,7 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
+import { faUserPen, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { crearUsuario } from "../../helpers/queries";
 
 const CrearUsuario = () => {
@@ -53,7 +53,7 @@ const CrearUsuario = () => {
   return (
     <Container>
       <h3 className="display-3 mt-4 mb-5 ms-4">
-        Crea un Usuario <FontAwesomeIcon icon={faBowlFood} className="ms-2" />
+        Crea un Usuario <FontAwesomeIcon icon={faUserPlus} className="ms-2" />
       </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu p-3">
         <Form onSubmit={handleSubmit(onSubmit)}>
@@ -190,6 +190,7 @@ const CrearUsuario = () => {
           </Row>
           <div className="text-end">
             <Button variant="primary" type="submit">
+              <FontAwesomeIcon icon={faUserPen} className="me-2" />
               Crear Usuario
             </Button>
           </div>

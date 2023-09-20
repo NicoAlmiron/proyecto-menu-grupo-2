@@ -36,13 +36,18 @@ export const crearUsuario = async(user) => {
     }
 }
 
-// export const suspenderUsuarios = async(user) => {
-//     try {
-//         console.log(`usuario ${user.nombre} suspendido`);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+export const suspenderUsuarios = async(id, user) => {
+    try {
+        const respuesta = await fetch(`${uriUsuarios}/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 export const listarMenus = async() => {
