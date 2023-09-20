@@ -1,13 +1,14 @@
+import "../css/Register.css";
 import { Button, Container } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { altaUsuario } from "../helpers/queries";
+import { registroUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
-const Registro = () => {
+const Register = () => {
   useEffect(() => {
     document.title = "Registrarse";
   }, []);
@@ -21,7 +22,7 @@ const Registro = () => {
   } = useForm();
 
   const onSubmit = (usuarioNUevo) => {
-    altaUsuario(usuarioNUevo)
+    registroUsuario(usuarioNUevo)
       .then((resp) => {
         if (resp.status === 201) {
           Swal.fire(
@@ -123,4 +124,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default Register;

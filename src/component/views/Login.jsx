@@ -90,7 +90,7 @@ const Login = ({ setUsuarioActivo }) => {
               Acceder
             </Button>
             <div className="text-end">
-              <Link as={Link} to={"/altausuario"}>
+              <Link as={Link} to={"/register"}>
                 Crear cuenta
               </Link>
             </div>

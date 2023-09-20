@@ -21,7 +21,7 @@ export const login = async (usuario) => {
   }
 };
 
-export const altaUsuario = async (usuarioNuevo) => {
+export const registroUsuario = async (usuarioNuevo) => {
   usuarioNuevo.juegosFavoritos = [];
   try {
     const resp = await fetch(uriUsuario, {
