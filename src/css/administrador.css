@@ -28,4 +28,27 @@
 
 .btn-filtrado-lista-menu {
   cursor: pointer;
+  transition: 0.8s;
+}
+
+.btn-filtrado-lista-menu:hover {
+  background-color: whitesmoke;
+}
+
+.btn-lista-pedido {
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.btn-lista-pedido:hover {
+  background-color: whitesmoke;
+}
+
+.btn-lista-usuario {
+  cursor: pointer;
+  transition: 0.8s;
+}
+
+.btn-lista-usuario:hover {
+  background-color: whitesmoke;
 }

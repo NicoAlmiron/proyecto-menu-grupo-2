@@ -7,6 +7,9 @@ import {
   listarPedidos,
 } from "../../../helpers/queries";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowsRotate, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 
 const ItemPedido = ({ pedido, setListaPedidos }) => {
   const [estadoPedido, setEstadoPedido] = useState(pedido.estado);
@@ -135,6 +138,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
         {estadoPedido ? (
           <div className="text-center">
             <Button variant="warning" onClick={pedidoDeshecho}>
+              <FontAwesomeIcon icon={faArrowsRotate} className="me-1" />
               Deshacer
             </Button>
             <Button
@@ -142,12 +146,14 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
               className="ms-2"
               onClick={borrarPedidoSelect}
             >
+              <FontAwesomeIcon icon={faTrash} className="me-1" />
               Borrar
             </Button>
           </div>
         ) : (
           <div className="text-center">
             <Button variant="success" onClick={pedidoRealizado}>
+              <FontAwesomeIcon icon={faCircleCheck} className="me-1" />
               Realizar
             </Button>
           </div>

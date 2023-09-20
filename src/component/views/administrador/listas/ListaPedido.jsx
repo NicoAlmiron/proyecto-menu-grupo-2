@@ -3,11 +3,15 @@ import { Table } from "react-bootstrap";
 import ItemPedido from "../items/ItemPedido";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { listarPedidos, realizarPedido } from "../../../helpers/queries";
-import Swal from "sweetalert2";
+import Paginacion from "../Paginacion";
 
 const ListaPedido = () => {
   const [listaPedidos, setListaPedidos] = useState([]);
   const [mostrarSpinner, setMostrarSpinner] = useState(true);
+  const [pagina, setPagina] = useState(1);
+  const [porPagina, setPorPagina] = useState(5);
+
+  const maximo = Math.round(listaPedidos.length / porPagina);
 
   useEffect(() => {
     listarPedidos()
@@ -22,15 +26,43 @@ const ListaPedido = () => {
       });
   }, []);
 
+  const ordenarClienteAlfabeticamente = () => {
+    const arrayOrdenado = [...listaPedidos].sort((a, b) => {
+      const nombreA = a.usuario.toLowerCase();
+      const nombreB = b.usuario.toLowerCase();
+      return nombreA.localeCompare(nombreB);
+    });
+    setListaPedidos(arrayOrdenado);
+  };
+
+  const ordenarPedidoAlfabeticamente = () => {
+    const arrayOrdenado = [...listaPedidos].sort((a, b) => {
+      const nombreA = a.menu.toLowerCase();
+      const nombreB = b.menu.toLowerCase();
+      return nombreA.localeCompare(nombreB);
+    });
+    setListaPedidos(arrayOrdenado);
+  };
+
   return (
     <>
       <Table striped hover variant="secondary" className="shadow">
         <thead>
           <tr>
-            <th className="fs-5 fw-light text-center">Pedido</th>
-            <th className="fs-5 fw-light text-center">Cliente</th>
+            <th
+              className="fs-5 fw-light text-center btn-lista-pedido"
+              onClick={ordenarPedidoAlfabeticamente}
+            >
+              Pedido
+            </th>
+            <th
+              className="fs-5 fw-light text-center btn-lista-pedido"
+              onClick={ordenarClienteAlfabeticamente}
+            >
+              Cliente
+            </th>
             <th className="fs-5 fw-light text-center">Fecha</th>
-            <th className="fs-5 fw-light text-center">Estado</th>
+            <th className="fs-5 fw-light text-center ">Estado</th>
             <th className="fs-5 fw-light text-center">Opciones</th>
           </tr>
         </thead>
@@ -48,6 +80,11 @@ const ListaPedido = () => {
           )}
         </tbody>
       </Table>
+      <Paginacion
+        pagina={pagina}
+        setPagina={setPagina}
+        maximo={maximo}
+      ></Paginacion>
     </>
   );
 };

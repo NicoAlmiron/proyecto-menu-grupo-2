@@ -6,10 +6,15 @@ import Swal from "sweetalert2";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
+import Paginacion from "../Paginacion";
 
 const ListaMenu = () => {
   const [mostrarSpinner, setMostrarSpinner] = useState(true);
   const [listaMenus, setListaMenus] = useState([]);
+  const [pagina, setPagina] = useState(1);
+  const [porPagina, setPorPagina] = useState(5);
+
+  const maximo = Math.round(listaMenus.length / porPagina);
 
   useEffect(() => {
     listarMenus()
@@ -81,16 +86,26 @@ const ListaMenu = () => {
           {mostrarSpinner ? (
             <ItemPlaceholder></ItemPlaceholder>
           ) : (
-            listaMenus.map((menu) => (
-              <ItemMenu
-                key={menu.id}
-                {...menu}
-                setListaMenus={setListaMenus}
-              ></ItemMenu>
-            ))
+            listaMenus
+              .slice(
+                (pagina - 1) * porPagina,
+                (pagina - 1) * porPagina + porPagina
+              )
+              .map((menu) => (
+                <ItemMenu
+                  key={menu.id}
+                  {...menu}
+                  setListaMenus={setListaMenus}
+                ></ItemMenu>
+              ))
           )}
         </tbody>
       </Table>
+      <Paginacion
+        pagina={pagina}
+        setPagina={setPagina}
+        maximo={maximo}
+      ></Paginacion>
     </>
   );
 };
