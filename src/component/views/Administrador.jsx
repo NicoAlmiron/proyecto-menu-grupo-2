@@ -22,6 +22,8 @@ const Administrador = () => {
   const [contador, setContador] = useState({});
 
   useEffect(() => {
+    document.title = "Administracion";
+
     listarMenus().then((resp) => {
       if (resp) {
         setListaMenus(resp);

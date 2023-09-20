@@ -123,6 +123,15 @@
       "detalle": "un rico helado",
       "estado": false,
       "id": 10
+    },
+    {
+      "nombreMenu": "desayuno",
+      "categoria": "Desayunos",
+      "imagen": "https://images.pexels.com/photos/15564188/pexels-photo-15564188/free-photo-of-comida-desayuno-miel-de-maple-tortitas.jpeg?auto=compress&cs=tinysrgb&w=1600",
+      "precio": "800",
+      "detalle": "rico desayuno de maples",
+      "estado": "pendiente",
+      "id": 11
     }
   ],
   "pedidos": [

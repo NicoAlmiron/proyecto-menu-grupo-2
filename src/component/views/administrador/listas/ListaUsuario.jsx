@@ -10,7 +10,7 @@ const ListaUsuario = () => {
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(5);
 
-  const maximo = Math.round(listaUsuarios.length / porPagina);
+  let maximo = Math.ceil(listaUsuarios.length / porPagina);
 
   useEffect(() => {
     listarUsuarios()

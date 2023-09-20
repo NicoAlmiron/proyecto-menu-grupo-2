@@ -32,6 +32,7 @@ const EditarMenu = () => {
   const detalleMenu = useNavigate();
 
   useEffect(() => {
+    document.title = "Administracion | Editar Menu";
     obtenerMenu(id)
       .then((resp) => {
         if (resp) {

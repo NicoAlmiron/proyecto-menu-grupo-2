@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { borrarMenu, listarMenus } from "../../../helpers/queries";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,6 +14,7 @@ const ItemMenu = ({
   id,
   setListaMenus,
 }) => {
+  const detalleMenu = useNavigate();
   const borrarMenuSelect = () => {
     Swal.fire({
       title: `Estas seguro de eliminar ${nombreMenu}?`,
@@ -82,6 +83,7 @@ const ItemMenu = ({
           alt={nombreMenu}
           rounded
           className="img-item"
+          onClick={() => detalleMenu(`/detalle-menu/${id}`)}
         ></Image>
       </td>
       <td>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Col,
@@ -22,6 +22,9 @@ const CrearUsuario = () => {
     reset,
   } = useForm();
   const [imagen, setImagen] = useState("");
+  useEffect(() => {
+    document.title = "Administracion | Crear Usuario";
+  }, []);
 
   const onSubmit = (user) => {
     crearUsuario(user)
