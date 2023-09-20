@@ -14,7 +14,7 @@ const ListaMenu = () => {
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(5);
 
-  let maximo = Math.ceil(listaMenus.length / porPagina);
+  let maximo = Math.ceil(listaMenus?.length / porPagina) || 0;
 
   useEffect(() => {
     listarMenus()

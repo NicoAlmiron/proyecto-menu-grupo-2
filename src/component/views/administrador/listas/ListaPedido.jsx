@@ -11,7 +11,7 @@ const ListaPedido = () => {
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(5);
 
-  let maximo = Math.ceil(listaPedidos.length / porPagina);
+  let maximo = Math.ceil(listaPedidos?.length / porPagina) || 0;
 
   useEffect(() => {
     listarPedidos()

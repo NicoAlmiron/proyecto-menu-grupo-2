@@ -7,15 +7,19 @@ import Paginacion from "../Paginacion";
 
 const ListaUsuario = () => {
   const [listaUsuarios, setListaUsuarios] = useState([]);
+  const [mostrarSpinner, setMostrarSpinner] = useState(true);
   const [pagina, setPagina] = useState(1);
   const [porPagina, setPorPagina] = useState(5);
 
-  let maximo = Math.ceil(listaUsuarios.length / porPagina);
+  let maximo = Math.ceil(listaUsuarios?.length / porPagina) || 0;
 
   useEffect(() => {
     listarUsuarios()
       .then((resp) => {
-        setListaUsuarios(resp);
+        if (resp) {
+          setListaUsuarios(resp);
+          setMostrarSpinner(false);
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +66,9 @@ const ListaUsuario = () => {
           </tr>
         </thead>
         <tbody>
-          {listaUsuarios ? (
+          {mostrarSpinner ? (
+            <ItemPlaceholder></ItemPlaceholder>
+          ) : (
             listaUsuarios
               ?.slice(
                 (pagina - 1) * porPagina,
@@ -71,8 +77,6 @@ const ListaUsuario = () => {
               .map((user) => (
                 <ItemUsuario key={user.id} user={user}></ItemUsuario>
               ))
-          ) : (
-            <ItemPlaceholder></ItemPlaceholder>
           )}
         </tbody>
       </Table>
