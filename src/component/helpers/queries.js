@@ -10,18 +10,39 @@ export const listarUsuarios = async() => {
         return listaUsuarios;
     } catch (error) {
         console.log(error);
-        return null;
     }
 }
 
-export const suspenderUsuarios = async(user) => {
+export const crearUsuario = async(user) => {
     try {
-        console.log(`usuario ${user.nombre} suspendido`);
+        const listaUsuarios = await listarUsuarios();
+        let usuario = listaUsuarios.find((usuario) => usuario.email === user.email)
+        if (usuario) {
+            const resp = { status: 400 };
+            return resp;
+        } else {
+            user.estado = true;
+            const respuesta = await fetch(uriUsuarios, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user),
+            });
+            //en el BackEnd se enviara el correo de verificacion
+            return respuesta;
+
+        }
     } catch (error) {
         console.log(error);
-        return null;
     }
 }
+
+// export const suspenderUsuarios = async(user) => {
+//     try {
+//         console.log(`usuario ${user.nombre} suspendido`);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 
 export const listarMenus = async() => {
@@ -31,7 +52,6 @@ export const listarMenus = async() => {
         return listaMenus;
     } catch (error) {
         console.log(error);
-        return null;
     }
 };
 
@@ -46,7 +66,6 @@ export const crearMenu = async(menu) => {
         return respuesta;
     } catch (error) {
         console.log(error);
-        return null;
     }
 }
 
@@ -57,7 +76,6 @@ export const obtenerMenu = async(id) => {
         return menu;
     } catch (error) {
         console.log(error);
-        return null;
     }
 }
 
@@ -72,7 +90,6 @@ export const editarMenu = async(id, menuEditado) => {
         return respuesta;
     } catch (error) {
         console.log(error);
-        return null;
     }
 }
 
@@ -84,6 +101,5 @@ export const borrarMenu = async(id) => {
         return respuesta;
     } catch (error) {
         console.log(error);
-        return null;
     }
 }

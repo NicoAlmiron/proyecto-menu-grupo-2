@@ -12,6 +12,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBowlFood } from "@fortawesome/free-solid-svg-icons";
+import { crearUsuario } from "../../helpers/queries";
+
 const CrearUsuario = () => {
   const {
     register,
@@ -22,7 +24,30 @@ const CrearUsuario = () => {
   const [imagen, setImagen] = useState("");
 
   const onSubmit = (user) => {
-    console.log(user);
+    crearUsuario(user)
+      .then((resp) => {
+        if (resp.status === 201) {
+          Swal.fire(
+            `Se creo el usuario ${user.nombre} Exitosamente!`,
+            `se envio un correo al usuario registrado`,
+            "success"
+          );
+        } else {
+          Swal.fire(
+            `El correo ingresado ${user.email}`,
+            `ya se encuentra en uso actualemnte!`,
+            "error"
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire(
+          "Hubo un error",
+          "Error al intentar crear el usuario",
+          "error"
+        );
+      });
   };
 
   return (

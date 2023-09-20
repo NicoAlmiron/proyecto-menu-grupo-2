@@ -23,6 +23,14 @@
       "password": "User4321",
       "estado": false,
       "perfil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9zuWJ0xU19Mgk0dNFnl2KIc8E9Ch0zhfCg&usqp=CAU"
+    },
+    {
+      "nombre": "user3",
+      "email": "user3@rolling.com",
+      "imagen": "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
+      "password": "User1234",
+      "estado": true,
+      "id": 4
     }
   ],
   "menu": [
