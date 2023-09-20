@@ -60,12 +60,15 @@ const Administrador = () => {
               </h3>
               <h5 className="fs-3 fw-light">admin@rolling.com</h5>
             </div>
-            <div className="d-flex justify-content-around mt-3">
-              <Link to={"/crear-menu"} className="btn btn-primary ">
+            <div className="d-flex justify-content-md-around flex-column flex-md-row my-3">
+              <Link to={"/crear-menu"} className="btn btn-primary my-2 my-md-0">
                 + Crear Menu
                 <FontAwesomeIcon icon={faMitten} className="ms-2" />
               </Link>
-              <Link to={"/crear-usuario"} className="btn btn-primary ">
+              <Link
+                to={"/crear-usuario"}
+                className="btn btn-primary my-2 my-md-0"
+              >
                 + Crear Usuario
                 <FontAwesomeIcon icon={faUser} className="ms-2" />
               </Link>

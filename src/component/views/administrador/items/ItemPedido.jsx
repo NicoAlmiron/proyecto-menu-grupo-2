@@ -143,7 +143,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
             </Button>
             <Button
               variant="danger"
-              className="ms-2"
+              className="ms-md-2"
               onClick={borrarPedidoSelect}
             >
               <FontAwesomeIcon icon={faTrash} className="me-1" />

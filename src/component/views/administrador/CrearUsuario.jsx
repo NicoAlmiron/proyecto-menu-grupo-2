@@ -52,8 +52,8 @@ const CrearUsuario = () => {
 
   return (
     <Container>
-      <h3 className="display-3 mt-4 mb-5 ms-4">
-        Crea un Usuario <FontAwesomeIcon icon={faUserPlus} className="ms-2" />
+      <h3 className="display-5 mt-4 mb-5 ms-1">
+        Crea un Usuario <FontAwesomeIcon icon={faUserPlus} className="ms-1" />
       </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu p-3">
         <Form onSubmit={handleSubmit(onSubmit)}>

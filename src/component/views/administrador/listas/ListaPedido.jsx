@@ -46,7 +46,7 @@ const ListaPedido = () => {
 
   return (
     <>
-      <Table striped hover variant="secondary" className="shadow">
+      <Table striped hover variant="secondary" className="shadow" responsive>
         <thead>
           <tr>
             <th

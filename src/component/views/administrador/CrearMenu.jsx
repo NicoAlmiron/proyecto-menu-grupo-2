@@ -48,7 +48,7 @@ const CrearMenu = () => {
 
   return (
     <Container>
-      <h3 className="display-3 mt-4 mb-5 ms-4">
+      <h3 className="display-md-3 display-5 mt-4 mb-5 ms-4">
         Crea un menu <FontAwesomeIcon icon={faBowlFood} className="ms-2" />
       </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu pt-2">

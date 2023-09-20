@@ -77,7 +77,7 @@ const EditarMenu = () => {
 
   return (
     <Container>
-      <h3 className="display-3 mt-4 mb-5 ms-4">
+      <h3 className="display-4 mt-4 mb-5 ms-4">
         Edita el menu <FontAwesomeIcon icon={faPencil} className="ms-2" />
       </h3>
       <div className="card mt-3 mb-5 shadow bg-card-crear-menu pt-2">

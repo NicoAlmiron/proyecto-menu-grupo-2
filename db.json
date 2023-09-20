@@ -8,7 +8,6 @@
       "estado": true,
       "perfil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9zuWJ0xU19Mgk0dNFnl2KIc8E9Ch0zhfCg&usqp=CAU"
     },
-
     {
       "id": 3,
       "nombre": "user2",
@@ -81,12 +80,12 @@
       "id": 5
     },
     {
-      "nombreMenu": "helado",
+      "nombreMenu": "helados",
       "categoria": "Postres",
       "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
       "precio": "500",
       "detalle": "un rico helado",
-      "estado": false,
+      "estado": "pendiente",
       "id": 6
     },
     {
