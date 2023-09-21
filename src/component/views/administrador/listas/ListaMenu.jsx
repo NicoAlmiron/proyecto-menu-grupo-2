@@ -54,7 +54,13 @@ const ListaMenu = () => {
   };
   return (
     <>
-      <Table striped hover variant="secondary" className="shadow" responsive>
+      <Table
+        striped
+        hover
+        variant="warning"
+        className="shadow w-100"
+        responsive
+      >
         <thead>
           <tr>
             <th className="fs-5 fw-light text-center">

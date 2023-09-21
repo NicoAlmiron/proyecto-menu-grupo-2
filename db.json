@@ -139,21 +139,30 @@
       "id": 1,
       "usuario": "user1",
       "fecha": "15/09/2023",
-      "menu": "helado",
+      "menu": [
+        "ensalada rusa",
+        "gaseosa"
+      ],
       "estado": false
     },
     {
       "id": 2,
       "usuario": "user2",
       "fecha": "15/09/2023",
-      "menu": "sanguche",
+      "menu": [
+        "ensalada rusa",
+        "gaseosa"
+      ],
       "estado": true
     },
     {
       "id": 3,
       "usuario": "user3",
       "fecha": "15/09/2023",
-      "menu": "ensalada rusa",
+      "menu": [
+        "ensalada rusa",
+        "gaseosa"
+      ],
       "estado": true
     }
   ]

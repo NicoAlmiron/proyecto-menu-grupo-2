@@ -118,7 +118,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
   return (
     <tr>
       <td>
-        <p className="fw-light text-center">{pedido.menu}</p>
+        <p className="fw-light text-center">{`${pedido.menu}`}</p>
       </td>
       <td>
         <p className="fw-light text-center">{pedido.usuario}</p>

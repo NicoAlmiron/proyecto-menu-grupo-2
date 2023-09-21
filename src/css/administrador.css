@@ -1,10 +1,10 @@
 .bg-Admin {
-  background-color: rgb(228, 226, 226);
+  background-color: #999966;
   transition: 1s;
 }
 
 .bg-Admin:hover {
-  background-color: rgb(187, 187, 187);
+  background-color: #cacaa3;
 }
 
 .img-item {
@@ -23,7 +23,7 @@
 }
 
 .bg-card-crear-menu {
-  background-color: whitesmoke;
+  background-color: #16181f;
 }
 
 .btn-filtrado-lista-menu {
@@ -51,4 +51,62 @@
 
 .btn-lista-usuario:hover {
   background-color: whitesmoke;
+}
+
+.bg-pagina-administrador {
+  background-image: url(/public/background-admin.jpg);
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  min-height: 66rem;
+}
+
+.seleccion-listas-administrador {
+  background-color: #f1b708;
+}
+
+.bg-boton-listas {
+  background-color: #ffbf00;
+}
+
+.bg-boton-listas:hover {
+  background-color: #e9cd78;
+}
+
+.btn-crear {
+  background-color: #f1b708;
+}
+
+.btn-crear:hover {
+  background-color: #e9cd78;
+}
+
+.bg-pagina-crearMenu {
+  background-image: url(/public/background-crearMenu.jpg);
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  min-height: 40rem;
+}
+
+.titulo-crear-menu {
+  background-color: #16181f;
+  color: #f1b708;
+  transition: 1s;
+}
+
+.titulo-crear-menu:hover {
+  background-color: #0b0d0f;
+}
+
+.bg-pagina-crearUsuario {
+  background-image: url(/public/background-crearUsuario.jpg);
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  min-height: 35rem;
+}
+
+.titulo-crear-usuario:hover {
+  background-color: #0b0d0f;
 }

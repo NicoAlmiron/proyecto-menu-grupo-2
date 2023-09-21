@@ -35,26 +35,12 @@ const ListaPedido = () => {
     setListaPedidos(arrayOrdenado);
   };
 
-  const ordenarPedidoAlfabeticamente = () => {
-    const arrayOrdenado = [...listaPedidos].sort((a, b) => {
-      const nombreA = a.menu.toLowerCase();
-      const nombreB = b.menu.toLowerCase();
-      return nombreA.localeCompare(nombreB);
-    });
-    setListaPedidos(arrayOrdenado);
-  };
-
   return (
     <>
-      <Table striped hover variant="secondary" className="shadow" responsive>
+      <Table striped hover variant="warning" className="shadow" responsive>
         <thead>
           <tr>
-            <th
-              className="fs-5 fw-light text-center btn-lista-pedido"
-              onClick={ordenarPedidoAlfabeticamente}
-            >
-              Pedido
-            </th>
+            <th className="fs-5 fw-light text-center">Pedido</th>
             <th
               className="fs-5 fw-light text-center btn-lista-pedido"
               onClick={ordenarClienteAlfabeticamente}

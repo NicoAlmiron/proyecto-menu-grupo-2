@@ -45,7 +45,7 @@ const ListaUsuario = () => {
 
   return (
     <>
-      <Table striped hover variant="secondary" className="shadow" responsive>
+      <Table striped hover variant="warning" className="shadow" responsive>
         <thead>
           <tr>
             <th className="fs-5 fw-light text-center">Perfil</th>
