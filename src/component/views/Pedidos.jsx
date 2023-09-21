@@ -17,7 +17,7 @@ const Pedidos = () => {
               />
               <Card.Body className="bg-dark">
                 <Card.Title className="text-white text-center">
-                  Card Title
+                  TITULO
                 </Card.Title>
                 <Card.Text className="text-white text-center">
                   Some quick example text to build on the card title and make up
