@@ -21,20 +21,30 @@
 .title-page-login {
   font-family: "Roboto", sans-serif;
   font-size: 22px;
+  color:var(--darkOrange)
 }
 
-.btn-accederLogin {
-  background-color: #183d3d;
+.btn-fullWidth {
   display: block;
   width: 100%;
 }
-.btn-accederLogin:hover {
-  background-color: #5c8374;
+
+.btn-outline-darkKhaki {
+  color:var(--darkKhaki);
+  border-color: var(--darkKhaki);
 }
 
-.subtitle-page-login {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
+.btn-outline-darkKhaki:hover {
+  color: #000;
+  background-color: var(--darkKhaki);
+  border-color: var(--darkKhaki);
+}
+
+.btn-rounded {
+  font-size: 1rem;
+  border-radius: 1rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .footer {
