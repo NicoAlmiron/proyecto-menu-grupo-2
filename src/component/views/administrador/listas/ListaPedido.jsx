@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import ItemPedido from "../items/ItemPedido";
 import ItemPlaceholder from "../items/ItemPlaceholder";
-import { listarPedidos, realizarPedido } from "../../../helpers/queries";
+import { listarPedidos } from "../../../helpers/queries";
 import Paginacion from "../Paginacion";
 
 const ListaPedido = () => {

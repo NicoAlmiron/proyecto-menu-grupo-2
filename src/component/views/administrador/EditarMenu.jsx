@@ -12,11 +12,7 @@ import { useForm } from "react-hook-form";
 import { editarMenu, obtenerMenu } from "../../helpers/queries";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import {
-  faCheck,
-  faPenToSquare,
-  faPencil,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faPencil } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const EditarMenu = () => {
