@@ -1,36 +1,43 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import "../../css/pedidos.css";
-import { listarPedidos } from "../helpers/queries";
+import { listarMenus } from "../helpers/queries";
+import CardPedidos from "../pedidos/CardPedidos";
+import { Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 export const Pedidos = () => {
-  const [listapedidos, setListaPedidos] = useState([]);
+  const arrayPedidos = [1, 2];
+  const [listaMenus, setListaMenus] = useState([]);
+  const [listaPedidos, setListaPedidos] = useState([]);
+
   useEffect(() => {
-    listarPedidos().then((respuestaPedidos) => {
-      if (respuestaPedidos) {
-        setListaPedidos(respuestaPedidos);
-      } else {
-        Swal.fire("Good job!", "You clicked the button!", "success");
-      }
-    });
+    listarMenus()
+      .then((resp) => {
+        if (resp) {
+          setListaMenus(resp);
+          // setListaPedidos(resp);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
+  const filtrarLista = () => {
+    const arrayfiltrado = listaMenus.filter((menu) => {
+      return arrayPedidos.includes(menu.id);
+    });
+    return arrayfiltrado;
+  };
+  useEffect(() => {
+    setListaPedidos(filtrarLista());
+  }, []);
   return (
-    <section className="mainSection">
-      <img
-        className="banner"
-        src="https://images.pexels.com/photos/6802983/pexels-photo-6802983.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt="fondo cafe"
-      />
-      <Container>
-        <h1 className="display-4">Nuestros Productos</h1>
-        <hr />
-        <Row>
-          <CardPedidos></CardPedidos>
-        </Row>
-      </Container>
-    </section>
+    <div className="bg containerDetalleMenu">
+      {listaPedidos.map((menu) => (
+        <CardPedidos key={menu.id} {...menu}></CardPedidos>
+      ))}
+    </div>
   );
 };
 

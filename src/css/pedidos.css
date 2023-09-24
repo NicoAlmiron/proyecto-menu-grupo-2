@@ -16,3 +16,6 @@
   height: 395px;
   width: 100%;
 }
+.mainSection {
+  flex-grow: 1;
+}
