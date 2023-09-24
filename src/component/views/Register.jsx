@@ -22,27 +22,29 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (usuarioNUevo) => {
-    registroUsuario(usuarioNUevo)
-      .then((resp) => {
-        if (resp.status === 201) {
-          Swal.fire(
-            "¡Felicitaciones " + usuarioNUevo.nombreUsuario + "!",
-            "Ya eres parte de nuestro Team!",
-            "success"
-          );
-          reset();
-          navegacion("/login");
-        } else {
-          Swal.fire(
-            "Oops!",
-            "Hay algun error en los datos ingresados. Prueba nuevamente!",
-            "error"
-          );
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    usuarioNUevo.estado = true,
+      usuarioNUevo.perfil = "user",
+      registroUsuario(usuarioNUevo)
+        .then((resp) => {
+          if (resp.status === 201) {
+            Swal.fire(
+              "¡Felicitaciones " + usuarioNUevo.nombre + "!",
+              "Ya eres parte de nuestros clientes!",
+              "success"
+            );
+            reset();
+            navegacion("/login");
+          } else {
+            Swal.fire(
+              "Oops!",
+              "Hay algun error en los datos ingresados. Prueba nuevamente!",
+              "error"
+            );
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   };
 
   return (
@@ -56,7 +58,7 @@ const Register = () => {
             <FloatingLabel label="Nombre de usuario" className="mb-3">
               <Form.Control
                 type="text"
-                placeholder="Mario Bross"
+                placeholder="Juan Perez"
                 {...register("nombreUsuario", {
                   required: "El nombre es un dato obligatorio",
                   pattern: {
@@ -105,6 +107,7 @@ const Register = () => {
                 {errors.password?.message}
               </Form.Text>
             </FloatingLabel>
+
             <Button
               variant="primary"
               type="submit"

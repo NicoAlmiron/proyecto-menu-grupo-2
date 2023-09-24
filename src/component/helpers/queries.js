@@ -22,7 +22,6 @@ export const login = async (usuario) => {
 };
 
 export const registroUsuario = async (usuarioNuevo) => {
-  usuarioNuevo.juegosFavoritos = [];
   try {
     const resp = await fetch(uriUsuario, {
       method: "POST",
