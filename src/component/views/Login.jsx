@@ -25,7 +25,7 @@ const Login = ({ setUsuarioActivo }) => {
     login(usuario).then((respuesta) => {
       if (respuesta) {
         Swal.fire(
-          "¡Bienvenido " + respuesta.nombreUsuario + "!",
+          "¡Bienvenido " + respuesta.nombre + "!",
           "Te logueaste correctamente!",
           "success"
         );
