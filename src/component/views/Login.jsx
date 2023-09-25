@@ -29,6 +29,8 @@ const Login = ({ setUsuarioActivo }) => {
           "Te logueaste correctamente!",
           "success"
         );
+        reset();
+        navegacion("/inicio");
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(respuesta));
         setUsuarioActivo(respuesta);
         reset();

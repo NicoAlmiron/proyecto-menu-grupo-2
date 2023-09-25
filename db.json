@@ -17,7 +17,7 @@
       "perfil": "user"
     },
     {
-      "nombreUsuario": "user2",
+      "nombre": "user2",
       "email": "user2@rolling.com",
       "password": "User4321",
       "estado": true,

@@ -59,7 +59,7 @@ const Register = () => {
               <Form.Control
                 type="text"
                 placeholder="Juan Perez"
-                {...register("nombreUsuario", {
+                {...register("nombre", {
                   required: "El nombre es un dato obligatorio",
                   pattern: {
                     value: /^(?:[a-zA-Z0-9]{2,16}\s*){1,}$/,
@@ -68,7 +68,7 @@ const Register = () => {
                 })}
               />
               <Form.Text className="text-danger">
-                {errors.nombreUsuario?.message}
+                {errors.nombre?.message}
               </Form.Text>
             </FloatingLabel>
 
