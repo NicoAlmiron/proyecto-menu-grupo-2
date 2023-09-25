@@ -1,4 +1,4 @@
-import "../css/Register.css";
+import "../../css/Register.css";
 import { Button, Container } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
@@ -22,8 +22,8 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (usuarioNUevo) => {
-    usuarioNUevo.estado = true,
-      usuarioNUevo.perfil = "user",
+    (usuarioNUevo.estado = true),
+      (usuarioNUevo.perfil = "user"),
       registroUsuario(usuarioNUevo)
         .then((resp) => {
           if (resp.status === 201) {
@@ -51,9 +51,7 @@ const Register = () => {
     <>
       <div className="d-flex justify-content-center place-Register">
         <Container className="bg-dark-01 mb-4 rounded-4 shadow cont-Register">
-          <h4 className="fw-bold title-page-Register">
-            Cree una cuenta:
-          </h4>
+          <h4 className="fw-bold title-page-Register">Cree una cuenta:</h4>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
             <FloatingLabel label="Nombre de usuario" className="mb-3">
               <Form.Control
