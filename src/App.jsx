@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from "./component/common/Menu";
 import Login from "./component/views/Login";
-import Registro from "./component/views/Registro";
+import Register from "./component/views/Register";
 import DetalleMenu from "./component/views/DetalleMenu";
 import Administrador from "./component/views/Administrador";
 import AcercaDeNosotros from "./component/views/AcercaDeNosotros";
@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         <Route exact path="/login" element={<Login></Login>}></Route>
-        <Route exact path="/registro" element={<Registro></Registro>}></Route>
+        <Route exact path="/register" element={<Register></Register>}></Route>
         <Route
           exact
           path="/detalle-menu"
