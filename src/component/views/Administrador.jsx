@@ -66,14 +66,14 @@ const Administrador = () => {
               </div>
               <div className="d-flex justify-content-md-around flex-column flex-md-row my-3">
                 <Link
-                  to={"/crear-menu"}
+                  to={"/administrador/crear-menu"}
                   className="btn btn-primary my-2 my-md-0 btn-crear text-dark border border-secondary"
                 >
                   + Crear Menu
                   <FontAwesomeIcon icon={faMitten} className="ms-2" />
                 </Link>
                 <Link
-                  to={"/crear-usuario"}
+                  to={"/administrador/crear-usuario"}
                   className="btn btn-primary my-2 my-md-0 btn-crear text-dark border border-secondary"
                 >
                   + Crear Usuario

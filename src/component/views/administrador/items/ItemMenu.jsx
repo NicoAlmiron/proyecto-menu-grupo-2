@@ -97,7 +97,10 @@ const ItemMenu = ({
       </td>
       <td>
         <div className="d-flex flex-column">
-          <Link to={`/editar-menu/${id}`} className="btn btn-warning">
+          <Link
+            to={`/administrador/editar-menu/${id}`}
+            className="btn btn-warning"
+          >
             <FontAwesomeIcon icon={faPenToSquare} /> Editar
           </Link>
           <Button
