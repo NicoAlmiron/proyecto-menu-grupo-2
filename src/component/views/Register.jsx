@@ -49,10 +49,10 @@ const Register = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center bgRegister place-login">
-        <Container className="bg-light mb-auto rounded-4 shadow cont-login">
-          <h4 className="fw-bold titulo-page-login">
-            Cree una cuenta con nosotros:
+      <div className="d-flex justify-content-center place-Register">
+        <Container className="bg-dark-01 mb-4 rounded-4 shadow cont-Register">
+          <h4 className="fw-bold title-page-Register">
+            Cree una cuenta:
           </h4>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-3">
             <FloatingLabel label="Nombre de usuario" className="mb-3">
@@ -109,9 +109,9 @@ const Register = () => {
             </FloatingLabel>
 
             <Button
-              variant="primary"
+              variant="dark"
               type="submit"
-              className="btn-access shadow"
+              className="btn-fullWidth btn-outline-darkKhaki btn-outline-darkKhaki:hover btn-rounded shadow"
             >
               Crear cuenta!
             </Button>

@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
-
 :root {
   --dark-1: #0b0d0f;
   --dark-2: #16181f;
@@ -10,11 +9,12 @@
   --light-1: #efefef;
 }
 
-.bgLogin {
+#root {
+  background-size: 100% 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-1);
   background-image: url(/public/background01.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .place-login {
@@ -58,9 +58,9 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
+/* 
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} */
