@@ -1,0 +1,118 @@
+.bg-Admin {
+    background-color: #999966;
+    transition: 1s;
+}
+
+.bg-Admin:hover {
+    background-color: #cacaa3;
+}
+
+.img-item {
+    width: 130px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.bg-list {
+    cursor: pointer;
+}
+
+.img-crear-menu {
+    width: 100%;
+    height: 100px;
+}
+
+.bg-card-crear-menu {
+    background-color: #999966;
+}
+
+.btn-filtrado-lista-menu {
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.btn-filtrado-lista-menu:hover {
+    background-color: whitesmoke;
+}
+
+.btn-lista-pedido {
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.btn-lista-pedido:hover {
+    background-color: whitesmoke;
+}
+
+.btn-lista-usuario {
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.btn-lista-usuario:hover {
+    background-color: whitesmoke;
+}
+
+.bg-pagina-administrador {
+    background-image: url(/public/background-admin.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    min-height: 66rem;
+}
+
+.seleccion-listas-administrador {
+    background-color: #f1b708;
+}
+
+.bg-boton-listas {
+    background-color: #ffbf00;
+}
+
+.bg-boton-listas:hover {
+    background-color: #e9cd78;
+}
+
+.btn-crear {
+    background-color: #f1b708;
+}
+
+.btn-crear:hover {
+    background-color: #e9cd78;
+}
+
+.bg-pagina-crearMenu {
+    background-image: url(/public/background-crearMenu.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    min-height: 40rem;
+}
+
+.titulo-crear-menu {
+    background-color: #f1b708;
+    color: #000;
+    transition: 1s;
+}
+
+.titulo-crear-menu:hover {
+    background-color: #999966;
+}
+
+.bg-pagina-crearUsuario {
+    background-image: url(/public/background-crearUsuario.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+    min-height: 35rem;
+}
+
+.titulo-crear-usuario {
+    background-color: #f1b708;
+    color: #000;
+    transition: 1s;
+}
+
+.titulo-crear-usuario:hover {
+    background-color: #999966;
+}
