@@ -35,6 +35,15 @@
       "detalle": "ensalada tipo rusa con diversas verduras",
       "categoria": "ensaladas",
       "imagen": "https://recetas123.net/wp-content/uploads/Ensalada-rusa.jpg"
+    },
+    {
+      "id": 3,
+      "nombreMenu": "Coca-Cola",
+      "estado": "pendiente",
+      "precio": 1100,
+      "detalle": "Gaseosa de 2.5L",
+      "categoria": "bebidas",
+      "imagen": "https://quirinobebidas.com.ar/wp-content/uploads/2022/10/productos-2022-10-04T111414.437.png"
     }
   ],
   "pedidos": [

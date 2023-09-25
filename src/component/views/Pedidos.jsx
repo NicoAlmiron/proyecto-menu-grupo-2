@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Button } from "react";
 import "../../css/pedidos.css";
 import { listarMenus } from "../helpers/queries";
 import CardPedidos from "../pedidos/CardPedidos";
