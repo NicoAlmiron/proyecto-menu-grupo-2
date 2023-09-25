@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../../css/pedidos.css";
 import { listarMenus } from "../helpers/queries";
 import CardPedidos from "../pedidos/CardPedidos";
-import { Row } from "react-bootstrap";
-import Swal from "sweetalert2";
+// import { Row } from "react-bootstrap";
+// import Swal from "sweetalert2";
 
 export const Pedidos = () => {
   const arrayPedidos = [1, 2];
@@ -35,7 +35,7 @@ export const Pedidos = () => {
   return (
     <div className="bg containerDetalleMenu">
       {listaPedidos.map((menu) => (
-        <CardPedidos key={menu.id} {...menu}></CardPedidos>
+        <CardPedidos key={menu.id} menu={menu}></CardPedidos>
       ))}
     </div>
   );
