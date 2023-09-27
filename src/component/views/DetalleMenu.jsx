@@ -15,9 +15,9 @@ function DetalleMenu() {
             />
 
             <Card.Body>
-              <Card.Text className="bg-dark" text="ligth">
-                <h1>Receta de Berenjenas Rellenas</h1>
-                <h2>Ingredientes (4 porciones)</h2>
+              <Card.Text className="bg-dark text-white">
+                <h2>Receta de Berenjenas Rellenas</h2>
+                <h3>Ingredientes (4 porciones)</h3>
                 <ul>
                   <li>4 berenjenas pequeñas o medianas</li>
                   <li>1 cebolla grande</li>
@@ -41,7 +41,9 @@ function DetalleMenu() {
                   alt="Card image"
                 />
                 <Card.ImgOverlay>
-                  <Card.Title>ELABORACION</Card.Title>
+                  <Card.Title className="Hola">
+                    <h3>ELABORACION</h3>
+                  </Card.Title>
                   <Card.Text>
                     <p>
                       Cortamos las berenjenas por la mitad a lo largo pero
