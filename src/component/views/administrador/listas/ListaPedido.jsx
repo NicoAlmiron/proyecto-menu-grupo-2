@@ -40,7 +40,7 @@ const ListaPedido = () => {
       <Table striped hover variant="warning" className="shadow" responsive>
         <thead>
           <tr>
-            <th className="fs-5 fw-light text-center">Pedido</th>
+            <th className="fs-5 fw-light text-center">Pedidos</th>
             <th
               className="fs-5 fw-light text-center btn-lista-pedido"
               onClick={ordenarClienteAlfabeticamente}

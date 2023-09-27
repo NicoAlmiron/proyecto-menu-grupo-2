@@ -123,45 +123,27 @@ const CrearUsuario = () => {
                   </Form.Text>
                 </FloatingLabel>
               </Col>
-              <Col md={2} className="text-end">
-                <Image
-                  src={
-                    imagen
-                      ? imagen
-                      : "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
-                  }
-                  alt="imagen-del-juego"
-                  rounded
-                  className="img-crear-menu"
-                ></Image>
-              </Col>
-              <Col md={6} className="pt-4">
+              <Col md={6}>
                 <FloatingLabel
-                  controlId="imagen"
-                  label="URL imagen del menu*"
-                  className="mb-3"
+                  controlId="perfil"
+                  label="Perfil del nuevo usuario*"
                 >
-                  <Form.Control
-                    type="text"
-                    autoComplete="off"
-                    placeholder="URL imagen del menu*"
-                    {...register("imagen", {
-                      required: "La Url de la imagen es obligatoria",
-                      pattern: {
-                        value: /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/,
-                        message: "La Url debe ser valida",
-                      },
+                  <Form.Select
+                    aria-label="Perfil del nuevo usuario*"
+                    {...register("perfil", {
+                      required: "Este campo es obligatorio",
                     })}
-                    onChange={(e) => {
-                      setImagen(e.target.value);
-                    }}
-                  ></Form.Control>
+                  >
+                    <option value="">Elige un perfil</option>
+                    <option value={true}>Administrador</option>
+                    <option value={false}>Usuario</option>
+                  </Form.Select>
                   <Form.Text className="text-danger ps-2">
-                    {errors.imagen?.message}
+                    {errors.perfil?.message}
                   </Form.Text>
                 </FloatingLabel>
               </Col>
-              <Col md={4} className="pt-4">
+              <Col md={6}>
                 <FloatingLabel
                   controlId="password"
                   label="Contraseña*"
