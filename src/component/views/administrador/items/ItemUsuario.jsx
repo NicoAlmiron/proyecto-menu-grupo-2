@@ -99,16 +99,9 @@ const ItemUsuario = ({ user }) => {
   return (
     <tr>
       <td>
-        <Image
-          src={
-            user.perfil
-              ? user.perfil
-              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUh66Phs0ZKCT_FNuieeq0F8dWEEvd7xxyRg&usqp=CAU"
-          }
-          alt={user.nombre}
-          rounded
-          className="img-item"
-        ></Image>
+        <p className="fw-light text-center">
+          {user.perfil ? "Administrador" : "Usuario"}
+        </p>
       </td>
       <td>
         <p className="fw-light text-center">{user.nombre}</p>

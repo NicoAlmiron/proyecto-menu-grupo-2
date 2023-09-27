@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import {
   realizarPedido,
   deshacerPedido,
   borrarPedido,
   listarPedidos,
+  listarMenus,
 } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import ListaItemPedido from "./ListaItemPedido";
 
 const ItemPedido = ({ pedido, setListaPedidos }) => {
   const [estadoPedido, setEstadoPedido] = useState(pedido.estado);
+  const [listaMenus, setListaMenus] = useState([]);
+  const [menuPedido, setMenuPedido] = useState([]);
 
   const pedidoRealizado = () => {
     if (!pedido.estado) {
@@ -34,6 +38,26 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
         });
     }
   };
+
+  useEffect(() => {
+    listarMenus()
+      .then((resp) => {
+        if (resp) {
+          setListaMenus(resp);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    const arrayBuscado = pedido.menu;
+    const arrayfiltrado = listaMenus.filter((menu) => {
+      return arrayBuscado.includes(menu.id);
+    });
+    setMenuPedido(arrayfiltrado);
+  }, [listaMenus]);
 
   const pedidoDeshecho = () => {
     if (pedido.estado) {
@@ -118,7 +142,11 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
   return (
     <tr>
       <td>
-        <p className="fw-light text-center">{`${pedido.menu}`}</p>
+        <ul>
+          {menuPedido?.map((menu) => (
+            <ListaItemPedido key={menu.id} {...menu}></ListaItemPedido>
+          ))}
+        </ul>
       </td>
       <td>
         <p className="fw-light text-center">{pedido.usuario}</p>
