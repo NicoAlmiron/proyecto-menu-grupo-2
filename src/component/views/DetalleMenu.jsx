@@ -3,9 +3,10 @@ import { Container, Card, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "../../css/DetalleMenu.css";
 import { obtenerMenu } from "../helpers/queries";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function DetalleMenu() {
+  const irAPedido = useNavigate();
   const { id } = useParams();
   const arrayPedido = JSON.parse(localStorage.getItem("pedidos")) || [];
   const [listaPedidos, setListaPedidos] = useState(arrayPedido);
@@ -25,7 +26,7 @@ function DetalleMenu() {
       });
   }, []);
   const agregarAPedido = () => {
-    setListaPedidos(...arrayPedido, id);
+    setListaPedidos([...arrayPedido, parseInt(id)]);
   };
   useEffect(() => {
     localStorage.setItem("pedidos", JSON.stringify(listaPedidos));
@@ -50,7 +51,9 @@ function DetalleMenu() {
           <Button variant="success" onClick={() => agregarAPedido()}>
             Agregar al pedido
           </Button>{" "}
-          <Button variant="info">ir al pedido</Button>{" "}
+          <Button variant="info" onClick={() => irAPedido("/pedidos")}>
+            ir al pedido
+          </Button>{" "}
         </div>
       </Container>
     </>
