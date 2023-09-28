@@ -3,33 +3,47 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from "./component/common/Menu";
 import Login from "./component/views/Login";
-import Registro from "./component/views/Registro";
-import DetalleMenu from "./component/views/DetalleMenu";
-import Administrador from "./component/views/Administrador";
+import Register from "./component/views/Register";
 import AcercaDeNosotros from "./component/views/AcercaDeNosotros";
 import Pedidos from "./component/views/Pedidos";
 import Error404 from "./component/views/Error404";
 import Footer from "./component/common/Footer";
 import Inicio from "./component/views/Inicio";
-import ImageAndTextExample from "./component/views/DetalleMenu";
+import DetalleMenu from "./component/views/DetalleMenu";
+import EncapsularRutas from "./component/routes/EncapsularRutas";
+import { useState } from "react";
+import RutasProtegidas from "./component/routes/RutasProtegidas";
 
 function App() {
+  const usuarioEnLinea =
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+
+  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
   return (
     <BrowserRouter>
       <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
-        <Route exact path="/login" element={<Login></Login>}></Route>
-        <Route exact path="/registro" element={<Registro></Registro>}></Route>
+        {usuarioActivo?.email === "admin@rolling.com" ? (
+          <Route
+            path="/administrador/*"
+            element={
+              <EncapsularRutas>
+                <RutasProtegidas></RutasProtegidas>
+              </EncapsularRutas>
+            }
+          ></Route>
+        ) : null}
         <Route
           exact
-          path="/detalle-menu"
-          element={<DetalleMenu></DetalleMenu>}
+          path="/login"
+          element={<Login setUsuarioActivo={setUsuarioActivo}></Login>}
         ></Route>
+        <Route exact path="/register" element={<Register></Register>}></Route>
         <Route
           exact
-          path="/administrador"
-          element={<Administrador></Administrador>}
+          path="/detalle-menu/:id"
+          element={<DetalleMenu></DetalleMenu>}
         ></Route>
         <Route
           exact
