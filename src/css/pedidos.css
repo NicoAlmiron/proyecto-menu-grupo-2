@@ -11,6 +11,10 @@
 }
 
 .cardPedidos {
-  width: 20rem;
-  height: 10rem;
+  width: 22rem;
+  height: 28rem;
+}
+.cardImg {
+  width: 100%;
+  height: 15rem;
 }

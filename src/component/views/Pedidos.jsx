@@ -5,6 +5,7 @@ import CardPedidos from "../pedidos/CardPedidos";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
+import { get } from "react-hook-form";
 // import { Row } from "react-bootstrap";
 // import Swal from "sweetalert2";
 
@@ -12,6 +13,21 @@ export const Pedidos = () => {
   const arrayPedidos = [1, 2, 3];
   const [listaMenus, setListaMenus] = useState([]);
   const [listaPedidos, setListaPedidos] = useState([]);
+  const usuarioLogueado =
+    JSON.parse(localStorage.getItem("usuarioLogueado")) || {};
+  const [usuario, setUsuario] = useState(usuarioLogueado);
+  const [fechapedido, setFechapedido] = useState(null);
+  const fechayHora = () => {
+    const ahora = new Date();
+    const dia = ahora.getDate();
+    const mes = ahora.getMonth() + 1;
+    const año = ahora.getFullYear();
+    const horas = ahora.getHours();
+    const minutos = ahora.getMinutes();
+    const fechaHoraActual =
+      dia + "/" + mes + "/" + año + " " + horas + ":" + minutos;
+    return fechaHoraActual;
+  };
 
   useEffect(() => {
     listarMenus()
@@ -35,16 +51,26 @@ export const Pedidos = () => {
   useEffect(() => {
     setListaPedidos(filtrarLista());
   }, [listaMenus]);
+  const agregarPedidos = () => {
+    const fechaActual = fechayHora();
+    const pedido = {
+      usuario: usuario.nombre,
+      fecha: fechaActual,
+      menu: listaPedidos,
+      estado: false,
+    };
+    console.log(pedido);
+  };
   return (
     <div className="bg">
-      <Container className="d-flex flex-column">
-        <div className=" d-flex flex-column flex-md-row justify-content-md-around">
-          {listaPedidos.map((menu) => (
-            <CardPedidos key={menu.id} menu={menu}></CardPedidos>
-          ))}
-        </div>
-      </Container>
-      <div className="mt-auto">
+      <div className="containerDetalleMenu">
+        <Container className="m-3">
+          <div className=" d-flex flex-column flex-md-row justify-content-md-around">
+            {listaPedidos.map((menu) => (
+              <CardPedidos key={menu.id} menu={menu}></CardPedidos>
+            ))}
+          </div>
+        </Container>
         <Card>
           <Card.Body>
             <Card.Title>Special title treatment</Card.Title>
@@ -52,7 +78,14 @@ export const Pedidos = () => {
               With supporting text below as a natural lead-in to additional
               content.
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button
+              variant="primary"
+              onClick={() => {
+                agregarPedidos();
+              }}
+            >
+              Go somewhere
+            </Button>
           </Card.Body>
         </Card>
       </div>
