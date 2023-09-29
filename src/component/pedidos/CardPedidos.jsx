@@ -5,7 +5,7 @@ const CardPedidos = ({ menu }) => {
   return (
     <div>
       {/* <Col md={4} ld={3} className="mb-3"> */}
-      <Card style={{ width: "15rem" }} className="mt-2">
+      <Card className="mt-2 cardPedidos">
         <Card.Img variant="top" src={menu.imagen} alt={menu.nombreMenu} />
         <Card.Body className="bg-dark">
           <Card.Title className="text-white text-center">
@@ -19,6 +19,7 @@ const CardPedidos = ({ menu }) => {
           </Button>
         </Card.Body>
       </Card>
+
       {/* </Col> */}
     </div>
   );
