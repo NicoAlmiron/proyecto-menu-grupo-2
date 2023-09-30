@@ -1,26 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Great+Vibes&display=swap");
 
-h2 {
+.estilo-letras {
   font-family: "Great Vibes", cursive;
-  color: rgba(255, 255, 0, 0.644);
+  color: rgba(31, 31, 20, 0.644);
 }
-h3 {
+
+.card-img-detalle {
+  width: 100%;
+  height: 30rem;
+}
+.estilo-textos {
   font-family: "Andika", sans-serif;
   color: rgba(255, 255, 0, 0.644);
-}
-
-ul {
-  color: lightgoldenrodyellow;
-}
-.Hola {
-  color: rgba(255, 255, 0, 0.644);
-}
-
-@media (max-width: 576px) {
-  Card.Body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
 }

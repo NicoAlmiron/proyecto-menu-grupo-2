@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import "../../css/DetalleMenu.css";
 import { obtenerMenu } from "../helpers/queries";
 import { useNavigate, useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function DetalleMenu() {
   const irAPedido = useNavigate();
@@ -36,24 +38,36 @@ function DetalleMenu() {
   return (
     <>
       <Container>
-        <Card>
-          <Card.Img variant="top" src={menu.imagen} />
+        <Card className="bg-dark text-white my-3">
+          <Card.Img
+            variant="top"
+            alt="Imagen del menu"
+            className="card-img-detalle"
+            src={menu.imagen}
+          />
           <Card.ImgOverlay>
-            <Card.Title>{menu.nombreMenu}</Card.Title>
+            <Card.Title>
+              <h2 className="estilo-letras">{menu.nombreMenu}</h2>
+            </Card.Title>
           </Card.ImgOverlay>
+
           <Card.Body>
-            <Card.Text>{menu.detalle}</Card.Text>
+            <Card.Text className="estilo-textos">
+              Descripción del menú: {menu.detalle}
+            </Card.Text>
           </Card.Body>
-          <Card.Footer></Card.Footer>
         </Card>
-        <div>
-          {menu.precio}{" "}
-          <Button variant="success" onClick={() => agregarAPedido()}>
-            Agregar al pedido
-          </Button>{" "}
-          <Button variant="info" onClick={() => irAPedido("/pedidos")}>
-            ir al pedido
-          </Button>{" "}
+
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center text-white bg-dark rounded my-3 p-2 ">
+          Precio : $ {menu.precio}{" "}
+          <div className="text-end d-flex flex-column flex-md-row">
+            <Button variant="success" onClick={() => agregarAPedido()}>
+              <FontAwesomeIcon icon={faPlus} /> Agregar al pedido
+            </Button>{" "}
+            <Button variant="info" onClick={() => irAPedido("/pedidos")}>
+              <FontAwesomeIcon icon={faArrowRight} /> ir al pedido
+            </Button>{" "}
+          </div>
         </div>
       </Container>
     </>
