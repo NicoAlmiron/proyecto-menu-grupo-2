@@ -10,6 +10,16 @@
   font-family: 'Roboto', sans-serif;
 }
 
+main {
+  background-color: #fafafa;
+  margin-top: 74px;
+}
+input:focus {
+    border-color: var(--darkOrange);
+    border-radius: 0.1em;
+    outline: none; 
+}
+
 h1{
     font-family: 'Great Vibes', cursive;
     color: var(--darkOrange);
@@ -86,11 +96,3 @@ span{
   }
 }
 
-main {
-  background-color: #fafafa;
-}
-input:focus {
-    border-color: var(--darkOrange);
-    border-radius: 0.1em;
-    outline: none; 
-}

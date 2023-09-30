@@ -1,0 +1,59 @@
+* {
+  --dark-1: #0b0d0f;
+  --dark-2: #16181f;
+  --darkOrange: #f1b708
+  --darkKhaki: #999966;
+  --light-1: #efefef;
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1.0)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-color: rgba(241, 183, 8, 0.15)
+}
+.menu {
+  background-color: var(--dark-2);
+  position:fixed;
+  z-index: 10;
+  width: 100%;
+}
+.brand{
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+}
+.nav-list{
+    text-align: center;
+}
+.nav-link {
+  color: var(--light-1);
+}
+.nav-link:hover {
+  color: var(--darkOrange);
+}
+.nav-link:focus {
+  color: var(--darkOrange);
+}
+.btn-logout{
+    background-color: transparent;
+    color: #fafafa;
+    border: 2px solid var(--darkKhaki);
+    transition: all 0.5s;
+    border-radius: 0.4em;
+    padding: 5px 15px;
+}
+.btn-logout:hover{
+    background-color: var(--darkKhaki);
+}
+
+footer{
+    background-color: #000;
+}
+
+footer img{
+    width: 200px;
+}
+footer ul{
+    list-style: none;
+}
+
+footer h2{
+    font-family: 'Great Vibes', cursive;
+    color: #f1b708;
+    font-size: 2.5rem;
+}
