@@ -7,43 +7,43 @@ const uriPedidos =
     import.meta.env.VITE_API_PEDIDOS;
 
 export const login = async (usuario) => {
-  try {
-    const respuesta = await fetch(uriUsuario);
-    const listaUsuarios = await respuesta.json();
-    const usuarioBuscado = listaUsuarios.find(
-      (itemUsuario) => itemUsuario.email === usuario.email
-    );
-    if (usuarioBuscado) {
-      if (usuarioBuscado.password === usuario.password) {
-        return usuarioBuscado;
-      } else {
-        return null;
-      }
-    } else {
-      return null;
+    try {
+        const respuesta = await fetch(uriUsuarios);
+        const listaUsuarios = await respuesta.json();
+        const usuarioBuscado = listaUsuarios.find(
+            (itemUsuario) => itemUsuario.email === usuario.email
+        );
+        if (usuarioBuscado) {
+            if (usuarioBuscado.password === usuario.password) {
+                return usuarioBuscado;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 export const registroUsuario = async (usuarioNuevo) => {
-  try {
-    const resp = await fetch(uriUsuario, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(usuarioNuevo),
-    });
-    return resp;
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+        const resp = await fetch(uriUsuarios, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuarioNuevo),
+        });
+        return resp;
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
-export const listarUsuarios = async() => {
+export const listarUsuarios = async () => {
     try {
         const respuesta = await fetch(uriUsuarios);
         const listaUsuarios = await respuesta.json();
@@ -53,7 +53,7 @@ export const listarUsuarios = async() => {
     }
 }
 
-export const crearUsuario = async(user) => {
+export const crearUsuario = async (user) => {
     try {
         const listaUsuarios = await listarUsuarios();
         let usuario = listaUsuarios.find((usuario) => usuario.email === user.email)
@@ -76,7 +76,7 @@ export const crearUsuario = async(user) => {
     }
 }
 
-export const suspenderUsuarios = async(id, ususarioSuspendido) => {
+export const suspenderUsuarios = async (id, ususarioSuspendido) => {
     try {
         const respuesta = await fetch(`${uriUsuarios}/${id}`, {
             method: 'PUT',
@@ -89,7 +89,7 @@ export const suspenderUsuarios = async(id, ususarioSuspendido) => {
     }
 }
 
-export const activarUsuarios = async(id, user) => {
+export const activarUsuarios = async (id, user) => {
     try {
         const respuesta = await fetch(`${uriUsuarios}/${id}`, {
             method: 'PUT',
@@ -103,7 +103,7 @@ export const activarUsuarios = async(id, user) => {
 }
 
 
-export const listarMenus = async() => {
+export const listarMenus = async () => {
     try {
         const respuesta = await fetch(uriMenus);
         const listaMenus = await respuesta.json();
@@ -113,7 +113,7 @@ export const listarMenus = async() => {
     }
 };
 
-export const crearMenu = async(menu) => {
+export const crearMenu = async (menu) => {
     try {
         menu.estado = 'pendiente';
         const respuesta = await fetch(uriMenus, {
@@ -127,7 +127,7 @@ export const crearMenu = async(menu) => {
     }
 }
 
-export const obtenerMenu = async(id) => {
+export const obtenerMenu = async (id) => {
     try {
         const respuesta = await fetch(`${uriMenus}/${id}`);
         const menu = respuesta.json();
@@ -137,7 +137,7 @@ export const obtenerMenu = async(id) => {
     }
 }
 
-export const editarMenu = async(id, menuEditado) => {
+export const editarMenu = async (id, menuEditado) => {
     try {
         menuEditado.estado = 'pendiente';
         const respuesta = await fetch(`${uriMenus}/${id}`, {
@@ -151,7 +151,7 @@ export const editarMenu = async(id, menuEditado) => {
     }
 }
 
-export const borrarMenu = async(id) => {
+export const borrarMenu = async (id) => {
     try {
         const respuesta = await fetch(`${uriMenus}/${id}`, {
             method: "DELETE"
@@ -162,7 +162,7 @@ export const borrarMenu = async(id) => {
     }
 }
 
-export const listarPedidos = async() => {
+export const listarPedidos = async () => {
     try {
         const respuesta = await fetch(uriPedidos);
         const datos = respuesta.json();
@@ -172,7 +172,7 @@ export const listarPedidos = async() => {
     }
 }
 
-export const realizarPedido = async(id, pedidoRealizado) => {
+export const realizarPedido = async (id, pedidoRealizado) => {
     try {
         const respuesta = await fetch(`${uriPedidos}/${id}`, {
             method: 'PUT',
@@ -185,7 +185,7 @@ export const realizarPedido = async(id, pedidoRealizado) => {
     }
 }
 
-export const deshacerPedido = async(id, pedidoDeshecho) => {
+export const deshacerPedido = async (id, pedidoDeshecho) => {
     try {
         const respuesta = await fetch(`${uriPedidos}/${id}`, {
             method: 'PUT',
@@ -199,7 +199,7 @@ export const deshacerPedido = async(id, pedidoDeshecho) => {
 }
 
 
-export const borrarPedido = async(id) => {
+export const borrarPedido = async (id) => {
     try {
         const respuesta = await fetch(`${uriPedidos}/${id}`, {
             method: "DELETE"

@@ -16,9 +16,9 @@ import EditarMenu from "./component/views/administrador/EditarMenu";
 import CrearUsuario from "./component/views/administrador/CrearUsuario";
 
 function App() {
-  const usuarioEnlinea =
-    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
-  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
+  // const usuarioEnlinea =
+  //   JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  // const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
 
   return (
     <BrowserRouter>
