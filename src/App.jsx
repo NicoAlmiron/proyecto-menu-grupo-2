@@ -13,6 +13,10 @@ import Footer from "./component/common/Footer";
 import Inicio from "./component/views/Inicio";
 
 function App() {
+  const usuarioEnlinea =
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
+
   return (
     <BrowserRouter>
       <Menu></Menu>
