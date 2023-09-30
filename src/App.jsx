@@ -9,10 +9,10 @@ import Pedidos from "./component/views/Pedidos";
 import Error404 from "./component/views/Error404";
 import Footer from "./component/common/Footer";
 import Inicio from "./component/views/Inicio";
+import DetalleMenu from "./component/views/DetalleMenu";
 import EncapsularRutas from "./component/routes/EncapsularRutas";
 import { useState } from "react";
 import RutasProtegidas from "./component/routes/RutasProtegidas";
-import DetalleMenu from "./component/views/DetalleMenu";
 
 function App() {
   const usuarioEnLinea =
