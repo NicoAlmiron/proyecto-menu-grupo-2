@@ -14,11 +14,12 @@ import Inicio from "./component/views/Inicio";
 import CrearMenu from "./component/views/administrador/CrearMenu";
 import EditarMenu from "./component/views/administrador/EditarMenu";
 import CrearUsuario from "./component/views/administrador/CrearUsuario";
+import { useState } from "react";
 
 function App() {
-  // const usuarioEnlinea =
-  //   JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
-  // const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
+  const usuarioEnlinea =
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
 
   return (
     <BrowserRouter>
