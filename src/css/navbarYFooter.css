@@ -9,7 +9,7 @@
 }
 .menu {
   background-color: var(--dark-2);
-  position:fixed;
+  position:sticky;
   z-index: 10;
   width: 100%;
 }
