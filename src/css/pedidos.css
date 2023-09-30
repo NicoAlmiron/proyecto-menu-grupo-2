@@ -18,3 +18,13 @@
   width: 100%;
   height: 15rem;
 }
+.colorButton {
+  background-color: #f1b708;
+  transition: 0.5s;
+}
+.colorButton:hover {
+  background-color: #e0c880;
+}
+.colorbgButton {
+  background-color: #999966;
+}

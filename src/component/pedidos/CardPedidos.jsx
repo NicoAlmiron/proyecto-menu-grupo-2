@@ -3,7 +3,7 @@ import "../../css/pedidos.css";
 
 const CardPedidos = ({ menu }) => {
   return (
-    <Card className="m-2 cardPedidos ">
+    <Card border="secondary" className="m-2 cardPedidos rounded-bottom">
       <Card.Img
         variant="top"
         src={menu.imagen}

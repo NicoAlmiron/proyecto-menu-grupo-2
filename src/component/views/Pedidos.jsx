@@ -17,6 +17,21 @@ export const Pedidos = () => {
     JSON.parse(localStorage.getItem("usuarioLogueado")) || {};
   const [usuario, setUsuario] = useState(usuarioLogueado);
   const [fechapedido, setFechapedido] = useState(null);
+  const [precioTotal, setPrecioTotal] = useState(0);
+
+  const sumarPrecios = () => {
+    let precios = 0;
+    listaPedidos.forEach((menu) => {
+      precios = menu.precio + precios;
+    });
+    return precios;
+  };
+
+  useEffect(() => {
+    const sumatoriaPrecios = sumarPrecios();
+    setPrecioTotal(sumatoriaPrecios);
+  }, []);
+
   const fechayHora = () => {
     const ahora = new Date();
     const dia = ahora.getDate();
@@ -71,20 +86,20 @@ export const Pedidos = () => {
             ))}
           </div>
         </Container>
-        <Card>
+        <Card className="colorbgButton text-center">
           <Card.Body>
-            <Card.Title>Special title treatment</Card.Title>
-            <Card.Text>
-              With supporting text below as a natural lead-in to additional
-              content.
+            <Card.Title></Card.Title>
+            <Card.Text className="text-center">
+              {" "}
+              Total a pagar ${precioTotal}
             </Card.Text>
             <Button
-              variant="primary"
+              className="colorButton border-white text-dark"
               onClick={() => {
                 agregarPedidos();
               }}
             >
-              Go somewhere
+              HACER PEDIDO
             </Button>
           </Card.Body>
         </Card>
