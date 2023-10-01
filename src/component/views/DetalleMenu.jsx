@@ -54,7 +54,6 @@ function DetalleMenu() {
               <h2 className="estilo-letras">{menu.nombreMenu}</h2>
             </Card.Title>
           </Card.ImgOverlay>
-
           <Card.Body>
             <Card.Text className="estilo-textos">
               Descripción del menú: {menu.detalle}

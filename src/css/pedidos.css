@@ -1,0 +1,30 @@
+.bg {
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://i.imgur.com/er8DtBW.jpg");
+}
+.containerDetalleMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardPedidos {
+  width: 22rem;
+  height: 28rem;
+}
+.cardImg {
+  width: 100%;
+  height: 15rem;
+}
+.colorButton {
+  background-color: #f1b708;
+  transition: 0.5s;
+}
+.colorButton:hover {
+  background-color: #e0c880;
+}
+.colorbgButton {
+  background-color: #999966;
+}
