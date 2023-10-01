@@ -1,0 +1,20 @@
+.bg {
+  background-image: url("https://imgs.search.brave.com/eIigxb_34nRvw3MmsILnqyLcXomx8EHws9vZOsEQPds/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS92YXNvcy12YWNp/b3MtcmVzdGF1cmFu/dGVfMTEzODczLTM3/LmpwZz9zaXplPTYy/NiZleHQ9anBn"),
+  linear-gradient(to bottom, #05007a, #4d007d);
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
+
+.imgEror404 {
+  width: 40%;
+}
+
+.containerError404 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
