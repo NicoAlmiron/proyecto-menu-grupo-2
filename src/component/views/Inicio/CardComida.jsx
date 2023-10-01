@@ -1,9 +1,17 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function CardComida({ imagen, nombreMenu, precio, id }) {
   const login = useNavigate();
   const usuario = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
+  let arrayPedido = JSON.parse(localStorage.getItem("pedidos")) || [];
+  const [listaPedidos, setListaPedidos] = useState(arrayPedido);
+
+  useEffect(() => {
+    localStorage.setItem("pedidos", JSON.stringify(listaPedidos));
+  }, [listaPedidos]);
+
   const handelAgregar = () => {
     if (usuario) {
       Swal.fire({
@@ -13,6 +21,7 @@ export default function CardComida({ imagen, nombreMenu, precio, id }) {
         showConfirmButton: false,
         timer: 1500,
       });
+      setListaPedidos([...listaPedidos, id]);
     } else {
       Swal.fire({
         icon: "error",
@@ -39,7 +48,7 @@ export default function CardComida({ imagen, nombreMenu, precio, id }) {
             <h5 className="card-title text-white">{nombreMenu}</h5>
             <span>$ {precio}</span>
             <Link
-              to={"/menu/" + id}
+              to={"/detalle-mnu/" + id}
               className="text-decoration-none mt-2 btn btn-outline-warning"
             >
               Ver mas
