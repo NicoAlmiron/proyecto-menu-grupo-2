@@ -6,7 +6,23 @@
       "email": "admin@rolling.com",
       "password": "Admin4321",
       "estado": true,
-      "perfil": ""
+      "perfil": "admin"
+    },
+    {
+      "id": 5,
+      "nombre": "administrador2",
+      "email": "admin2@rolling.com",
+      "password": "Admin4321",
+      "estado": true,
+      "perfil": "admin"
+    },
+    {
+      "id": 3,
+      "nombre": "user2",
+      "email": "user2@rolling.com",
+      "password": "User4321",
+      "estado": true,
+      "perfil": "user"
     },
     {
       "id": 2,
@@ -14,45 +30,113 @@
       "email": "user1@rolling.com",
       "password": "User4321",
       "estado": true,
-      "perfil": ""
+      "perfil": "user"
+    },
+    {
+      "nombre": "user3",
+      "email": "user3@rolling.com",
+      "perfil": "user",
+      "password": "User1234",
+      "estado": true,
+      "id": 4
     }
   ],
   "menu": [
     {
-      "id": 1,
       "nombreMenu": "sanguche",
-      "estado": "pendiente",
-      "precio": 1500,
-      "detalle": "sanguche de milanesa",
       "categoria": "Comida Rapida",
-      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5JzxxuPQkOf9Z_uV86y5MOlT0XHsAkNNUA&usqp=CAU"
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz5JzxxuPQkOf9Z_uV86y5MOlT0XHsAkNNUA&usqp=CAU",
+      "precio": "2000",
+      "detalle": "sanguche de milanesa",
+      "estado": false,
+      "id": 1
     },
     {
-      "id": 2,
       "nombreMenu": "ensalada rusa",
-      "estado": "pendiente",
-      "precio": 1100,
+      "categoria": "Comidas Saludables",
+      "imagen": "https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "precio": "800",
       "detalle": "ensalada tipo rusa con diversas verduras",
-      "categoria": "ensaladas",
-      "imagen": "https://recetas123.net/wp-content/uploads/Ensalada-rusa.jpg"
+      "estado": "pendiente",
+      "id": 2
     },
     {
-      "id": 3,
-      "nombreMenu": "Coca-Cola",
+      "nombreMenu": "helado",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
+      "estado": false,
+      "id": 3
+    },
+    {
+      "nombreMenu": "helado",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
+      "estado": false,
+      "id": 4
+    },
+    {
+      "nombreMenu": "helado",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
+      "estado": false,
+      "id": 5
+    },
+    {
+      "nombreMenu": "helados",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
       "estado": "pendiente",
-      "precio": 1100,
-      "detalle": "Gaseosa de 2.5L",
-      "categoria": "bebidas",
-      "imagen": "https://quirinobebidas.com.ar/wp-content/uploads/2022/10/productos-2022-10-04T111414.437.png"
+      "id": 6
+    },
+    {
+      "nombreMenu": "helado",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
+      "estado": false,
+      "id": 7
+    },
+    {
+      "nombreMenu": "helado",
+      "categoria": "Postres",
+      "imagen": "https://images.pexels.com/photos/1006190/pexels-photo-1006190.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "precio": "500",
+      "detalle": "un rico helado",
+      "estado": false,
+      "id": 8
     }
   ],
   "pedidos": [
     {
       "id": 1,
-      "usuario": "idUser",
+      "usuario": "user1",
       "fecha": "15/09/2023",
-      "menu": "sanguche",
-      "estado": "pendiente"
+      "menu": [1, 3],
+      "estado": true
+    },
+    {
+      "id": 2,
+      "usuario": "user2",
+      "fecha": "15/09/2023",
+      "menu": [5, 6],
+      "estado": false
+    },
+    {
+      "id": 3,
+      "usuario": "user3",
+      "fecha": "15/09/2023",
+      "menu": [2, 3],
+      "estado": false
     }
   ]
 }
+

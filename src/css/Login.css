@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --dark-1: #0b0d0f;
+  --dark-2: #16181f;
+  --darkOrange: #F1B708;
+  --darkKhaki: #999966;
+  --light-1: #efefef;
+}
+
+#root {
+  background-size: 100% 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-1);
+  background-image: url(/public/background01.png);
+}
+
+.place-login {
+  padding-top: 4vh;
+}
+
+.cont-login {
+  max-width: 452px !important;
+  padding: 30px 52px 29px !important;
+}
+
+.bg-dark-01 {
+  background-color:var(--dark-1) ;
+}
+
+.title-page-login {
+  font-family: "Great Vibes", cursive !important;
+  font-size: 42px !important;
+  color:var(--darkOrange)
+}
+
+.btn-fullWidth {
+  display: block;
+  width: 100%;
+}
+
+.btn-outline-darkKhaki {
+  color:var(--darkKhaki);
+  border-color: var(--darkKhaki);
+}
+
+.btn-outline-darkKhaki:hover {
+  color: #000;
+  background-color: var(--darkKhaki);
+  border-color: var(--darkKhaki);
+}
+
+.btn-rounded {
+  font-size: 1rem;
+  border-radius: 1rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+/* 
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+} */
