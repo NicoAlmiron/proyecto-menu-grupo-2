@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "../../css/pedidos.css";
-import { listarMenus } from "../helpers/queries";
+import { crearPedido, listarMenus } from "../helpers/queries";
 import CardPedidos from "../pedidos/CardPedidos";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import { get } from "react-hook-form";
-// import { Row } from "react-bootstrap";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 export const Pedidos = () => {
   const arrayPedidos = [1, 2, 3];
@@ -74,7 +73,20 @@ export const Pedidos = () => {
       menu: listaPedidos,
       estado: false,
     };
-    console.log(pedido);
+    crearPedido(pedido)
+      .then((resp) => {
+        if (resp) {
+          Swal.fire(
+            "Se creo su pedido con exito",
+            "ya podes ver en la pagina principal tu pedido",
+            "success"
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
+      });
   };
   return (
     <div className="bg">

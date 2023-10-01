@@ -11,13 +11,16 @@ export const listarMenus = async () => {
   }
 };
 
-// export const listarPedidos = async () => {
-//   try {
-//     const respuesta = await fetch(uriPedidos);
-//     const listadoPedidos = await respuesta.json();
-//     return listadoPedidos;
-//   } catch (error) {
-//     console.log(error);
-//     return null;
-//   }
-// };
+export const crearPedido = async (pedido) => {
+  try {
+    const respuesta = await fetch(uriPedidos, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pedido),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
