@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import ContenedorComidas from "./ContenedorComidas";
-import SelectCategorias from "./SelectCategorias";
-import Form from "react-bootstrap/Form";
+import ContenedorComidas from "./ContenedorComidas.jsx";
+import SelectCategorias from "./SelectCategorias.jsx";
 
-export default function FiltroBusqueda({ comidas }) {
+const FiltroBusqueda = ({ comidas }) => {
   const [comidaBuscada, setComidaBuscada] = useState("");
   const [categoria, setCategoria] = useState("");
   const [copiaComidas, setCopiaComidas] = useState([]);
@@ -16,7 +15,7 @@ export default function FiltroBusqueda({ comidas }) {
     const valorBuscado = e.target.value;
     setComidaBuscada(valorBuscado);
 
-    if (valorBuscado === "" && categoria === "") {
+    if (!valorBuscado && !categoria) {
       setCopiaComidas(comidas);
     } else {
       const comidasBuscadas = copiaComidas.filter((comida) =>
@@ -28,13 +27,13 @@ export default function FiltroBusqueda({ comidas }) {
     }
   };
   return (
-    <section className='container'>
-      <form className='row my-4 justify-content-between' id='input-busqueda'>
+    <section className="container">
+      <form className="row my-4 justify-content-between" id="input-busqueda">
         <aside className="col-lg-8 align-item-center">
           <input
-            className='w-100 h-100'
-            type='text'
-            placeholder='¿Que quieres comer?'
+            className="w-100 h-100"
+            type="text"
+            placeholder="¿Que quieres comer?"
             value={comidaBuscada}
             onInput={filtroBusqueda}
           ></input>
@@ -52,4 +51,6 @@ export default function FiltroBusqueda({ comidas }) {
       <ContenedorComidas copiaComidas={copiaComidas} />
     </section>
   );
-}
+};
+
+export default FiltroBusqueda;

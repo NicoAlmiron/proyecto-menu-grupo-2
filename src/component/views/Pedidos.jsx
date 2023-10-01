@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../css/pedidos.css";
-import { crearPedido, listarMenus } from "../helpers/queries";
-
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { Container } from "react-bootstrap";
+import { crearPedido, listarMenus } from "../helpers/queries.js";
+import { Container, Button, Card } from "react-bootstrap";
 import Swal from "sweetalert2";
-import CardPedidos from "./pedidos/CardPedidos";
+import CardPedidos from "./pedidos/CardPedidos.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const Pedidos = () => {

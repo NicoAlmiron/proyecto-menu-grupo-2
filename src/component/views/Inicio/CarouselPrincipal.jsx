@@ -1,5 +1,9 @@
 import { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+import { Carousel } from "react-bootstrap";
+import imgSlider1 from "/public/img-slider-main/img-slider-1.jpg";
+import imgSlider2 from "/public/img-slider-main/img-slider-2.jpg";
+import imgSlider3 from "/public/img-slider-main/img-slider-3.jpg";
+import imgSlider4 from "/public/img-slider-main/img-slider-4.jpg";
 
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
@@ -12,34 +16,34 @@ function ControlledCarousel() {
     <Carousel
       activeIndex={index}
       onSelect={handleSelect}
-      className='carousle-principal'
+      className="carousle-principal"
     >
-      <Carousel.Item className='h-100'>
+      <Carousel.Item>
         <img
-          src='/img-slider-main/img-slider-1.jpg'
-          className='d-block w-100 img-slider'
-          alt='imagen de muestra 1'
+          src={imgSlider1}
+          className="d-block w-100 img-slider"
+          alt="imagen de muestra 1"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          src='/img-slider-main/img-slider-2.jpg'
-          className='d-block w-100 img-slider'
-          alt='imagen de muestra 2'
+          src={imgSlider2}
+          className="d-block w-100 img-slider"
+          alt="imagen de muestra 2"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          src='/img-slider-main/img-slider-3.jpg'
-          className='d-block w-100 img-slider'
-          alt='imagen de muestra 3'
+          src={imgSlider3}
+          className="d-block w-100 img-slider"
+          alt="imagen de muestra 3"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          src='/img-slider-main/img-slider-4.jpg'
-          className='d-block w-100 img-slider'
-          alt='imagen de muestra 4'
+          src={imgSlider4}
+          className="d-block w-100 img-slider"
+          alt="imagen de muestra 4"
         />
       </Carousel.Item>
     </Carousel>

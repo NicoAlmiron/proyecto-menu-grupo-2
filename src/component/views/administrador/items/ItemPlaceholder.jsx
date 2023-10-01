@@ -1,5 +1,5 @@
 import React from "react";
-import Placeholder from "react-bootstrap/Placeholder";
+import { Placeholder } from "react-bootstrap";
 
 const ItemPlaceholder = () => {
   return (

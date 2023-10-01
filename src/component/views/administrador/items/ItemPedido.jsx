@@ -6,12 +6,12 @@ import {
   borrarPedido,
   listarPedidos,
   listarMenus,
-} from "../../../helpers/queries";
+} from "../../../helpers/queries.js";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
-import ListaItemPedido from "./ListaItemPedido";
+import ListaItemPedido from "./ListaItemPedido.jsx";
 
 const ItemPedido = ({ pedido, setListaPedidos }) => {
   const [estadoPedido, setEstadoPedido] = useState(pedido.estado);

@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { twiter, instagram, facebook, tiktok } from "../helpers/redes-iconos";
+import {
+  twiter,
+  instagram,
+  facebook,
+  tiktok,
+} from "../../assets/navbar/redes-iconos.jsx";
 import Logo from "../../assets/navbar/logo.png";
 const Footer = () => {
   return (

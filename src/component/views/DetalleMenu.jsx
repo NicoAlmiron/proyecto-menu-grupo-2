@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card, Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Container, Card, Button } from "react-bootstrap";
 import "../../css/DetalleMenu.css";
-import { obtenerMenu } from "../helpers/queries";
+import { obtenerMenu } from "../helpers/queries.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faArrowRight } from "@fortawesome/free-solid-svg-icons";
