@@ -56,7 +56,7 @@ const ListaPedido = () => {
           {!mostrarSpinner ? (
             listaPedidos.map((pedido) => (
               <ItemPedido
-                key={pedido.id}
+                key={pedido._id}
                 pedido={pedido}
                 setListaPedidos={setListaPedidos}
               ></ItemPedido>

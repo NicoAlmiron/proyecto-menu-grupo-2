@@ -6,6 +6,7 @@ import { obtenerMenu } from "../helpers/queries";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 function DetalleMenu() {
   const irAPedido = useNavigate();
@@ -33,7 +34,14 @@ function DetalleMenu() {
       });
   }, []);
   const agregarAPedido = () => {
-    setListaPedidos([...arrayPedido, parseInt(id)]);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Listo!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    setListaPedidos([...arrayPedido, id]);
   };
   useEffect(() => {
     localStorage.setItem("pedidos", JSON.stringify(listaPedidos));
@@ -53,7 +61,7 @@ function DetalleMenu() {
             <Card.Title className="d-flex">
               <div className="bg-overlay rounded p-2 w-100 w-md-0">
                 <h1 className="estilo-letras">{menu.nombreMenu}</h1>
-                <h5 className="estilo-textos ps-3">- {menu.categoria}</h5>
+                <h5 className="text-dark ps-3">- {menu.categoria}</h5>
               </div>
             </Card.Title>
           </Card.ImgOverlay>
@@ -65,12 +73,20 @@ function DetalleMenu() {
         </Card>
 
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center text-white bg-dark rounded my-3 p-2 ">
-          Precio : $ {menu.precio}
+          <h3 className="ps-2 my-2">Precio: $ {menu.precio}</h3>
           <div className="text-end d-flex flex-column flex-md-row justify-content-center">
-            <Button variant="success" onClick={() => agregarAPedido()}>
+            <Button
+              variant="success"
+              className="mt-2 mt-md-0 mx-md-2"
+              onClick={() => agregarAPedido()}
+            >
               <FontAwesomeIcon icon={faPlus} /> Agregar al pedido
             </Button>
-            <Button variant="info" onClick={() => irAPedido("/pedidos")}>
+            <Button
+              variant="info"
+              className="mt-2 mt-md-0 mx-md-2"
+              onClick={() => irAPedido("/pedidos")}
+            >
               <FontAwesomeIcon icon={faArrowRight} /> ir al pedido
             </Button>
           </div>

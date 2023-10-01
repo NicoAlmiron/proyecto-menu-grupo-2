@@ -203,7 +203,7 @@ const CrearMenu = () => {
                   as="textarea"
                   placeholder="Detalles del menu*"
                   autoComplete="off"
-                  className=""
+                  maxLength={600}
                   {...register("detalle", {
                     required: "Este campo es obligatorio",
                     maxLength: {

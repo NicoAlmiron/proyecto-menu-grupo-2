@@ -21,9 +21,9 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
   const pedidoRealizado = () => {
     if (!pedido.estado) {
       pedido.estado = true;
-      realizarPedido(pedido.id, pedido)
+      realizarPedido(pedido._id, pedido)
         .then((resp) => {
-          if (resp.status === 200) {
+          if (resp.status === 201) {
             Swal.fire(
               "Se realizo con exito",
               `El pedido del usuario ${pedido.usuario}!`,
@@ -54,7 +54,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
   useEffect(() => {
     const arrayBuscado = pedido.menu;
     const arrayfiltrado = listaMenus.filter((menu) => {
-      return arrayBuscado.includes(menu.id);
+      return arrayBuscado.includes(menu._id);
     });
     setMenuPedido(arrayfiltrado);
   }, [listaMenus]);
@@ -62,9 +62,9 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
   const pedidoDeshecho = () => {
     if (pedido.estado) {
       pedido.estado = false;
-      deshacerPedido(pedido.id, pedido)
+      deshacerPedido(pedido._id, pedido)
         .then((resp) => {
-          if (resp.status === 200) {
+          if (resp.status === 201) {
             Swal.fire(
               `El pedido del usuario ${pedido.usuario}`,
               "Se a deshecho ",
@@ -86,7 +86,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
 
   const borrarPedidoSelect = () => {
     Swal.fire({
-      title: `Estas seguro de eliminar ${pedido.menu}?`,
+      title: `Estas seguro de eliminar el pedido de ${pedido.usuario}?`,
       text: "Esta accion no se puede revertir!",
       icon: "warning",
       showCancelButton: true,
@@ -97,9 +97,9 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
     })
       .then((result) => {
         if (result.isConfirmed) {
-          borrarPedido(pedido.id)
+          borrarPedido(pedido._id)
             .then((resp) => {
-              if (resp.status === 200) {
+              if (resp.status === 201) {
                 listarPedidos()
                   .then((resp) => {
                     setListaPedidos(resp);
@@ -143,8 +143,8 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
     <tr>
       <td>
         <ul>
-          {menuPedido?.map((menu) => (
-            <ListaItemPedido key={menu.id} {...menu}></ListaItemPedido>
+          {menuPedido?.map((menu, i) => (
+            <ListaItemPedido key={i} {...menu}></ListaItemPedido>
           ))}
         </ul>
       </td>

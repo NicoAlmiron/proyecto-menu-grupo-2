@@ -137,7 +137,6 @@ export const obtenerMenu = async(id) => {
 
 export const editarMenu = async(id, menuEditado) => {
     try {
-        menuEditado.estado = 'pendiente';
         const respuesta = await fetch(`${uriMenus}/${id}`, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
