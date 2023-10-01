@@ -171,18 +171,19 @@ export const listarPedidos = async() => {
     }
 }
 
-export const crearPedido = async (pedido) => {
-  try {
-    const respuesta = await fetch(uriPedidos, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(pedido),
-    });
-  } catch (error) {
-    console.log(error);
-  }
+export const crearPedido = async(pedido) => {
+    try {
+        const respuesta = await fetch(uriPedidos, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(pedido),
+        });
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 export const realizarPedido = async(id, pedidoRealizado) => {

@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap");
 :root {
   --dark-1: #0b0d0f;
   --dark-2: #16181f;
-  --darkOrange: #F1B708;
+  --darkOrange: #f1b708;
   --darkKhaki: #999966;
   --light-1: #efefef;
 }
@@ -15,7 +13,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--dark-1);
-  background-image: url(/public/background01.png);
+  background-image: url(/background01.png);
 }
 
 .place-Register {
@@ -28,13 +26,13 @@
 }
 
 .bg-dark-01 {
-  background-color:var(--dark-1) ;
+  background-color: var(--dark-1);
 }
 
 .title-page-Register {
   font-family: "Great Vibes", cursive !important;
   font-size: 42px !important;
-  color:var(--darkOrange)
+  color: var(--darkOrange);
 }
 
 .btn-fullWidth {
@@ -43,7 +41,7 @@
 }
 
 .btn-outline-darkKhaki {
-  color:var(--darkKhaki);
+  color: var(--darkKhaki);
   border-color: var(--darkKhaki);
 }
 
@@ -59,6 +57,7 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 /* 
 .footer {
   position: fixed;

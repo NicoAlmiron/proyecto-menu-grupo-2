@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import ItemPedido from "../items/ItemPedido";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { listarPedidos } from "../../../helpers/queries";
-import Paginacion from "../Paginacion";
+import Paginacion from "../../Paginacion";
 
 const ListaPedido = () => {
   const [listaPedidos, setListaPedidos] = useState([]);

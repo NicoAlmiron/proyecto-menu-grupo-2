@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
-import Paginacion from "../Paginacion";
+import Paginacion from "../../Paginacion";
 
 const ListaMenu = () => {
   const [mostrarSpinner, setMostrarSpinner] = useState(true);

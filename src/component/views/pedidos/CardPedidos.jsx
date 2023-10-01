@@ -1,6 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-import "../../css/pedidos.css";
-
+import "../../../css/pedidos.css";
 const CardPedidos = ({ menu }) => {
   return (
     <Card border="secondary" className="m-2 cardPedidos rounded-bottom">

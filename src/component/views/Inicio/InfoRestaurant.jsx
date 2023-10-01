@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function InfoRestaurant() {
+  const acercaDe = useNavigate();
   return (
-    <section className='container-info'>
-      <article className='row row-cols-1 row-cols-md-2'>
-        <aside className='my-2 text-center'>
+    <section className="container-info">
+      <article className="row row-cols-1 row-cols-md-2">
+        <aside className="my-2 text-center">
           <img
-            src='/img-slider-main/CartelCellPhone.jpg'
-            alt=''
-            className='img-fluid'
+            src="/img-slider-main/CartelCellPhone.jpg"
+            alt=""
+            className="img-fluid"
           />
         </aside>
         <aside className="info">
@@ -28,8 +29,13 @@ export default function InfoRestaurant() {
             obcaecati voluptatum eveniet alias odio vero soluta adipisci sunt
             culpa labore hic! Eum, nesciunt.
           </p>
-          <div className='mt-4'>
-            <Link className='btn-sobre-nosotros'>Sobre nosotros</Link>
+          <div className="mt-4">
+            <button
+              className="btn-sobre-nosotros"
+              onClick={() => acercaDe("/acerca-de-nosotros")}
+            >
+              Sobre nosotros
+            </button>
           </div>
         </aside>
       </article>
