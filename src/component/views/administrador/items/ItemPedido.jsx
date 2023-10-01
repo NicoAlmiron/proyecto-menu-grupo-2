@@ -26,7 +26,7 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
           if (resp.status === 200) {
             Swal.fire(
               "Se realizo con exito",
-              `El pedido: ${pedido.menu}!`,
+              `El pedido del usuario ${pedido.usuario}!`,
               "success"
             );
             setEstadoPedido(pedido.estado);
@@ -66,8 +66,8 @@ const ItemPedido = ({ pedido, setListaPedidos }) => {
         .then((resp) => {
           if (resp.status === 200) {
             Swal.fire(
-              `El pedido ${pedido.menu}`,
-              "Se a deshecho con exito!",
+              `El pedido del usuario ${pedido.usuario}`,
+              "Se a deshecho ",
               "success"
             );
             setEstadoPedido(pedido.estado);

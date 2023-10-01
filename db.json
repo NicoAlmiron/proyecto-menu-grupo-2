@@ -155,6 +155,16 @@
       ],
       "estado": false,
       "id": 4
+    },
+    {
+      "usuario": "administrador",
+      "fecha": "1/10/2023 0:29",
+      "menu": [
+        1,
+        2
+      ],
+      "estado": false,
+      "id": 5
     }
   ]
 }

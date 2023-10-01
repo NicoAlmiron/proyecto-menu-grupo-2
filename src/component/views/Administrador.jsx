@@ -20,6 +20,9 @@ const Administrador = () => {
   const [listaUsuario, setListaUsuario] = useState([]);
   const [listaPedidos, setListaPedidos] = useState([]);
   const [contador, setContador] = useState({});
+  const usuarioLogueado =
+    JSON.parse(sessionStorage.getItem("usuarioLogueado")) || {};
+  const [usuario, setUsuario] = useState(usuarioLogueado);
 
   useEffect(() => {
     document.title = "La Campiña | Administracion";
@@ -60,9 +63,9 @@ const Administrador = () => {
               <div>
                 <h3 className="display-3">
                   <FontAwesomeIcon icon={faUser} className="me-2" />
-                  Administrador
+                  {usuario.nombre}
                 </h3>
-                <h5 className="fs-3 fw-light">admin@rolling.com</h5>
+                <h5 className="fs-3 fw-light">{usuario.email}</h5>
               </div>
               <div className="d-flex justify-content-md-around flex-column flex-md-row my-3">
                 <Link

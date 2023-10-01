@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import Swal from "sweetalert2";
 import CardPedidos from "./pedidos/CardPedidos";
+import { useNavigate } from "react-router-dom";
 
 export const Pedidos = () => {
   const arrayPedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
@@ -16,6 +17,7 @@ export const Pedidos = () => {
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || {};
   const [usuario, setUsuario] = useState(usuarioLogueado);
   const [precioTotal, setPrecioTotal] = useState(0);
+  const paginaPrincipal = useNavigate();
 
   const sumarPrecios = () => {
     let precios = 0;
@@ -64,6 +66,7 @@ export const Pedidos = () => {
   useEffect(() => {
     setListaPedidos(filtrarLista());
   }, [listaMenus]);
+
   const agregarPedidos = () => {
     const fechaActual = fechayHora();
     const pedido = {
@@ -81,6 +84,7 @@ export const Pedidos = () => {
             "ya podes ver en la pagina principal tu pedido",
             "success"
           );
+          paginaPrincipal("/");
         }
       })
       .catch((error) => {
@@ -88,6 +92,7 @@ export const Pedidos = () => {
         Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
       });
   };
+
   return (
     <div className="bg">
       <div className="containerDetalleMenu">
