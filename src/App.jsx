@@ -19,12 +19,13 @@ function App() {
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
 
   const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
+  console.log(usuarioActivo);
   return (
     <BrowserRouter>
       <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
-        {usuarioActivo?.email === "admin@rolling.com" ? (
+        {usuarioActivo.perfil ? (
           <Route
             path="/administrador/*"
             element={
