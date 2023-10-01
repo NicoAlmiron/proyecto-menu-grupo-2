@@ -1,4 +1,4 @@
-import CarouselPrincipal from "./inicio/CarouselPrincipal";
+import CarouselPrincipal from "../views/Inicio/CarouselPrincipal";
 import "../../css/principal.css";
 import { useEffect, useState } from "react";
 import { listarMenus } from "../helpers/queries";
