@@ -7,20 +7,22 @@ const uriPedidos =
 
 export const login = async(usuario) => {
     try {
-        const respuesta = await fetch(uriUsuarios);
-        const listaUsuarios = await respuesta.json();
-        const usuarioBuscado = listaUsuarios.find(
-            (itemUsuario) => itemUsuario.email === usuario.email
-        );
-        if (usuarioBuscado) {
-            if (usuarioBuscado.password === usuario.password) {
-                return usuarioBuscado;
-            } else {
-                return null;
-            }
-        } else {
-            return null;
-        }
+        const respuesta = await fetch(uriUsuarios, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(usuario)
+        });
+
+        const datos = await respuesta.json();
+        console.log(datos)
+        return {
+            status: respuesta.status,
+            mensaje: datos.mensaje,
+            uid: datos.uid,
+            nombre: datos.nombre,
+            perfil: datos.perfil,
+            token: datos.token,
+        };
     } catch (error) {
         console.log(error);
     }
@@ -28,7 +30,7 @@ export const login = async(usuario) => {
 
 export const registroUsuario = async(usuarioNuevo) => {
     try {
-        const resp = await fetch(uriUsuarios, {
+        const resp = await fetch(`${uriUsuarios}/nuevo`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -52,34 +54,22 @@ export const listarUsuarios = async() => {
     }
 }
 
-export const crearUsuario = async(user) => {
-    try {
-        const listaUsuarios = await listarUsuarios();
-        let usuario = listaUsuarios.find((usuario) => usuario.email === user.email)
-        if (usuario) {
-            const resp = { status: 400 };
-            return resp;
-        } else {
-            user.estado = true;
-            const respuesta = await fetch(uriUsuarios, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(user),
-            });
-            return respuesta;
-
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 export const suspenderUsuarios = async(id, ususarioSuspendido) => {
     try {
         const respuesta = await fetch(`${uriUsuarios}/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(ususarioSuspendido)
+        })
+        return respuesta;
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const eliminarUsuario = async(id) => {
+    try {
+        const respuesta = await fetch(`${uriUsuarios}/${id}`, {
+            method: 'DELETE',
         })
         return respuesta;
     } catch (error) {
