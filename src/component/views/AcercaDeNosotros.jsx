@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import "../../css/AcercaDeNosotros.css";
@@ -11,6 +11,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const AcercaDeNosotros = () => {
+  useEffect(() => {
+    document.title = "La Campiña | Acerca de Nosotros";
+  }, []);
+
   return (
     <Container>
       <Container className="bg-dark rounded">

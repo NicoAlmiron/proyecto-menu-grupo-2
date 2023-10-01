@@ -3,7 +3,7 @@ import ItemUsuario from "../items/ItemUsuario";
 import ItemPlaceholder from "../items/ItemPlaceholder";
 import { Table } from "react-bootstrap";
 import { listarUsuarios } from "../../../helpers/queries";
-import Paginacion from "../Paginacion";
+import Paginacion from "../../Paginacion";
 
 const ListaUsuario = () => {
   const [listaUsuarios, setListaUsuarios] = useState([]);

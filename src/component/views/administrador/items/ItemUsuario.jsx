@@ -99,8 +99,14 @@ const ItemUsuario = ({ user }) => {
   return (
     <tr>
       <td>
-        <p className="fw-light text-center">
-          {user.perfil ? "Administrador" : "Usuario"}
+        <p
+          className={
+            user.perfil === "admin"
+              ? "fw-light text-center text-success"
+              : "fw-light text-center"
+          }
+        >
+          {user.perfil === "admin" ? "Admin" : "User"}
         </p>
       </td>
       <td>

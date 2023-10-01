@@ -22,7 +22,7 @@ const Administrador = () => {
   const [contador, setContador] = useState({});
 
   useEffect(() => {
-    document.title = "Administracion";
+    document.title = "La Campiña | Administracion";
 
     listarMenus().then((resp) => {
       if (resp) {

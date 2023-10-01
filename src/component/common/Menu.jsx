@@ -1,6 +1,5 @@
 import { Container, Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
-import logo from "../../../public/navbar/logo.png";
 import "../../css/navbarYFooter.css";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -19,7 +18,7 @@ const Menu = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Sí, cerrar sesión",
-      cancelButtonText: "Cancelar"
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         sessionStorage.removeItem("usuarioLogueado");
@@ -29,46 +28,46 @@ const Menu = () => {
   };
 
   return (
-    <Navbar expand='lg' className='menu'>
+    <Navbar expand="lg" className="menu">
       <Container>
-        <Navbar.Brand href='/'>
+        <Navbar.Brand href="/">
           <span className="brand">La Campiña</span>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='ms-auto nav-list'>
-            <Link to={"/"} className='nav-link'>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto nav-list">
+            <Link to={"/"} className="nav-link btn-nav">
               Inicio
             </Link>
-            <Link to={"/acerca-de-nosotros"} className='nav-link'>
+            <Link to={"/acerca-de-nosotros"} className="nav-link btn-nav">
               Sobre nosotros
             </Link>
             {usuarioEnLinea ? (
               usuarioEnLinea.perfil ? (
                 <>
-                  <Link to={"/pedidos"} className='nav-link'>
+                  <Link to={"/pedidos"} className="nav-link btn-nav">
                     Pedido
                   </Link>
-                  <Link to={"/administrador/"} className='nav-link'>
+                  <Link to={"/administrador/"} className="nav-link btn-nav">
                     Administrador
                   </Link>
-                  <button className='btn-logout' onClick={logout}>
+                  <button className="btn-logout" onClick={logout}>
                     Salir
                   </button>
                 </>
               ) : (
                 <>
-                  <Link to={"/pedidos"} className='nav-link'>
+                  <Link to={"/pedidos"} className="nav-link btn-nav">
                     Pedido
                   </Link>
-                  <button className='btn-logout' onClick={logout}>
+                  <button className="btn-logout" onClick={logout}>
                     Salir
                   </button>
-                  <span className='ms-2'>{usuarioEnLinea.nombre}</span>
+                  <span className="ms-2">{usuarioEnLinea.nombre}</span>
                 </>
               )
             ) : (
-              <Link to={"/login"} className='nav-link'>
+              <Link to={"/login"} className="nav-link btn-nav">
                 Ingresar
               </Link>
             )}

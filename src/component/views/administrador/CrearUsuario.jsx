@@ -135,8 +135,8 @@ const CrearUsuario = () => {
                     })}
                   >
                     <option value="">Elige un perfil</option>
-                    <option value={true}>Administrador</option>
-                    <option value={false}>Usuario</option>
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
                   </Form.Select>
                   <Form.Text className="text-danger ps-2">
                     {errors.perfil?.message}

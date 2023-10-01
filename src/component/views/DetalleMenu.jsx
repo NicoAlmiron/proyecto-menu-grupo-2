@@ -16,6 +16,11 @@ function DetalleMenu() {
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
   const [usuario, setUsuario] = useState(usuarioEnLinea);
   const [menu, setMenu] = useState({});
+
+  useEffect(() => {
+    document.title = "La Campiña | " + menu.nombreMenu;
+  }, [menu]);
+
   useEffect(() => {
     obtenerMenu(id)
       .then((resp) => {
@@ -33,7 +38,6 @@ function DetalleMenu() {
   useEffect(() => {
     localStorage.setItem("pedidos", JSON.stringify(listaPedidos));
   }, [listaPedidos]);
-  console.log(listaPedidos);
 
   return (
     <>
