@@ -1,10 +1,9 @@
 import "../../css/Login.css";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Button, FloatingLabel, Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { login } from "../helpers/queries";
+import { login } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 

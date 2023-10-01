@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CardComida from "./CardComida";
-import Paginacion from "../Paginacion";
+import CardComida from "./CardComida.jsx";
+import Paginacion from "../Paginacion.jsx";
 
 export default function ContenedorJuegos({ copiaComidas }) {
   const [pagina, setPagina] = useState(1);

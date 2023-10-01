@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../css/administrador.css";
 import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import ListaMenu from "./administrador/listas/ListaMenu";
-import ListaPedido from "./administrador/listas/ListaPedido";
-import ListaUsuario from "./administrador/listas/ListaUsuario";
+import ListaMenu from "./administrador/listas/ListaMenu.jsx";
+import ListaPedido from "./administrador/listas/ListaPedido.jsx";
+import ListaUsuario from "./administrador/listas/ListaUsuario.jsx";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +12,11 @@ import {
   faUsers,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
-import { listarMenus, listarPedidos, listarUsuarios } from "../helpers/queries";
+import {
+  listarMenus,
+  listarPedidos,
+  listarUsuarios,
+} from "../helpers/queries.js";
 
 const Administrador = () => {
   const [key, setKey] = useState("menu");

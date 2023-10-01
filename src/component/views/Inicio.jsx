@@ -1,10 +1,10 @@
-import CarouselPrincipal from "./inicio/CarouselPrincipal";
+import CarouselPrincipal from "../views/Inicio/CarouselPrincipal.jsx";
 import "../../css/principal.css";
 import { useEffect, useState } from "react";
-import { listarMenus } from "../helpers/queries";
+import { listarMenus } from "../helpers/queries.js";
 import Swal from "sweetalert2";
-import FiltroBusqueda from "./inicio/FiltroBusqueda";
-import InfoRestaurant from "./inicio/InfoRestaurant";
+import FiltroBusqueda from "./Inicio/FiltroBusqueda.jsx";
+import InfoRestaurant from "./Inicio/InfoRestaurant.jsx";
 const Inicio = () => {
   const [menus, setMenus] = useState([]);
 

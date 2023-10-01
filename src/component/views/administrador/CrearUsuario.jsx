@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPen, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { crearUsuario } from "../../helpers/queries";
+import { crearUsuario } from "../../helpers/queries.js";
 
 const CrearUsuario = () => {
   const {
