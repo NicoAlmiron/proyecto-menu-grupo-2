@@ -32,6 +32,7 @@ const EditarMenu = () => {
     obtenerMenu(id)
       .then((resp) => {
         if (resp) {
+          console.log(resp);
           setValue("nombreMenu", resp.nombreMenu);
           setValue("categoria", resp.categoria);
           setValue("precio", resp.precio);

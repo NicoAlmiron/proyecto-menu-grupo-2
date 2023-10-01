@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Great+Vibes&display=swap");
-
 .estilo-letras {
   font-family: "Great Vibes", cursive;
   color: rgba(31, 31, 20, 0.644);
@@ -9,7 +8,19 @@
   width: 100%;
   height: 30rem;
 }
+
 .estilo-textos {
   font-family: "Andika", sans-serif;
   color: rgba(255, 255, 0, 0.644);
+}
+
+.bg-overlay {
+  background-color: darkgray;
+  opacity: 75%;
+  transition: 0.7s;
+}
+
+.bg-overlay:hover {
+  background-color: gray;
+  opacity: 95%;
 }

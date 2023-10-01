@@ -66,7 +66,6 @@ export const crearUsuario = async(user) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(user),
             });
-            //en el BackEnd se enviara el correo de verificacion
             return respuesta;
 
         }
@@ -128,8 +127,8 @@ export const crearMenu = async(menu) => {
 
 export const obtenerMenu = async(id) => {
     try {
-        const respuesta = await fetch(`${uriMenus}/${id}`);
-        const menu = respuesta.json();
+        const resp = await fetch(`${uriMenus}/${id}`);
+        const menu = await resp.json();
         return menu;
     } catch (error) {
         console.log(error);

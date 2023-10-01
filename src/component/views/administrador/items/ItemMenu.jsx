@@ -11,7 +11,7 @@ const ItemMenu = ({
   precio,
   imagen,
   categoria,
-  id,
+  _id,
   setListaMenus,
 }) => {
   const detalleMenu = useNavigate();
@@ -28,7 +28,7 @@ const ItemMenu = ({
     })
       .then((result) => {
         if (result.isConfirmed) {
-          borrarMenu(id)
+          borrarMenu(_id)
             .then((resp) => {
               if (resp.status === 200) {
                 listarMenus()
@@ -83,7 +83,7 @@ const ItemMenu = ({
           alt={nombreMenu}
           rounded
           className="img-item"
-          onClick={() => detalleMenu(`/detalle-menu/${id}`)}
+          onClick={() => detalleMenu(`/detalle-menu/${_id}`)}
         ></Image>
       </td>
       <td>
@@ -98,7 +98,7 @@ const ItemMenu = ({
       <td>
         <div className="d-flex flex-column">
           <Link
-            to={`/administrador/editar-menu/${id}`}
+            to={`/administrador/editar-menu/${_id}`}
             className="btn btn-warning"
           >
             <FontAwesomeIcon icon={faPenToSquare} /> Editar

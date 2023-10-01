@@ -42,7 +42,7 @@ function DetalleMenu() {
   return (
     <>
       <Container>
-        <Card className="bg-dark text-white my-3">
+        <Card className="bg-dark my-3">
           <Card.Img
             variant="top"
             alt="Imagen del menu"
@@ -50,8 +50,11 @@ function DetalleMenu() {
             src={menu.imagen}
           />
           <Card.ImgOverlay>
-            <Card.Title>
-              <h2 className="estilo-letras">{menu.nombreMenu}</h2>
+            <Card.Title className="d-flex">
+              <div className="bg-overlay rounded p-2 w-100 w-md-0">
+                <h1 className="estilo-letras">{menu.nombreMenu}</h1>
+                <h5 className="estilo-textos ps-3">- {menu.categoria}</h5>
+              </div>
             </Card.Title>
           </Card.ImgOverlay>
           <Card.Body>
@@ -62,14 +65,14 @@ function DetalleMenu() {
         </Card>
 
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center text-white bg-dark rounded my-3 p-2 ">
-          Precio : $ {menu.precio}{" "}
-          <div className="text-end d-flex flex-column flex-md-row">
+          Precio : $ {menu.precio}
+          <div className="text-end d-flex flex-column flex-md-row justify-content-center">
             <Button variant="success" onClick={() => agregarAPedido()}>
               <FontAwesomeIcon icon={faPlus} /> Agregar al pedido
-            </Button>{" "}
+            </Button>
             <Button variant="info" onClick={() => irAPedido("/pedidos")}>
               <FontAwesomeIcon icon={faArrowRight} /> ir al pedido
-            </Button>{" "}
+            </Button>
           </div>
         </div>
       </Container>

@@ -76,21 +76,25 @@ export const Pedidos = () => {
       estado: false,
     };
 
-    crearPedido(pedido)
-      .then((resp) => {
-        if (resp.status === 201) {
-          Swal.fire(
-            "Se creo su pedido con exito",
-            "ya podes ver en la pagina principal tu pedido",
-            "success"
-          );
-          paginaPrincipal("/");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
-      });
+    if (pedido.usuario && pedido.fecha && pedido.menu && pedido.estado) {
+      crearPedido(pedido)
+        .then((resp) => {
+          if (resp.status === 201) {
+            Swal.fire(
+              "Se creo su pedido con exito",
+              "ya podes ver en la pagina principal tu pedido",
+              "success"
+            );
+            paginaPrincipal("/");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
+        });
+    } else {
+      Swal.fire("Hubo un error", "No a elegido ningun menu", "error");
+    }
   };
 
   return (
