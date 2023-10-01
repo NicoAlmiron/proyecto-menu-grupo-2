@@ -3,8 +3,8 @@ import "../../css/principal.css";
 import { useEffect, useState } from "react";
 import { listarMenus } from "../helpers/queries.js";
 import Swal from "sweetalert2";
-import FiltroBusqueda from "./inicio/FiltroBusqueda.jsx";
-import InfoRestaurant from "./inicio/InfoRestaurant.jsx";
+import FiltroBusqueda from "./Inicio/FiltroBusqueda.jsx";
+import InfoRestaurant from "./Inicio/InfoRestaurant.jsx";
 const Inicio = () => {
   const [menus, setMenus] = useState([]);
 

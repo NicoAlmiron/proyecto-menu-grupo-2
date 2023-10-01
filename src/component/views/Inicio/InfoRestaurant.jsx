@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import CartelCellPhone from "../../../../public/img-slider-main/CartelCellPhone.jpg";
+import CartelCellPhone from "/public/img-slider-main/CartelCellPhone.jpg";
 
 export default function InfoRestaurant() {
   const acercaDe = useNavigate();

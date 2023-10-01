@@ -1,4 +1,4 @@
-import Form from "react-bootstrap/Form";
+import { Form } from "react-bootstrap";
 
 function SelectCategorias({
   categoria,
@@ -20,8 +20,6 @@ function SelectCategorias({
       );
       if (comidasBuscadas.length > 0) {
         setCopiaComidas(comidasBuscadas);
-        console.log("entre al filtro");
-        console.log(copiaComidas);
       }
     }
   };

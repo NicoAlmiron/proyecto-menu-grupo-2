@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ContenedorComidas from "./ContenedorComidas.jsx";
 import SelectCategorias from "./SelectCategorias.jsx";
 
-export default function FiltroBusqueda({ comidas }) {
+const FiltroBusqueda = ({ comidas }) => {
   const [comidaBuscada, setComidaBuscada] = useState("");
   const [categoria, setCategoria] = useState("");
   const [copiaComidas, setCopiaComidas] = useState([]);
@@ -51,4 +51,6 @@ export default function FiltroBusqueda({ comidas }) {
       <ContenedorComidas copiaComidas={copiaComidas} />
     </section>
   );
-}
+};
+
+export default FiltroBusqueda;
