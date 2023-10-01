@@ -99,7 +99,7 @@ const ListaMenu = () => {
               )
               .map((menu) => (
                 <ItemMenu
-                  key={menu.id}
+                  key={menu._id}
                   {...menu}
                   setListaMenus={setListaMenus}
                 ></ItemMenu>

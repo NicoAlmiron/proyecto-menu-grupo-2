@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-export default function CardComida({ imagen, nombreMenu, precio, id }) {
+export default function CardComida({ imagen, nombreMenu, precio, _id }) {
   const login = useNavigate();
   const usuario = JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
   let arrayPedido = JSON.parse(localStorage.getItem("pedidos")) || [];
@@ -21,7 +21,7 @@ export default function CardComida({ imagen, nombreMenu, precio, id }) {
         showConfirmButton: false,
         timer: 1500,
       });
-      setListaPedidos([...listaPedidos, id]);
+      setListaPedidos([...listaPedidos, _id]);
     } else {
       Swal.fire({
         icon: "error",
@@ -48,7 +48,7 @@ export default function CardComida({ imagen, nombreMenu, precio, id }) {
             <h5 className="card-title text-white">{nombreMenu}</h5>
             <span>$ {precio}</span>
             <Link
-              to={"/detalle-menu/" + id}
+              to={"/detalle-menu/" + _id}
               className="text-decoration-none mt-2 btn btn-outline-warning"
             >
               Ver mas

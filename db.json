@@ -165,6 +165,19 @@
       ],
       "estado": false,
       "id": 5
+    },
+    {
+      "usuario": "administrador",
+      "fecha": "1/10/2023 3:35",
+      "menu": [
+        1,
+        2,
+        "65109cab1bb7a393553a87cf",
+        "6518a1a856671c78f9e7568d",
+        "6518a1a856671c78f9e7568d"
+      ],
+      "estado": false,
+      "id": 6
     }
   ]
 }

@@ -17,7 +17,7 @@ export default function ContenedorJuegos({ copiaComidas }) {
               (pagina - 1) * porPagina + porPagina
             )
             .map((comida) => (
-              <CardComida {...comida} key={comida.id}></CardComida>
+              <CardComida {...comida} key={comida._id}></CardComida>
             ))}
         </div>
       </article>

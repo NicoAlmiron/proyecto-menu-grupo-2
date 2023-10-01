@@ -55,10 +55,11 @@ export const Pedidos = () => {
         console.log(error);
       });
   }, []);
+  console.log();
 
   const filtrarLista = () => {
     const arrayfiltrado = listaMenus.filter((menu) => {
-      return arrayPedidos.includes(menu.id);
+      return arrayPedidos.includes(menu._id);
     });
     return arrayfiltrado;
   };
@@ -76,37 +77,41 @@ export const Pedidos = () => {
       estado: false,
     };
 
-    crearPedido(pedido)
-      .then((resp) => {
-        if (resp.status === 201) {
-          Swal.fire(
-            "Se creo su pedido con exito",
-            "ya podes ver en la pagina principal tu pedido",
-            "success"
-          );
-          paginaPrincipal("/");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
-      });
+    if (listaPedidos) {
+      crearPedido(pedido)
+        .then((resp) => {
+          if (resp.status === 201) {
+            Swal.fire(
+              "Se creo su pedido con exito",
+              "ya podes ver en la pagina principal tu pedido",
+              "success"
+            );
+            paginaPrincipal("/");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          Swal.fire("Hubo un error", "No se pudo crear el pedido", "error");
+        });
+    } else {
+      Swal.fire("Hubo un error", "No a elegido ningun menu", "error");
+    }
   };
 
   return (
     <div className="bg">
       <div className="containerDetalleMenu">
         <Container className="m-3">
-          <div className=" d-flex flex-column flex-md-row justify-content-md-around">
+          <div className=" d-flex flex-column flex-md-row justify-content-md-around flex-wrap">
             {listaPedidos.map((menu) => (
-              <CardPedidos key={menu.id} menu={menu}></CardPedidos>
+              <CardPedidos key={menu._id} menu={menu}></CardPedidos>
             ))}
           </div>
         </Container>
         <Card className="colorbgButton text-center rounded my-4">
           <Card.Body>
             <Card.Title></Card.Title>
-            <Card.Text className="text-center">
+            <Card.Text className="text-center fs-3">
               Total a pagar ${precioTotal}
             </Card.Text>
             <Button

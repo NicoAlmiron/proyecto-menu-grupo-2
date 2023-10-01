@@ -13,7 +13,7 @@ const CardPedidos = ({ menu }) => {
         <Card.Title className="text-white text-center">
           {menu.nombreMenu}
         </Card.Title>
-        <Card.Text className="text-white text-center">{menu.detalle}</Card.Text>
+
         <Button
           variant="warning"
           size="lg"
