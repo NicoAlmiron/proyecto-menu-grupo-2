@@ -15,7 +15,7 @@ export default function FiltroBusqueda({ comidas }) {
     const valorBuscado = e.target.value;
     setComidaBuscada(valorBuscado);
 
-    if (valorBuscado === "" && categoria === "") {
+    if (!valorBuscado && !categoria) {
       setCopiaComidas(comidas);
     } else {
       const comidasBuscadas = copiaComidas.filter((comida) =>
