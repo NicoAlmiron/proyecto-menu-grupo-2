@@ -1,17 +1,20 @@
 import { faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Button, Image } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import {
   activarUsuarios,
   suspenderUsuarios,
+  eliminarUsuario,
 } from "../../../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const ItemUsuario = ({ user }) => {
-  const [estadoUser, setEstadoUser] = useState(user?.estado);
+  const [estadoUser, setEstadoUser] = useState(null);
 
-  useEffect(() => {}, [estadoUser]);
+  useEffect(() => {
+    setEstadoUser(user.estado);
+  }, []);
 
   const suspenderUsuario = () => {
     if (user.estado) {
@@ -28,7 +31,7 @@ const ItemUsuario = ({ user }) => {
       })
         .then((result) => {
           if (result.isConfirmed) {
-            suspenderUsuarios(user.id, user)
+            suspenderUsuarios(user._id, user)
               .then((resp) => {
                 if (resp.status === 200) {
                   Swal.fire(
@@ -36,7 +39,6 @@ const ItemUsuario = ({ user }) => {
                     `Puedes volver a activarla desde el menu de usuarios`,
                     "success"
                   );
-                  setEstadoUser(user.estado);
                 }
               })
               .catch((error) => {
@@ -71,7 +73,7 @@ const ItemUsuario = ({ user }) => {
       })
         .then((result) => {
           if (result.isConfirmed) {
-            activarUsuarios(user.id, user)
+            activarUsuarios(user._id, user)
               .then((resp) => {
                 if (resp.status === 200) {
                   Swal.fire(
@@ -79,7 +81,6 @@ const ItemUsuario = ({ user }) => {
                     `Puedes volver a suspenderla desde el menu de usuarios`,
                     "success"
                   );
-                  setEstadoUser(user.estado);
                 }
               })
               .catch((error) => {
@@ -99,17 +100,56 @@ const ItemUsuario = ({ user }) => {
     }
   };
 
+  const eliminarUsuarios = () => {
+    Swal.fire({
+      title: `Estas seguro de Eliminar la cuenta de ${user.nombre}?`,
+      text: "Esta accion no se puede REVERTIR!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          eliminarUsuario(user._id)
+            .then((resp) => {
+              if (resp.status === 200) {
+                Swal.fire(
+                  `Se Suspendio la cuenta ${user.nombre}`,
+                  `Puedes volver a activarla desde el menu de usuarios`,
+                  "success"
+                );
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+              Swal.fire(
+                "A surgido un error",
+                `Cod de error: ${error}`,
+                "error"
+              );
+            });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
+      });
+  };
+
   return (
     <tr>
       <td>
         <p
           className={
-            user.perfil === "admin"
+            user.perfil
               ? "fw-light text-center text-success"
               : "fw-light text-center"
           }
         >
-          {user.perfil === "admin" ? "Admin" : "User"}
+          {user.perfil ? "Admin" : "User"}
         </p>
       </td>
       <td>
@@ -124,18 +164,23 @@ const ItemUsuario = ({ user }) => {
         </p>
       </td>
       <td>
-        <div className="d-flex flex-column">
-          {user.estado ? (
+        {estadoUser ? (
+          <div className="d-flex flex-column">
             <Button variant="danger" onClick={suspenderUsuario}>
               Suspender <FontAwesomeIcon icon={faUserXmark} className="ms-1" />
             </Button>
-          ) : (
+          </div>
+        ) : (
+          <div className="d-flex justify-content-around">
             <Button variant="success" onClick={activarUsuario}>
               Activar
               <FontAwesomeIcon icon={faUserCheck} className="ms-1" />
             </Button>
-          )}
-        </div>
+            <Button variant="danger" onClick={eliminarUsuario}>
+              Eliminar <FontAwesomeIcon icon={faUserXmark} className="ms-1" />
+            </Button>
+          </div>
+        )}
       </td>
     </tr>
   );

@@ -12,7 +12,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPen, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { crearUsuario } from "../../helpers/queries.js";
+import { registroUsuario } from "../../helpers/queries.js";
+import { useNavigate } from "react-router-dom";
 
 const CrearUsuario = () => {
   const {
@@ -21,20 +22,22 @@ const CrearUsuario = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const [imagen, setImagen] = useState("");
+  const pageAdministrador = useNavigate();
+
   useEffect(() => {
     document.title = "Administracion | Crear Usuario";
   }, []);
 
   const onSubmit = (user) => {
-    crearUsuario(user)
+    registroUsuario(user)
       .then((resp) => {
         if (resp.status === 201) {
           Swal.fire(
-            `Se creo el usuario ${user.nombre} Exitosamente!`,
-            `se envio un correo al usuario registrado`,
+            `Se registro con exito el usuario ${user.nombre}!`,
+            `debes activar el nuevo usuario en el panel del administrador`,
             "success"
           );
+          pageAdministrador("/administrador/");
         } else {
           Swal.fire(
             `El correo ingresado ${user.email}`,
