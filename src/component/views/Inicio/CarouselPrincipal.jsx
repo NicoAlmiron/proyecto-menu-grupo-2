@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+import { Carousel } from "react-bootstrap";
 import imgSlider1 from "../../../../public/img-slider-main/img-slider-1.jpg";
 import imgSlider2 from "../../../../public/img-slider-main/img-slider-2.jpg";
 import imgSlider3 from "../../../../public/img-slider-main/img-slider-3.jpg";
