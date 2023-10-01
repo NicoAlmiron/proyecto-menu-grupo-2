@@ -2,7 +2,10 @@ import { faUserCheck, faUserXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Button, Image } from "react-bootstrap";
-import { activarUsuarios, suspenderUsuarios } from "../../../helpers/queries";
+import {
+  activarUsuarios,
+  suspenderUsuarios,
+} from "../../../helpers/queries.js";
 import Swal from "sweetalert2";
 
 const ItemUsuario = ({ user }) => {

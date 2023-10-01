@@ -1,9 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import Administrador from "../views/Administrador";
-import CrearMenu from "../views/administrador/CrearMenu";
-import EditarMenu from "../views/administrador/EditarMenu";
-import CrearUsuario from "../views/administrador/CrearUsuario";
+import Administrador from "../views/Administrador.jsx";
+import CrearMenu from "../views/administrador/CrearMenu.jsx";
+import EditarMenu from "../views/administrador/EditarMenu.jsx";
+import CrearUsuario from "../views/administrador/CrearUsuario.jsx";
 
 const RutasProtegidas = () => {
   return (

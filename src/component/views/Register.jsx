@@ -1,10 +1,8 @@
 import "../../css/Register.css";
-import { Button, Container } from "react-bootstrap";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
+import { Button, Container, FloatingLabel, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { registroUsuario } from "../helpers/queries";
+import { registroUsuario } from "../helpers/queries.js";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 

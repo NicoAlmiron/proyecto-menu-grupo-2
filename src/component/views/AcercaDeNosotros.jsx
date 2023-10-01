@@ -1,14 +1,9 @@
 import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
+import { Card } from "react-bootstrap";
 import "../../css/AcercaDeNosotros.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const AcercaDeNosotros = () => {
   useEffect(() => {

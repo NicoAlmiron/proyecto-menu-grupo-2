@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Image } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { borrarMenu, listarMenus } from "../../../helpers/queries";
+import { borrarMenu, listarMenus } from "../../../helpers/queries.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 

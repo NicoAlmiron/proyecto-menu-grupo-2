@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CartelCellPhone from "../../../../public/img-slider-main/CartelCellPhone.jpg";
 
 export default function InfoRestaurant() {
