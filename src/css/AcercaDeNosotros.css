@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Great+Vibes&display=swap");
+.estilo.letras-acerca-de {
+  font-family: "Great Vibes", cursive;
+  color: rgba(255, 255, 0, 0.644);
+}
+
+.estilo-texto {
+  font-family: "Andika", sans-serif;
+  color: rgba(255, 255, 0, 0.644);
+}
+
+.card-acerca-de {
+  width: 18rem;
+  padding: 0;
+  border: 2px transparent !important;
+  border-radius: 20px !important;
+  margin: 0.3rem;
+}
