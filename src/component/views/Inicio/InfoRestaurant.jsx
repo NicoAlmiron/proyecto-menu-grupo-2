@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import CartelCellPhone from "/public/img-slider-main/CartelCellPhone.jpg";
+import CartelCellPhone from "/img-slider-main/CartelCellPhone.jpg";
 
 export default function InfoRestaurant() {
   const acercaDe = useNavigate();
@@ -10,7 +10,7 @@ export default function InfoRestaurant() {
           <img src={CartelCellPhone} alt="" className="img-fluid" />
         </aside>
         <aside className="info">
-          <h1>La campiña</h1>
+          <h1 className="titulo-info">La campiña</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas et
             velit cupiditate sunt debitis aut nemo a cum, obcaecati voluptas

@@ -19,13 +19,12 @@ function App() {
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
 
   const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
-  console.log(usuarioActivo);
   return (
     <BrowserRouter>
       <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
-        {usuarioActivo.perfil ? (
+        {usuarioActivo?.perfil ? (
           <Route
             path="/administrador/*"
             element={

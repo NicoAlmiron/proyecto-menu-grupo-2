@@ -3,7 +3,6 @@ import { Navbar } from "react-bootstrap";
 import "../../css/navbarYFooter.css";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useState } from "react";
 const Menu = () => {
   const usuarioEnLinea =
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
@@ -32,7 +31,7 @@ const Menu = () => {
     <Navbar expand="lg" className="menu">
       <Container>
         <Navbar.Brand href="/">
-          <span className="brand">La Campiña</span>
+          <span className="brand titulo-navbar">La Campiña</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

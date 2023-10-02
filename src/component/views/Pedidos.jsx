@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Pedidos = () => {
   const arrayPedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
   const [listaMenus, setListaMenus] = useState([]);
   const [listaPedidos, setListaPedidos] = useState([]);
   const usuarioLogueado =
