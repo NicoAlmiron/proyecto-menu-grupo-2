@@ -12,17 +12,20 @@ export const login = async(usuario) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(usuario)
         });
-        const datos = await respuesta.json();
 
-        localStorage.setItem('x-token', JSON.stringify(datos.tokenGenerado))
+        if (respuesta.status === 200) {
+            const datos = await respuesta.json();
 
-        return {
-            status: respuesta.status,
-            mensaje: datos.mensaje,
-            uid: datos.uid,
-            nombre: datos.nombre,
-            perfil: datos.perfil,
-        };
+            localStorage.setItem('x-token', JSON.stringify(datos.tokenGenerado))
+
+            return {
+                status: respuesta.status,
+                mensaje: datos.mensaje,
+                uid: datos.uid,
+                nombre: datos.nombre,
+                perfil: datos.perfil,
+            };
+        }
     } catch (error) {
         console.log(error);
     }
