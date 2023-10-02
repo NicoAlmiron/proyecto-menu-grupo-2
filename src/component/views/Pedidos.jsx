@@ -100,7 +100,7 @@ export const Pedidos = () => {
     <div className="bg">
       <div className="containerDetalleMenu">
         <Container className="m-3">
-          <div className=" d-flex flex-column flex-md-row justify-content-md-around flex-wrap">
+          <div className=" d-flex flex-column flex-md-row justify-content-md-around flex-wrap align-items-center">
             {listaPedidos.map((menu) => (
               <CardPedidos key={menu._id} menu={menu}></CardPedidos>
             ))}
