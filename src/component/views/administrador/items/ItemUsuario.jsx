@@ -10,20 +10,8 @@ import {
 } from "../../../helpers/queries.js";
 import Swal from "sweetalert2";
 
-const ItemUsuario = ({ user, setListaMenu }) => {
+const ItemUsuario = ({ user, setListaUsuarios }) => {
   const [estadoUser, setEstadoUser] = useState(null);
-
-  useEffect(() => {
-    listarUsuarios()
-      .then((resp) => {
-        if (resp) {
-          setListaMenu(resp);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   useEffect(() => {
     setEstadoUser(user.estado);
@@ -134,6 +122,15 @@ const ItemUsuario = ({ user, setListaMenu }) => {
                   `No puedes recuperar el usuario borrado`,
                   "success"
                 );
+                listarUsuarios()
+                  .then((resp) => {
+                    if (resp) {
+                      setListaUsuarios(resp);
+                    }
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
               }
             })
             .catch((error) => {
