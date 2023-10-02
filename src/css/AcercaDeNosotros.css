@@ -6,7 +6,7 @@
 
 .estilo-texto {
   font-family: "Andika", sans-serif;
-  color: rgba(255, 255, 0, 0.644);
+  color: #f1b708;
 }
 
 .card-acerca-de {
@@ -15,4 +15,8 @@
   border: 2px transparent !important;
   border-radius: 20px !important;
   margin: 0.3rem;
+}
+
+.img-card-acercade {
+    height: 20rem;
 }

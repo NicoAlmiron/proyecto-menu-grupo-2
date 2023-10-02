@@ -40,25 +40,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="http://imgfz.com/i/iULBrsS.jpeg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Nicolás Almirón
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Tech Lead
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/in/nicolas-almiron-354254264/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://github.com/NicoAlmiron"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -71,25 +72,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="http://imgfz.com/i/pOd92Zi.jpeg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Mauricio Aguirre
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Developer
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/feed/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://github.com/Moricegram"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -102,25 +104,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="http://imgfz.com/i/eqLlkxF.jpeg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Matias Nicolas Ortega
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Scrum Master
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/in/matias-ortega-fsd/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://github.com/matiasfsd7"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -133,25 +136,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="http://imgfz.com/i/5JbDQzj.jpeg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Lucas Daniel Figueroa
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Developer
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/in/lucas-daniel-figueroa-0a10b222b/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://github.com/lucatoni99"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -164,25 +168,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="https://i.ibb.co/X8VxnjK/Whats-App-Image-2023-10-01-at-9-06-02-PM.jpg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Federico Iñigo Andrada
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Developer
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/in/inigo-federico"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://github.com/inigofede"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -195,25 +200,26 @@ const AcercaDeNosotros = () => {
             <Card.Img
               variant="top"
               alt="imagen de integrante del grupo"
-              src="https://img.asmedia.epimg.net/resizer/CaE7_mEOZY44kX0U16HKfdPAfb8=/1472x1104/filters:focal(1344x246:1354x256)/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/DETH5T5Z54WCFJ4AH7EV6ACU2A.jpg"
+              src="http://imgfz.com/i/8Ju4AZC.jpeg"
+              className= "img-card-acercade"
             />
             <Card.Body className="bg-black text-white">
               <Card.Title className="text-center">
-                Nombre del integrante
+                Tufí Quipildor
               </Card.Title>
               <Card.Text className="text-center">
-                Descripcion del puesto
+                Developer
               </Card.Text>
               <Col className="d-flex justify-content-around">
                 <a
-                  href="https://www.linkedin.com/in/tupagina"
+                  href="https://www.linkedin.com/in/vik-thq/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="2x" />
                 </a>
                 <a
-                  href="https://github.com/tuperfil"
+                  href="https://www.github.com/TQcmd37"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
