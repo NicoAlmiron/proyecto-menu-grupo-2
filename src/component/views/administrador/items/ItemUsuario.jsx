@@ -6,10 +6,11 @@ import {
   activarUsuarios,
   suspenderUsuarios,
   eliminarUsuario,
+  listarUsuarios,
 } from "../../../helpers/queries.js";
 import Swal from "sweetalert2";
 
-const ItemUsuario = ({ user }) => {
+const ItemUsuario = ({ user, setListaUsuarios }) => {
   const [estadoUser, setEstadoUser] = useState(null);
 
   useEffect(() => {
@@ -117,10 +118,19 @@ const ItemUsuario = ({ user }) => {
             .then((resp) => {
               if (resp.status === 200) {
                 Swal.fire(
-                  `Se Suspendio la cuenta ${user.nombre}`,
-                  `Puedes volver a activarla desde el menu de usuarios`,
+                  `Se Elimino la cuenta ${user.nombre}`,
+                  `No puedes recuperar el usuario borrado`,
                   "success"
                 );
+                listarUsuarios()
+                  .then((resp) => {
+                    if (resp) {
+                      setListaUsuarios(resp);
+                    }
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
               }
             })
             .catch((error) => {
@@ -176,7 +186,7 @@ const ItemUsuario = ({ user }) => {
               Activar
               <FontAwesomeIcon icon={faUserCheck} className="ms-1" />
             </Button>
-            <Button variant="danger" onClick={eliminarUsuario}>
+            <Button variant="danger" onClick={eliminarUsuarios}>
               Eliminar <FontAwesomeIcon icon={faUserXmark} className="ms-1" />
             </Button>
           </div>

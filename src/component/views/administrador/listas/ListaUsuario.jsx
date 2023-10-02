@@ -75,7 +75,11 @@ const ListaUsuario = () => {
                 (pagina - 1) * porPagina + porPagina
               )
               .map((user) => (
-                <ItemUsuario key={user._id} user={user}></ItemUsuario>
+                <ItemUsuario
+                  key={user._id}
+                  user={user}
+                  setListaUsuarios={setListaUsuarios}
+                ></ItemUsuario>
               ))
           )}
         </tbody>
