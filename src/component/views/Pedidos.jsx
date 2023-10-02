@@ -115,7 +115,15 @@ export const Pedidos = () => {
             <Button
               className="colorButton border-white text-dark"
               onClick={() => {
-                agregarPedidos();
+                if (precioTotal > 0) {
+                  agregarPedidos();
+                } else {
+                  Swal.fire(
+                    "Tienes que agregar Menus",
+                    "puedes elegirlos en la pagina de inicio",
+                    "warning"
+                  );
+                }
               }}
             >
               HACER PEDIDO
