@@ -80,10 +80,10 @@ export const Pedidos = () => {
           if (resp.status === 201) {
             Swal.fire(
               "Se creo su pedido con exito",
-              "ya podes ver en la pagina principal tu pedido",
+              "tu pedido sera procesado a la bebredad",
               "success"
             );
-            localStorage.setItem("pedidos", JSON.stringify(0));
+            localStorage.removeItem("pedidos");
             paginaPrincipal("/");
           }
         })
@@ -100,7 +100,7 @@ export const Pedidos = () => {
     <div className="bg">
       <div className="containerDetalleMenu">
         <Container className="m-3">
-          <div className=" d-flex flex-column flex-md-row justify-content-md-around flex-wrap">
+          <div className=" d-flex flex-column flex-md-row justify-content-md-around flex-wrap align-items-center">
             {listaPedidos.map((menu) => (
               <CardPedidos key={menu._id} menu={menu}></CardPedidos>
             ))}

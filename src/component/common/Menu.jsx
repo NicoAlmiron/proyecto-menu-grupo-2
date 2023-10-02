@@ -24,6 +24,7 @@ const Menu = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         sessionStorage.removeItem("usuarioLogueado");
+        localStorage.removeItem("pedidos");
         navegar("/");
       }
     });
