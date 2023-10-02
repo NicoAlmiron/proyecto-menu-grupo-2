@@ -12,16 +12,16 @@ export const login = async(usuario) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(usuario)
         });
-
         const datos = await respuesta.json();
-        console.log(datos)
+
+        localStorage.setItem('x-token', JSON.stringify(datos.tokenGenerado))
+
         return {
             status: respuesta.status,
             mensaje: datos.mensaje,
             uid: datos.uid,
             nombre: datos.nombre,
             perfil: datos.perfil,
-            token: datos.token,
         };
     } catch (error) {
         console.log(error);

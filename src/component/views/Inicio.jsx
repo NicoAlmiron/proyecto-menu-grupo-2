@@ -18,7 +18,7 @@ const Inicio = () => {
     });
   }, []);
   return (
-    <main>
+    <div className="bg-white estilos">
       <section>
         <CarouselPrincipal />
       </section>
@@ -28,7 +28,7 @@ const Inicio = () => {
       <section>
         <FiltroBusqueda comidas={menus} />
       </section>
-    </main>
+    </div>
   );
 };
 

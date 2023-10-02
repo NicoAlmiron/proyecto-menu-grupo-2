@@ -5,11 +5,10 @@
   --darkOrange: #f1b708;
   --darkKhaki: #999966;
   --light-1: #efefef;
-  font-family: "Roboto", sans-serif;
 }
 
-main {
-  background-color: #fafafa;
+.estilos {
+  font-family: "Roboto", sans-serif;
 }
 
 input:focus {
@@ -18,13 +17,13 @@ input:focus {
   outline: none;
 }
 
-h1 {
+.titulo-info {
   font-family: "Great Vibes", cursive;
   color: var(--darkOrange);
   font-size: 4rem;
 }
 
-span {
+.titulo-navbar {
   color: var(--darkOrange);
   font-size: 1.5rem;
 }
@@ -87,11 +86,6 @@ span {
 
 .container-info img {
   border-radius: 3em;
-}
-
-.card {
-  border: 2px solid rgb(210, 210, 210);
-  border-radius: 0;
 }
 
 @media (max-width: 768px) {

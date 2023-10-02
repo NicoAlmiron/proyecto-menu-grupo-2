@@ -76,14 +76,22 @@ function DetalleMenu() {
           <div className="text-end d-flex flex-column flex-md-row justify-content-center">
             <Button
               variant="success"
-              className="mt-2 mt-md-0 mx-md-2"
+              className={
+                usuarioEnLinea
+                  ? "mt-2 mt-md-0 mx-md-2"
+                  : "mt-2 mt-md-0 mx-md-2 disabled"
+              }
               onClick={() => agregarAPedido()}
             >
               <FontAwesomeIcon icon={faPlus} /> Agregar al pedido
             </Button>
             <Button
               variant="info"
-              className="mt-2 mt-md-0 mx-md-2"
+              className={
+                usuarioEnLinea
+                  ? "mt-2 mt-md-0 mx-md-2"
+                  : "mt-2 mt-md-0 mx-md-2 disabled"
+              }
               onClick={() => irAPedido("/pedidos")}
             >
               <FontAwesomeIcon icon={faArrowRight} /> ir al pedido
