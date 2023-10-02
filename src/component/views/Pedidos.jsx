@@ -53,7 +53,6 @@ export const Pedidos = () => {
         console.log(error);
       });
   }, []);
-  console.log();
 
   const filtrarLista = () => {
     const arrayfiltrado = listaMenus.filter((menu) => {
@@ -84,6 +83,7 @@ export const Pedidos = () => {
               "ya podes ver en la pagina principal tu pedido",
               "success"
             );
+            localStorage.setItem("pedidos", JSON.stringify(0));
             paginaPrincipal("/");
           }
         })
