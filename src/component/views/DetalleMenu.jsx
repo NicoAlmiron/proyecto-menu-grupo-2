@@ -14,7 +14,6 @@ function DetalleMenu() {
   const [listaPedidos, setListaPedidos] = useState(arrayPedido);
   const usuarioEnLinea =
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
-  const [usuario, setUsuario] = useState(usuarioEnLinea);
   const [menu, setMenu] = useState({});
 
   useEffect(() => {

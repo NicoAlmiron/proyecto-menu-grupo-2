@@ -29,7 +29,6 @@ export default function CardComida({ imagen, nombreMenu, precio, _id }) {
         text: "Inicia sesión para preparar tu pedido",
         confirmButtonColor: "#F1B708",
       });
-      //esto no anda
       login("/login");
     }
   };
