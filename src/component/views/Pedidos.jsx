@@ -80,10 +80,10 @@ export const Pedidos = () => {
           if (resp.status === 201) {
             Swal.fire(
               "Se creo su pedido con exito",
-              "ya podes ver en la pagina principal tu pedido",
+              "tu pedido sera procesado a la bebredad",
               "success"
             );
-            localStorage.setItem("pedidos", JSON.stringify(0));
+            localStorage.removeItem("pedidos");
             paginaPrincipal("/");
           }
         })

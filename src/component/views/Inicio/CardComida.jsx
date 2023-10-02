@@ -45,7 +45,7 @@ export default function CardComida({ imagen, nombreMenu, precio, _id }) {
               </button>
             </div>
             <h5 className="card-title text-white">{nombreMenu}</h5>
-            <span>$ {precio}</span>
+            <span className="text-white">$ {precio}</span>
             <Link
               to={"/detalle-menu/" + _id}
               className="text-decoration-none mt-2 btn btn-outline-warning"
