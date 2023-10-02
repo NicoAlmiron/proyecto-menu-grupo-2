@@ -105,7 +105,7 @@ export const crearMenu = async(menu) => {
     try {
         const respuesta = await fetch(uriMenus, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', "x-token": JSON.parse(localStorage.getItem('x-token')) },
             body: JSON.stringify(menu)
         });
         return respuesta;
@@ -128,7 +128,7 @@ export const editarMenu = async(id, menuEditado) => {
     try {
         const respuesta = await fetch(`${uriMenus}/${id}`, {
             method: 'PUT',
-            headers: { "Content-Type": "application/json" },
+            headers: { 'Content-Type': 'application/json', "x-token": JSON.parse(localStorage.getItem('x-token')) },
             body: JSON.stringify(menuEditado),
         });
         return respuesta;
