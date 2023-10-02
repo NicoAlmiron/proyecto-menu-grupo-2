@@ -43,6 +43,21 @@ export const registroUsuario = async(usuarioNuevo) => {
     }
 };
 
+export const crearUsuario = async(usuarioNuevo) => {
+    try {
+        const resp = await fetch(`${uriUsuarios}/nuevo`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(usuarioNuevo),
+        });
+        return resp;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 export const listarUsuarios = async() => {
     try {

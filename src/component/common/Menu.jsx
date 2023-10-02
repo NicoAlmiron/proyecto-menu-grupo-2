@@ -3,6 +3,8 @@ import { Navbar } from "react-bootstrap";
 import "../../css/navbarYFooter.css";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 const Menu = () => {
   const usuarioEnLinea =
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
@@ -63,7 +65,10 @@ const Menu = () => {
                   <button className="btn-logout" onClick={logout}>
                     Salir
                   </button>
-                  <span className="ms-2">{usuarioEnLinea.nombre}</span>
+                  <span className="text-center mx-2 text-warning fs-4">
+                    <FontAwesomeIcon icon={faUser} className="mx-2" />
+                    {usuarioEnLinea.nombre}
+                  </span>
                 </>
               )
             ) : (

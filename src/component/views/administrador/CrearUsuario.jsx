@@ -12,7 +12,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPen, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { registroUsuario } from "../../helpers/queries.js";
+import { crearUsuario } from "../../helpers/queries.js";
 import { useNavigate } from "react-router-dom";
 
 const CrearUsuario = () => {
@@ -29,7 +29,8 @@ const CrearUsuario = () => {
   }, []);
 
   const onSubmit = (user) => {
-    registroUsuario(user)
+    user.estado = false;
+    crearUsuario(user)
       .then((resp) => {
         if (resp.status === 201) {
           Swal.fire(
@@ -138,8 +139,8 @@ const CrearUsuario = () => {
                     })}
                   >
                     <option value="">Elige un perfil</option>
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario</option>
+                    <option value={true}>Administrador</option>
+                    <option value={false}>Usuario</option>
                   </Form.Select>
                   <Form.Text className="text-danger ps-2">
                     {errors.perfil?.message}
