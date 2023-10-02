@@ -53,7 +53,6 @@ export const Pedidos = () => {
         console.log(error);
       });
   }, []);
-  console.log();
 
   const filtrarLista = () => {
     const arrayfiltrado = listaMenus.filter((menu) => {
