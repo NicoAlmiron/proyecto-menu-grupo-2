@@ -20,29 +20,29 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (usuarioNUevo) => {
-    (usuarioNUevo.estado = true),
-      (usuarioNUevo.perfil = "user"),
-      registroUsuario(usuarioNUevo)
-        .then((resp) => {
-          if (resp.status === 201) {
-            Swal.fire(
-              "¡Felicitaciones " + usuarioNUevo.nombre + "!",
-              "Ya eres parte de nuestros clientes!",
-              "success"
-            );
-            reset();
-            navegacion("/login");
-          } else {
-            Swal.fire(
-              "Oops!",
-              "Hay algun error en los datos ingresados. Prueba nuevamente!",
-              "error"
-            );
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    usuarioNUevo.estado = true;
+    usuarioNUevo.perfil = false;
+    registroUsuario(usuarioNUevo)
+      .then((resp) => {
+        if (resp.status === 201) {
+          Swal.fire(
+            "¡Felicitaciones " + usuarioNUevo.nombre + "!",
+            "Ya eres parte de nuestros clientes!",
+            "success"
+          );
+          reset();
+          navegacion("/login");
+        } else {
+          Swal.fire(
+            "Oops!",
+            "Hay algun error en los datos ingresados. Prueba nuevamente!",
+            "error"
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

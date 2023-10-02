@@ -100,7 +100,7 @@
 }
 
 .bg-pagina-crearUsuario {
-  background-image: url(/public/background-crearUsuario.jpg);
+  background-image: url(/background-crearUsuario.jpg);
   background-size: cover;
   background-position: fixed;
   background-repeat: no-repeat;
