@@ -1,6 +1,6 @@
 # Project Menu. GROUP 2
 
-![LogoLaCampinia](https://)
+![LogoLaCampinia](https://github.com/NicoAlmiron/proyecto-menu-grupo-2/blob/main/imgReadme.jpg)
 
 Providing a Restorant Web App with minimalistic visualization for Rolling Code School Project
 
