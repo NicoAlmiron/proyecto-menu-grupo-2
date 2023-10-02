@@ -7,6 +7,10 @@ import CardPedidos from "./pedidos/CardPedidos.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const Pedidos = () => {
+  useEffect(() => {
+    document.title = "La Campiña | Pedidos";
+  }, []);
+
   const arrayPedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 
   const [listaMenus, setListaMenus] = useState([]);

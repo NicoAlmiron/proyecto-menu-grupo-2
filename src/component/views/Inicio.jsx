@@ -6,6 +6,10 @@ import Swal from "sweetalert2";
 import FiltroBusqueda from "./Inicio/FiltroBusqueda.jsx";
 import InfoRestaurant from "./Inicio/InfoRestaurant.jsx";
 const Inicio = () => {
+  useEffect(() => {
+    document.title = "La Campiña";
+  }, []);
+
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
