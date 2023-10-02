@@ -19,16 +19,16 @@ const Footer = () => {
           <aside className="col-md-4 my-3 my-md-0">
             <ul>
               <li>
-                <Link className="nav-link">Sobre nosotros</Link>
+                <Link className="nav-link"to={"/acerca-de-nosotros"}>Sobre nosotros</Link>
               </li>
               <li>
-                <Link className="nav-link">¿Como trabajar con nosotros?</Link>
+                <Link className="nav-link"to={"/error"}>¿Como trabajar con nosotros?</Link>
               </li>
               <li>
-                <Link className="nav-link">Certificaciones</Link>
+                <Link className="nav-link"to={"/error"}>Certificaciones</Link>
               </li>
               <li>
-                <Link className="nav-link">Preguntas frecuentes</Link>
+                <Link className="nav-link"to={"/error"}>Preguntas frecuentes</Link>
               </li>
             </ul>
           </aside>
