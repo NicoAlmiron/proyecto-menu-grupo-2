@@ -83,6 +83,7 @@ export const Pedidos = () => {
               "ya podes ver en la pagina principal tu pedido",
               "success"
             );
+            localStorage.setItem("pedidos", JSON.stringify(0));
             paginaPrincipal("/");
           }
         })
