@@ -43,6 +43,30 @@ export const registroUsuario = async (usuarioNuevo) => {
 };
 
 
+export const crearUsuario = async (usuarioNuevo) => {
+    try {
+        const listaUsuarios = await listarUsuarios();
+        let usuario = listaUsuarios.find((usuario) => usuario.email === usuarioNuevo.email)
+        if (usuario) {
+            const resp = { status: 400 };
+            return resp;
+        } else {
+            usuarioNuevo.estado = true;
+            const respuesta = await fetch(uriUsuarios, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(usuarioNuevo),
+            });
+            //en el BackEnd se enviara el correo de verificacion
+            return respuesta;
+
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 export const listarUsuarios = async () => {
     try {
         const respuesta = await fetch(uriUsuarios);
@@ -53,28 +77,6 @@ export const listarUsuarios = async () => {
     }
 }
 
-export const crearUsuario = async (user) => {
-    try {
-        const listaUsuarios = await listarUsuarios();
-        let usuario = listaUsuarios.find((usuario) => usuario.email === user.email)
-        if (usuario) {
-            const resp = { status: 400 };
-            return resp;
-        } else {
-            user.estado = true;
-            const respuesta = await fetch(uriUsuarios, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(user),
-            });
-            //en el BackEnd se enviara el correo de verificacion
-            return respuesta;
-
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 export const suspenderUsuarios = async (id, ususarioSuspendido) => {
     try {

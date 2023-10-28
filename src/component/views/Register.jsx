@@ -4,7 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { registroUsuario } from "../helpers/queries";
+import { crearUsuario, registroUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
@@ -24,7 +24,7 @@ const Register = () => {
   const onSubmit = (usuarioNUevo) => {
     usuarioNUevo.estado = true,
       usuarioNUevo.perfil = "user",
-      registroUsuario(usuarioNUevo)
+      crearUsuario(usuarioNUevo)
         .then((resp) => {
           if (resp.status === 201) {
             Swal.fire(
