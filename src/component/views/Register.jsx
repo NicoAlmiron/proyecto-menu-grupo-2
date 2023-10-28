@@ -4,7 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { crearUsuario, registroUsuario } from "../helpers/queries";
+import { crearUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
