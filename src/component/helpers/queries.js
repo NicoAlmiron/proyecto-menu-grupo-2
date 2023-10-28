@@ -48,14 +48,16 @@ export const crearUsuario = async (usuarioNuevo) => {
         const listaUsuarios = await listarUsuarios();
         let usuario = listaUsuarios.find((usuario) => usuario.email === usuarioNuevo.email)
         if (usuario) {
-            const resp = { status: 400 };
+            const resp = { status: 409, message: "Ese correo ya fue utilizado" }; //Status:409=Conflict
             return resp;
         } else {
-            usuarioNuevo.estado = true;
+            //Se elimina la propiedad 'confirmPassword'
+            const { confirmPassword, ...nuevoUsuario } = usuarioNuevo
+            nuevoUsuario.estado = true;
             const respuesta = await fetch(uriUsuarios, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(usuarioNuevo),
+                body: JSON.stringify(nuevoUsuario),
             });
             //en el BackEnd se enviara el correo de verificacion
             return respuesta;

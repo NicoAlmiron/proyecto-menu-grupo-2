@@ -8,10 +8,12 @@ import { crearUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
+
 const Register = () => {
   useEffect(() => {
     document.title = "Registrarse";
   }, []);
+
 
   const navegacion = useNavigate();
   const {
@@ -19,32 +21,39 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm();
 
-  const onSubmit = (usuarioNUevo) => {
-    usuarioNUevo.estado = true,
-      usuarioNUevo.perfil = "user",
-      crearUsuario(usuarioNUevo)
-        .then((resp) => {
-          if (resp.status === 201) {
-            Swal.fire(
-              "¡Felicitaciones " + usuarioNUevo.nombre + "!",
-              "Ya eres parte de nuestros clientes!",
-              "success"
-            );
-            reset();
-            navegacion("/login");
-          } else {
-            Swal.fire(
-              "Oops!",
-              "Hay algun error en los datos ingresados. Prueba nuevamente!",
-              "error"
-            );
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+  const onSubmit = (usuarioNuevo) => {
+    if (usuarioNuevo.password !== usuarioNuevo.confirmPassword) {
+      Swal.fire("Error", "Las contraseñas no coinciden", "error");
+      return;
+    }
+
+    usuarioNuevo.estado = true;
+    usuarioNuevo.perfil = "user";
+
+    crearUsuario(usuarioNuevo)
+      .then((resp) => {
+        if (resp.status === 201) {
+          Swal.fire(
+            "¡Felicitaciones " + usuarioNuevo.nombre + "!",
+            "Ya eres parte de nuestros clientes!",
+            "success"
+          );
+          reset();
+          navegacion("/login");
+        } else {
+          Swal.fire(
+            "Oops!",
+            "Error en los datos ingresados. Prueba nuevamente!",
+            "error"
+          );
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -105,6 +114,24 @@ const Register = () => {
               />
               <Form.Text className="text-danger">
                 {errors.password?.message}
+              </Form.Text>
+            </FloatingLabel>
+
+            <FloatingLabel label="confirmar password" className="mb-3">
+              <Form.Control
+                type="password"
+                placeholder="confirmar password"
+                {...register("confirmPassword", {
+                  required: "Este es un dato obligatorio",
+                  pattern: {
+                    value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, message: "El password debe contener al menos una letra mayuscula, una minuscula, un numero y entre 8 y 16 caracteres",
+                  },
+                  // validate: (value) =>
+                  //   value === watch("password") || "Las contraseñas no coinciden"
+                })}
+              />
+              <Form.Text className="text-danger">
+                {errors.confirmPassword?.message}
               </Form.Text>
             </FloatingLabel>
 
