@@ -14,7 +14,6 @@ const Register = () => {
     document.title = "Registrarse";
   }, []);
 
-
   const navegacion = useNavigate();
   const {
     register,
@@ -126,8 +125,6 @@ const Register = () => {
                   pattern: {
                     value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, message: "El password debe contener al menos una letra mayuscula, una minuscula, un numero y entre 8 y 16 caracteres",
                   },
-                  // validate: (value) =>
-                  //   value === watch("password") || "Las contraseñas no coinciden"
                 })}
               />
               <Form.Text className="text-danger">
