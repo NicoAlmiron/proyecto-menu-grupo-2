@@ -21,7 +21,7 @@
       "nombre": "user1",
       "email": "user1@rolling.com",
       "password": "User4321",
-      "estado": true,
+      "estado": false,
       "perfil": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu9zuWJ0xU19Mgk0dNFnl2KIc8E9Ch0zhfCg&usqp=CAU"
     },
     {
@@ -112,30 +112,21 @@
       "id": 1,
       "usuario": "user1",
       "fecha": "15/09/2023",
-      "menu": [
-        "ensalada rusa",
-        "gaseosa"
-      ],
+      "menu": ["ensalada rusa", "gaseosa"],
       "estado": true
     },
     {
       "id": 2,
       "usuario": "user2",
       "fecha": "15/09/2023",
-      "menu": [
-        "ensalada rusa",
-        "gaseosa"
-      ],
+      "menu": ["ensalada rusa", "gaseosa"],
       "estado": false
     },
     {
       "id": 3,
       "usuario": "user3",
       "fecha": "15/09/2023",
-      "menu": [
-        "ensalada rusa",
-        "gaseosa"
-      ],
+      "menu": ["ensalada rusa", "gaseosa"],
       "estado": false
     }
   ]

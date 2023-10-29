@@ -1,4 +1,3 @@
-
 const uriMenus =
     import.meta.env.VITE_API_MENUS;
 const uriUsuarios =
@@ -11,10 +10,9 @@ export const login = async (usuario) => {
         const respuesta = await fetch(uriUsuarios);
         const listaUsuarios = await respuesta.json();
         const usuarioBuscado = listaUsuarios.find(
-            (itemUsuario) => itemUsuario.email === usuario.email
-        );
+            (itemUsuario) => itemUsuario.email === usuario.email);
         if (usuarioBuscado) {
-            if (usuarioBuscado.password === usuario.password) {
+            if (usuarioBuscado.password === usuario.password && usuarioBuscado.estado === true) {
                 return usuarioBuscado;
             } else {
                 return null;
