@@ -8,7 +8,6 @@ import { crearUsuario } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useEffect } from "react";
 
-
 const Register = () => {
   useEffect(() => {
     document.title = "Registrarse";
