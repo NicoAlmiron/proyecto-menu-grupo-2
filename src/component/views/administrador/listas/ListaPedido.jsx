@@ -54,13 +54,18 @@ const ListaPedido = () => {
         </thead>
         <tbody>
           {!mostrarSpinner ? (
-            listaPedidos.map((pedido) => (
-              <ItemPedido
-                key={pedido._id}
-                pedido={pedido}
-                setListaPedidos={setListaPedidos}
-              ></ItemPedido>
-            ))
+            listaPedidos
+              ?.slice(
+                (pagina - 1) * porPagina,
+                (pagina - 1) * porPagina + porPagina
+              )
+              .map((pedido) => (
+                <ItemPedido
+                  key={pedido._id}
+                  pedido={pedido}
+                  setListaPedidos={setListaPedidos}
+                ></ItemPedido>
+              ))
           ) : (
             <ItemPlaceholder></ItemPlaceholder>
           )}
