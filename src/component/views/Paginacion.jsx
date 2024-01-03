@@ -3,11 +3,17 @@ import {
   faSquareCaretLeft,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Paginacion = ({ pagina, setPagina, maximo }) => {
   const [nroPagina, setNroPagina] = useState(1);
+
+  useEffect(() => {
+    if (maximo < 6) {
+      setPagina(1);
+    }
+  }, [maximo]);
 
   const paginaSiguiente = () => {
     if (pagina < maximo) {
