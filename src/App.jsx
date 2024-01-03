@@ -11,17 +11,19 @@ import Footer from "./component/common/Footer.jsx";
 import Inicio from "./component/views/Inicio.jsx";
 import DetalleMenu from "./component/views/DetalleMenu.jsx";
 import EncapsularRutas from "./component/routes/EncapsularRutas.jsx";
-import { useState } from "react";
 import RutasProtegidas from "./component/routes/RutasProtegidas.jsx";
+import { useState } from "react";
 
 function App() {
-  const usuarioEnLinea =
+  const usuarioEnlinea =
     JSON.parse(sessionStorage.getItem("usuarioLogueado")) || null;
-
-  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnLinea);
+  const [usuarioActivo, setUsuarioActivo] = useState(usuarioEnlinea);
   return (
     <BrowserRouter>
-      <Menu></Menu>
+      <Menu
+        usuarioActivo={usuarioActivo}
+        setUsuarioActivo={setUsuarioActivo}
+      ></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         {usuarioActivo?.perfil ? (
