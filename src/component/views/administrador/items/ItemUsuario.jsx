@@ -18,70 +18,126 @@ const ItemUsuario = ({ user, setListaUsuarios }) => {
   }, []);
 
   const suspenderUsuario = () => {
-    if (user.estado) {
-      user.estado = false;
-      Swal.fire({
-        title: `Estas seguro de suspender la cuenta ${user.nombre}?`,
-        text: "Puedes volver a activarla desde el menu de usuarios",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
-        confirmButtonText: "Suspender",
-        cancelButtonText: "Cancelar",
-      })
-        .then((result) => {
-          if (result.isConfirmed) {
-            suspenderUsuarios(user._id, user)
-              .then((resp) => {
-                if (resp.status === 200) {
-                  Swal.fire(
-                    `Se Suspendio la cuenta ${user.nombre}`,
-                    `Puedes volver a activarla desde el menu de usuarios`,
-                    "success"
-                  );
-                }
-              })
-              .catch((error) => {
-                console.log(error);
-                Swal.fire(
-                  "A surgido un error",
-                  `Cod de error: ${error}`,
-                  "error"
-                );
-              });
-          }
+    if (!user.perfil) {
+      if (user.estado) {
+        Swal.fire({
+          title: `Estas seguro de suspender la cuenta ${user.nombre}?`,
+          text: "Puedes volver a activarla desde el menu de usuarios",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#d33",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Suspender",
+          cancelButtonText: "Cancelar",
         })
-        .catch((error) => {
-          console.log(error);
-          Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
-        });
+          .then((result) => {
+            if (result.isConfirmed) {
+              setEstadoUser(false);
+              user.estado = false;
+              suspenderUsuarios(user._id, user)
+                .then((resp) => {
+                  if (resp.status === 200) {
+                    Swal.fire(
+                      `Se Suspendio la cuenta ${user.nombre}`,
+                      `Puedes volver a activarla desde el menu de usuarios`,
+                      "success"
+                    );
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                  Swal.fire(
+                    "A surgido un error",
+                    `Cod de error: ${error}`,
+                    "error"
+                  );
+                });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
+          });
+      }
     }
   };
 
   const activarUsuario = () => {
-    if (!user.estado) {
-      user.estado = true;
+    if (!user.perfil) {
+      if (!user.estado) {
+        Swal.fire({
+          title: `Estas seguro de Activar la cuenta ${user.nombre}?`,
+          text: "Puedes volver a suspenderla desde el menu de usuarios",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Activar",
+          cancelButtonText: "Cancelar",
+        })
+          .then((result) => {
+            if (result.isConfirmed) {
+              setEstadoUser(true);
+              user.estado = true;
+              activarUsuarios(user._id, user)
+                .then((resp) => {
+                  if (resp.status === 200) {
+                    Swal.fire(
+                      `Se Activado la cuenta ${user.nombre}`,
+                      `Puedes volver a suspenderla desde el menu de usuarios`,
+                      "success"
+                    );
+                  }
+                })
+                .catch((error) => {
+                  console.log(error);
+                  Swal.fire(
+                    "A surgido un error",
+                    `Cod de error: ${error}`,
+                    "error"
+                  );
+                });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
+          });
+      }
+    }
+  };
+
+  const eliminarUsuarios = () => {
+    if (!user.perfil) {
       Swal.fire({
-        title: `Estas seguro de Activar la cuenta ${user.nombre}?`,
-        text: "Puedes volver a suspenderla desde el menu de usuarios",
+        title: `Estas seguro de Eliminar la cuenta de ${user.nombre}?`,
+        text: "Esta accion no se puede REVERTIR!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Activar",
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Eliminar",
         cancelButtonText: "Cancelar",
       })
         .then((result) => {
           if (result.isConfirmed) {
-            activarUsuarios(user._id, user)
+            eliminarUsuario(user._id)
               .then((resp) => {
                 if (resp.status === 200) {
                   Swal.fire(
-                    `Se Activado la cuenta ${user.nombre}`,
-                    `Puedes volver a suspenderla desde el menu de usuarios`,
+                    `Se Elimino la cuenta ${user.nombre}`,
+                    `No puedes recuperar el usuario borrado`,
                     "success"
                   );
+                  listarUsuarios()
+                    .then((resp) => {
+                      if (resp) {
+                        setListaUsuarios(resp);
+                      }
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
                 }
               })
               .catch((error) => {
@@ -99,54 +155,6 @@ const ItemUsuario = ({ user, setListaUsuarios }) => {
           Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
         });
     }
-  };
-
-  const eliminarUsuarios = () => {
-    Swal.fire({
-      title: `Estas seguro de Eliminar la cuenta de ${user.nombre}?`,
-      text: "Esta accion no se puede REVERTIR!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Eliminar",
-      cancelButtonText: "Cancelar",
-    })
-      .then((result) => {
-        if (result.isConfirmed) {
-          eliminarUsuario(user._id)
-            .then((resp) => {
-              if (resp.status === 200) {
-                Swal.fire(
-                  `Se Elimino la cuenta ${user.nombre}`,
-                  `No puedes recuperar el usuario borrado`,
-                  "success"
-                );
-                listarUsuarios()
-                  .then((resp) => {
-                    if (resp) {
-                      setListaUsuarios(resp);
-                    }
-                  })
-                  .catch((error) => {
-                    console.log(error);
-                  });
-              }
-            })
-            .catch((error) => {
-              console.log(error);
-              Swal.fire(
-                "A surgido un error",
-                `Cod de error: ${error}`,
-                "error"
-              );
-            });
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        Swal.fire("A surgido un error", `Cod de error: ${error}`, "error");
-      });
   };
 
   return (
