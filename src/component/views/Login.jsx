@@ -66,16 +66,16 @@ const Login = ({ setUsuarioActivo }) => {
                 {errors.email?.message}
               </Form.Text>
             </FloatingLabel>
-            <FloatingLabel label="password" className="mb-3">
+            <FloatingLabel label="Contraseña" className="mb-3">
               <Form.Control
                 type="password"
                 placeholder="password"
                 {...register("password", {
-                  required: "El password es un dato obligatorio",
+                  required: "La contraseña es un dato obligatorio",
                   pattern: {
                     value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/,
                     message:
-                      "El password debe contener al menos una letra mayuscula, una minuscula, un numero y entre 8 y 16 caracteres",
+                      "La contraseña debe contener al menos una letra mayuscula, una minuscula, un numero y entre 8 y 16 caracteres",
                   },
                 })}
               />
