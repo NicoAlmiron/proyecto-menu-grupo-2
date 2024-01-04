@@ -54,11 +54,11 @@ const Login = ({ setUsuarioActivo }) => {
                 type="email"
                 placeholder="nombre@ejemplo.com"
                 {...register("email", {
-                  required: "El email es un dato obligatorio",
+                  required: "El correo es un dato obligatorio",
                   pattern: {
                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                     message:
-                      "El email debe cumplir con un formato valido, ej: nombre@mail.com",
+                      "El correo debe cumplir con un formato valido, ej: nombre@mail.com",
                   },
                 })}
               />
